@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Vercel-加速个人博客</title>
+      <link href="/article/db9907b/"/>
+      <url>/article/db9907b/</url>
+      
+        <content type="html"><![CDATA[<details class="folding-tag" ><summary> 参见大佬文章 </summary>              <div class='content'>              <div class="tag link"><a class="link-card" title="糖果屋教程贴" href="https://akilar.top/posts/812734f8/"><div class="left"><img src="https://unpkg.zhimg.com/akilar-candyassets/image/siteicon/favicon.ico"/></div><div class="right"><p class="text">糖果屋教程贴</p><p class="url">https://akilar.top/posts/812734f8/</p></div></a></div>              </div>            </details><details class="folding-tag" ><summary> 起因 </summary>              <div class='content'>              <p>现在有不少人的博客网站都是白嫖 Github Pages等<code>免费</code>静态文件部署站的吧，我也不例外。但免费的东西总有不足之处，例如链接太长啦、加载太慢啦、CDN流量没啦等等。在以前配置Twikoo时就发现了一个还算良心的<span class='p blue'>加速</span>平台 —— Vercel</p>              </div>            </details><h2 id="登录-注册"><a href="#登录-注册" class="headerlink" title="登录/注册"></a>登录/注册</h2><div class="tag link"><a class="link-card" title="Vercel官网" href="https://vercel.com/signup"><div class="left"><img src="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/favicon.ico"/></div><div class="right"><p class="text">Vercel官网</p><p class="url">https://vercel.com/signup</p></div></a></div><p><img src="signup.webp" alt="注册页"></p><p>大概是这样，选择自己的注册方式进去注册，但有个大坑等着你跳……<br>我第一次注册的时候报了个错，就是下面这个。<br><code>Error:This user account is blocked. Contact support@vercel.com for more information.</code></p><p>就是这个，整的我心态崩溃，其实解决很简单，你只需要按他要求发个邮件给他就行，就这么简单粗暴，我也是这么解决的，还多了一个外交机会，感兴趣的可以看我与可能跟我隔了大半个地球的人类对话</p><details class="folding-tag" ><summary> 跨地球交流 </summary>              <div class='content'>              <p><img src="com.webp" alt="邮件"></p>              </div>            </details><h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>登陆后，大概会自动进入Dashboard(即仪表板)，然后点击New Project,然后会看到这样：<br><img src="pro.webp" alt="New Project"></p><p>我是登陆好的，一般应该是要先登录Github账号后同步才会这样。<br>到了这个界面后，点击进入下面的<code>Import Third-Party Git Repository</code>,输入自己博客静态文件的Github地址。</p><div class="tip "><p>如果还没部署到Github上，就先随便点个仓库，先创建了先。</p></div><p>搞定这些后，会进入这样的页面：<br><img src="over.webp" alt="创建仓库"></p><div class="tip warning"><p>注意，<span class='p blue'>my-repository</span>填的是将创建的仓库名，但这也是部署后的域名的一部分，能短就短，更何况填了就不能改了，慎填。</p></div><p>整完这些后，Vercel会自动Clone源仓库的东东到你设的<code>my-repository</code>，可以在下面查看进度，等一小会……</p><h2 id="Over"><a href="#Over" class="headerlink" title="Over!"></a>Over!</h2><p>搞定后，Vercel会给你重定向，放烟花，可喜庆了。<br><img src="done.webp" alt="done"></p><p>点击中间的Domains下面的链接，那就是你的加速博客！</p><h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="设定自定义域名"><a href="#设定自定义域名" class="headerlink" title="设定自定义域名"></a>设定自定义域名</h3><p>谁都不想用这不自由的又臭又长的地址，所以我命由我不由天。点击菜单栏的<code>Settings</code>，找到 <code>Domains</code>，点击默认域名右边的<code>Edit</code>按钮，自己改。<del>要是这都不会整什么博客，简直就是保姆级教程</del></p><h3 id="更新网页"><a href="#更新网页" class="headerlink" title="更新网页"></a>更新网页</h3><p>当你又对网页进行更改了咋办？No Problem。我们只需点到菜单栏的<code>Deployments</code>，点第一个列表Item右边的那三个点，像这样。<br><img src="buchong.webp" alt="补充2"><br>点击后出来一个框，点<code>Promote to Production</code>，弹出个确认框，确认完事。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 🛸青铜时代号 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 📁教程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2021·总结</title>
       <link href="/article/632f5ce3/"/>
       <url>/article/632f5ce3/</url>
