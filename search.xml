@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>2021·总结</title>
+      <link href="/article/632f5ce3/"/>
+      <url>/article/632f5ce3/</url>
+      
+        <content type="html"><![CDATA[<div class="tip sync"><p>这篇年度总结迟到了1月19天，也许有些目标已经忘记了，想起来就会持续更新。</p></div><h1 id="回顾-2021-🐂"><a href="#回顾-2021-🐂" class="headerlink" title="回顾 2021 🐂"></a>回顾 2021 🐂</h1><p>2021这一年各个行业都不平凡，科技界有华为出鸿蒙2.0、OpenEuler系统，医学界有中国全面第二针甚至是第三针，而我在这一年也有许多改变和进步。</p><p>一是我学习较以前更 <img no-lazy class="inline" src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif" style="height:1.5em"/> 刻苦了，<psw>虽然说语文依旧很烂。</psw>二是我的Code水平得到了有效提高，大部分原因还是我啃了好几本砖头书，如：《操作系统概念精要》、《编译原理》、《Tensorflow AI 》等 blabla的书📚</p><p>最重要的是 (至少我是那么认为的)，本博客其实2021瘫了半年，记得是最后一次部署时Hexo报错：[No layout: index.html] 当时没看到，到学校上信息课时，一上博客，一片白，把我吓蒙了。然后没时间管，就渐渐忘了，很多博文没写。</p><p>到了寒假，我就自由了，赶紧换个主题上线，就像现在这样，好看不？</p><div class="tag link"><a class="link-card" title="博客公告" href="/article/744616242/"><div class="left"><img src="/img/favicon.webp"/></div><div class="right"><p class="text">博客公告</p><p class="url">/article/744616242/</p></div></a></div><p>最近疯狂刷博客，看看那Commits，2022才刚开始就三百多。<br><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/Niko-Karen"><img src="https://github-readme-stats.vercel.app/api/?username=Niko-Karen&theme=algolia&show_owner=true"/></a></p><h1 id="展望-2022-🐅"><a href="#展望-2022-🐅" class="headerlink" title="展望 2022 🐅"></a>展望 2022 🐅</h1><p>对于我这种小学生，最重要莫过于我人生中的第一场、也是一生一次的大考 —— 小升初。<br>也许我不能说那么哲学，但还是要说：<span class='p blue'>小升初即是童年旅程的终点站。</span></p><p>算了，不要那么抒情啦。进入正题。</p><div class="timeline"><p class='p h2'>2022,将要发生的重大事迹</p><div class="timenode"><div class="meta"><p><p>未知</p></p></div><div class="body"><p>黄冈中学密考，好像是五月多。<br> 目前已考上<span class='p cyan'>广大附中</span>……的分校，好像很……LAN </p></div></div><div class="timenode"><div class="meta"><p><p>2022-05-28</p></p></div><div class="body"><p><emp>计算机二级</emp> Python 语言程序设计考试!<br>证明自己实力的时刻！<br>加油！</p></div></div><div class="timenode"><div class="meta"><p><p>2022-09-01</p></p></div><div class="body"><p>入初中，不知能进那所初中呢？</p></div></div><div class="timenode"><div class="meta"><p><p>2022-09-02</p></p></div><div class="body"><p>嘿嘿，没想到吧，这天我生日。<br>我只要提早3天生出来就可以上初中了。可恶(〃＞目＜)。</p></div></div></div><p>TO DO LIST:</p><div class='checkbox red'><input type="checkbox" />            <p>成功考过计算机二级Python</p>            </div><div class='checkbox blue'><input type="checkbox" />            <p>进入黄冈中学</p>            </div><div class='checkbox'><input type="checkbox" />            <p>yellow 必须出个Python开源项目</p>            </div><div class='checkbox cyan checked'><input type="checkbox" checked="checked"/>            <p>多写博文</p>            </div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 🛩️蓝色空间号 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 🔚总结 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>说说Linux</title>
       <link href="/article/4ed560a5/"/>
       <url>/article/4ed560a5/</url>
@@ -13,16 +38,16 @@
       
       <categories>
           
-          <category> Linux 日常玩废 </category>
+          <category> ✈️自然选择号 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Linux 系统 </tag>
+            <tag> 🐧Linux 系统 </tag>
             
-            <tag> 评价 </tag>
+            <tag> ⭐️评价 </tag>
             
         </tags>
       
@@ -40,14 +65,14 @@
       
       <categories>
           
-          <category> Python </category>
+          <category> 🛫万年鲲鹏号 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 编程 </tag>
+            <tag> 🐍Python </tag>
             
         </tags>
       
@@ -65,14 +90,14 @@
       
       <categories>
           
-          <category> Windows 日常折腾 </category>
+          <category> ✈️自然选择号 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Windows 系统 </tag>
+            <tag> 🪟Windows 系统 </tag>
             
         </tags>
       
@@ -90,14 +115,14 @@
       
       <categories>
           
-          <category> Python </category>
+          <category> 🛫万年鲲鹏号 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 编程 </tag>
+            <tag> 🐍Python </tag>
             
         </tags>
       
@@ -115,14 +140,14 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> 🛸青铜时代号 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 编程 </tag>
+            <tag> 📡Technology </tag>
             
         </tags>
       
@@ -140,14 +165,14 @@
       
       <categories>
           
-          <category> Python </category>
+          <category> 🛫万年鲲鹏号 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 编程 </tag>
+            <tag> 🐍Python </tag>
             
         </tags>
       
@@ -165,14 +190,14 @@
       
       <categories>
           
-          <category> 日记 </category>
+          <category> 🪁哥伦比亚号 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 感悟 </tag>
+            <tag> 📓日记 </tag>
             
         </tags>
       
@@ -185,8 +210,14 @@
       <link href="/article/744616242/"/>
       <url>/article/744616242/</url>
       
-        <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1867217766&auto=1&height=66"></iframe><h1 id="Updated-Blog-at-2022-1-14-21-41"><a href="#Updated-Blog-at-2022-1-14-21-41" class="headerlink" title="Updated Blog at 2022/1/14 21:41"></a>Updated Blog at 2022/1/14 21:41</h1><p>本次更新更换了网站主题，由<strong>Next</strong>转为<strong>Butterfly</strong><br><a class="btn-beautify button--animated blue larger" href="https://gitee.com/immyw/hexo-theme-butterfly"   title="Butterfly主题Gitee地址"><i class="far fa-hand-point-right"></i><span>Butterfly主题Gitee地址</span></a></p><h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><ol><li>优化博客访问速度，减少插件使用，尽量轻度搭建。</li><li>添加Live2d-Widget升级互动版看板娘(不是插件!)，美化一下嘛~</li></ol><p><img src="n.webp" alt="看板娘"></p><ol><li>添加吸底Aplayer音乐播放器，歌单为网易云歌单 ‘清华自习室 / 学习处方’ ，持续跟进。</li></ol><p><img src="a.webp" alt="Aplayer"></p><ol><li>添加双评论系统,<strong>Gitalk</strong>和<strong>Twikoo</strong> </li></ol><p><img src="desktop.webp" alt="Twikoo"></p><ol><li>添加在线聊天系统<mark class="hl-label blue">TiDio</mark> ，恶搞翻译。</li></ol><p><img src="gan.webp" alt="TiDio"></p><h2 id="各个页面展示"><a href="#各个页面展示" class="headerlink" title="各个页面展示"></a>各个页面展示</h2><div class="justified-gallery"><p><img src="jie.webp" alt="主页"><br><img src="ye.webp" alt="友链页"><br><img src="l.webp" alt="相册(图床)"></p>          </div><h3 id="欢迎来到我的博客"><a href="#欢迎来到我的博客" class="headerlink" title="欢迎来到我的博客"></a>欢迎来到我的博客</h3><a class="btn-beautify button--animated orange larger" href="https://niko-karen.gtihub.io"   title="我的博客"><i class="far fa-hand-point-right"></i><span>我的博客</span></a>]]></content>
+        <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1867217766&auto=1&height=66"></iframe><h1 id="Updated-Blog-at-2022-1-14-21-41"><a href="#Updated-Blog-at-2022-1-14-21-41" class="headerlink" title="Updated Blog at 2022/1/14 21:41"></a>Updated Blog at 2022/1/14 21:41</h1><p>本次更新更换了网站主题，由<strong>Next</strong>转为<strong>Butterfly</strong><br><a class="btn-beautify button--animated blue larger" href="https://gitee.com/immyw/hexo-theme-butterfly"   title="Butterfly主题Gitee地址"><i class="far fa-hand-point-right"></i><span>Butterfly主题Gitee地址</span></a></p><h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><ol><li>优化博客访问速度，减少插件使用，尽量轻度搭建。</li><li>添加Live2d-Widget升级互动版看板娘(不是插件!)，美化一下嘛~</li></ol><p><img src="n.webp" alt="看板娘"></p><ol><li>添加吸底Aplayer音乐播放器，歌单为网易云歌单 ‘清华自习室 / 学习处方’ ，持续跟进。</li></ol><p><img src="a.webp" alt="Aplayer"></p><ol><li>添加双评论系统,<strong>Gitalk</strong>和<strong>Twikoo</strong> </li></ol><p><img src="desktop.webp" alt="Twikoo"></p><ol><li>添加在线聊天系统<mark class="hl-label blue">TiDio</mark> ，恶搞翻译。</li></ol><p><img src="gan.webp" alt="TiDio"></p><h2 id="各个页面展示"><a href="#各个页面展示" class="headerlink" title="各个页面展示"></a>各个页面展示</h2><p><img src="jie.webp" alt="主页"><br><img src="ye.webp" alt="友链页"><br><img src="l.webp" alt="相册(图床)"></p><h3 id="欢迎来到我的博客"><a href="#欢迎来到我的博客" class="headerlink" title="欢迎来到我的博客"></a>欢迎来到我的博客</h3><a class="btn-beautify button--animated orange larger" href="https://niko-karen.gtihub.io"   title="我的博客"><i class="far fa-hand-point-right"></i><span>我的博客</span></a>]]></content>
       
+      
+      <categories>
+          
+          <category> 🛩️蓝色空间号 </category>
+          
+      </categories>
       
       
     </entry>
@@ -203,14 +234,14 @@
       
       <categories>
           
-          <category> 日记 </category>
+          <category> 🪁哥伦比亚号 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 日记 </tag>
+            <tag> 📓日记 </tag>
             
         </tags>
       
@@ -228,14 +259,14 @@
       
       <categories>
           
-          <category> 感悟 </category>
+          <category> 🛩️蓝色空间号 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 感悟 </tag>
+            <tag> 🤔感悟 </tag>
             
         </tags>
       
@@ -253,14 +284,14 @@
       
       <categories>
           
-          <category> 日记 </category>
+          <category> 🚁无限边疆号 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 旅行 </tag>
+            <tag> 🧳旅行 </tag>
             
         </tags>
       
