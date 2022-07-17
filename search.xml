@@ -1,41 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Python Selenium自动化详解</title>
-    <url>/article/6dh83ks9/</url>
-    <content><![CDATA[<h2 id="废话"><a href="#废话" class="headerlink" title="废话"></a>废话</h2><p>Selenium，Python的浏览器自动化大佬库，称霸Python<strong>浏览器</strong>自动化领域。</p>
-<p>注意，阅读本文需要有亿点点前端知识才容易理解。<del>要是大佬看到了不会冒犯到吧，不会吧……</del></p>
-<h2 id="安装-Selenium-包"><a href="#安装-Selenium-包" class="headerlink" title="安装 Selenium 包"></a>安装 Selenium 包</h2><h3 id="Pip-安装"><a href="#Pip-安装" class="headerlink" title="Pip 安装"></a>Pip 安装</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo pip install selenium</span><br></pre></td></tr></table></figure>
-
-<h3 id="源码包安装"><a href="#源码包安装" class="headerlink" title="源码包安装"></a>源码包安装</h3><p><a href="https://pypi.org/project/selenium/#files">源码链接</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo python setup.py install</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装-对应浏览器的-WebDriver"><a href="#安装-对应浏览器的-WebDriver" class="headerlink" title="安装 对应浏览器的 WebDriver"></a>安装 对应浏览器的 <strong>WebDriver</strong></h2><p>Edge: <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/">https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/</a><br>Chrome (淘宝源) : <a href="https://npm.taobao.org/mirrors/chromedriver/">https://npm.taobao.org/mirrors/chromedriver/</a><br>Firefox:  <a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a><br>IE: <a href="http://selenium-release.storage.googleapis.com/index.html">http://selenium-release.storage.googleapis.com/index.html?</a></p>
-<p><strong>Edge</strong>：对应浏览器对应版本，对应下载。<br><strong>Chrome</strong>: 注意，先在设置 –&gt; 关于Chrome 里查看Chrome版本号,再去我给的淘宝源里找。再注意，在淘宝源里找版本时，如果没有本浏览器的版本的话，就找自己版本号的<strong>上一个</strong>。<br><strong>Firefox</strong>: 选择自己系统版本下载对应的。<del>我不用火狐，报错别怪我 (弱小.jpeg)</del><br><strong>IE</strong>: 这我没啥注释，但建议IE11用<strong>用2.5版本</strong>就好。(这年头还有人用IE?可怕可怕。)</p>
-<p>下载解压后把文件放在Python目录下的Scripts目录中，别问为啥，问就是懒得加<strong>环境变量</strong>。Linux的可以放在&#x2F;usr&#x2F;bin下。</p>
-<h2 id="开始！"><a href="#开始！" class="headerlink" title="开始！"></a>开始！</h2><p>废话忒多了，进入正题。</p>
-<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><p>咱为啥要用Selenium，就是可以爬到普通爬虫爬不到的东东，用Selenium，更方便、更快捷、更显逼格！(打广告)</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome() <span class="comment">#按照你的浏览器来，就上面那几种</span></span><br><span class="line">driver.get(<span class="string">&quot;https://bing.com&quot;</span>) <span class="comment">#对应浏览器打开Bing标签页</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>大概会看到这样:<br><img loading="lazy" src="/article/6dh83ks9/dri.webp"></p>
-<p>如何<strong>往输入框内填入文字</strong>并<strong>点击搜索按钮进行搜索</strong>？<br>Very Easy.</p>
-<p>不要动你那个界面，打开<strong>DevTools</strong>，找到搜索框的元素，[右键]{.kbd} - [Copy]{.kbd} - [CopyXpath]{.kbd}，再回到代码这。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome() <span class="comment">#按照你的浏览器来，就上面那几种</span></span><br><span class="line">driver.get(<span class="string">&quot;https://bing.com&quot;</span>) <span class="comment">#对应浏览器打开Bing标签页</span></span><br><span class="line"></span><br><span class="line">input_table = driver.find_element_by_xpath(<span class="string">&#x27;你Copy的值&#x27;</span>) <span class="comment">#请原谅我那糟糕的命名。</span></span><br><span class="line">input_table.send_keys(<span class="string">&#x27;梁非凡&#x27;</span>) <span class="comment"># 你想输入啥？</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<p><code>注意</code>，<code>find_element_by_xpath</code>这个函数很微妙，它的工作是在整个页面找<strong>一个</strong>元素，敲黑板，是<strong>一个</strong>。还有一个函数是<code>find_elements_by_xpath</code>，找的是一堆元素。很多手残的会多敲个s，找了半天的bug。说的就是我😭<br>:::</p>
-<p>运行。</p>
-<p>可以看到，输入框里输入了<strong>梁非凡</strong>，接着干。<br>按照上次那样，打开Devtools，找到<strong>搜索按钮的元素</strong>,接着Copy –&gt; Copy Xpath。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome() <span class="comment">#按照你的浏览器来，就上面那几种</span></span><br><span class="line">driver.get(<span class="string">&quot;https://bing.com&quot;</span>) <span class="comment">#对应浏览器打开Bing标签页</span></span><br><span class="line"></span><br><span class="line">input_table = driver.find_element_by_xpath(<span class="string">&#x27;你Copy的值&#x27;</span>) <span class="comment">#请原谅我那糟糕的命名。</span></span><br><span class="line">input_table.send_keys(<span class="string">&#x27;梁非凡&#x27;</span>) <span class="comment"># 你想输入啥？</span></span><br><span class="line"></span><br><span class="line">search_btn = driver.find_element_by_xpath(<span class="string">&#x27;Copy Value&#x27;</span>)</span><br><span class="line">search_btn.click()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>运行。<br>搞定！</p>
-<p>还有一种方法，将<code>click()</code>换成<code>submit()</code>，或是Webdriver模拟用户点击按键[Enter]{.kbd}进行搜索。进阶会讲。</p>
-<p><img loading="lazy" src="/article/6dh83ks9/over.webp"></p>
-<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p>学了总要运用，搞个爬虫实例。</p>
-<h3 id="实战"><a href="#实战" class="headerlink" title="实战:"></a>实战:</h3><p>(鸽着先，坑以后再填~)</p>
-]]></content>
-  </entry>
-  <entry>
     <title>2021·总结</title>
     <url>/article/632f5ce3/</url>
     <content><![CDATA[<p>这篇年度总结迟到了1月19天，也许有些目标已经忘记了，想起来就会持续更新。</p>
@@ -63,6 +28,84 @@
       </categories>
       <tags>
         <tag>🔚总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vercel-加速个人博客</title>
+    <url>/article/db9907b/</url>
+    <content><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>现在有不少人的博客网站都是白嫖 Github Pages等<code>免费</code>静态文件部署站的吧，我也不例外。但免费的东西总有不足之处，例如链接太长啦、加载太慢啦、CDN流量没啦等等。在以前配置Twikoo时就发现了一个还算良心的<strong>加速</strong>平台 —— Vercel</p>
+<h2 id="登录-x2F-注册"><a href="#登录-x2F-注册" class="headerlink" title="登录&#x2F;注册"></a>登录&#x2F;注册</h2><p>官网链接: <a href="https://vercel.com/signup">https://vercel.com/signup</a></p>
+<p><img loading="lazy" src="/article/db9907b/signup.webp" alt="注册页"></p>
+<p>大概是这样，选择自己的注册方式进去注册，但有个大坑等着你跳……<br>我第一次注册的时候报了个错，就是下面这个。<br><code>Error:This user account is blocked. Contact support@vercel.com for more information.</code></p>
+<p>就是这个，整的我心态崩溃，其实解决很简单，你只需要按他要求发个邮件给他就行，就这么简单粗暴，我也是这么解决的，还多了一个外交机会，感兴趣的可以看我与可能跟我隔了大半个地球的人类对话</p>
+<h2 id="跨地球交流"><a href="#跨地球交流" class="headerlink" title="跨地球交流"></a>跨地球交流</h2><p><img loading="lazy" src="/article/db9907b/com.webp" alt="邮件"></p>
+<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>登陆后，大概会自动进入Dashboard(即仪表板)，然后点击New Project,然后会看到这样：<br><img loading="lazy" src="/article/db9907b/pro.webp" alt="New Project"></p>
+<p>我是登陆好的，一般应该是要先登录Github账号后同步才会这样。<br>到了这个界面后，点击进入下面的<code>Import Third-Party Git Repository</code>,输入自己博客静态文件的Github地址。</p>
+<p>如果还没部署到Github上，就先随便点个仓库，先创建了先。</p>
+<p>搞定这些后，会进入这样的页面：<br><img loading="lazy" src="/article/db9907b/over.webp" alt="创建仓库"></p>
+<p>注意，<code>my-repository</code>填的是将创建的仓库名，但这也是部署后的域名的一部分，能短就短，更何况填了就不能改了，慎填。</p>
+<p>整完这些后，Vercel会自动Clone源仓库的东东到你设的<code>my-repository</code>，可以在下面查看进度，等一小会……</p>
+<h2 id="Over"><a href="#Over" class="headerlink" title="Over!"></a>Over!</h2><p>搞定后，Vercel会给你重定向，放烟花，可喜庆了。<br><img loading="lazy" src="/article/db9907b/done.webp" alt="done"></p>
+<p>点击中间的Domains下面的链接，那就是你的加速博客！</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="设定自定义域名"><a href="#设定自定义域名" class="headerlink" title="设定自定义域名"></a>设定自定义域名</h3><p>谁都不想用这不自由的又臭又长的地址，所以我命由我不由天。点击菜单栏的<code>Settings</code>，找到 <code>Domains</code>，点击默认域名右边的<code>Edit</code>按钮，自己改。</p>
+<h3 id="更新网页"><a href="#更新网页" class="headerlink" title="更新网页"></a>更新网页</h3><p>当你又对网页进行更改了咋办？No Problem。我们只需点到菜单栏的<code>Deployments</code>，点第一个列表Item右边的那三个点，像这样。<br><img loading="lazy" src="/article/db9907b/buchong.webp" alt="补充2"><br>点击后出来一个框，点<code>Promote to Production</code>，弹出个确认框，确认完事。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://akilar.top/posts/812734f8/">Sep.21 Akilar.使用Vercel来加速Hexo博客</a></p>
+]]></content>
+      <categories>
+        <category>🛸青铜时代号</category>
+      </categories>
+      <tags>
+        <tag>📁教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python-Requests</title>
+    <url>/article/e9ee3cf1/</url>
+    <content><![CDATA[<p>本教程使用Python语言，需提前安装Pip3 or Pip，例如Linux类的，请在命令行内输入:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install python3-pip</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>一条命令(临时换源):<br>Linux:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo pip install requests -i https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
+
+<p>Windows:</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">pip install requests -i https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="基础-Get请求"><a href="#基础-Get请求" class="headerlink" title="基础{Get请求}"></a>基础{Get请求}</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36&#x27;</span></span><br><span class="line">&#125;  <span class="comment"># 向服务器传递的数据</span></span><br><span class="line">response = requests.get(<span class="string">&#x27;https://bing.com&#x27;</span>,data=data).text <span class="comment"># text函数:获取对应网址的源代码</span></span><br><span class="line"><span class="built_in">print</span>(response)</span><br></pre></td></tr></table></figure>
+
+<p>User-Agent就像是<strong>浏览器的身份证</strong>,如果是Requests默认的ua的话，对应服务器会拒绝你的<strong>爬虫</strong>请求，简而言之，拿不到数据，所以我们要获得浏览器的ua。</p>
+<p><img loading="lazy" src="/article/e9ee3cf1/demo1.webp" alt="就在这拿User-Agent"></p>
+<h3 id="进阶-Post请求"><a href="#进阶-Post请求" class="headerlink" title="进阶 {Post请求}"></a>进阶 {Post请求}</h3><p><img loading="lazy" src="/article/e9ee3cf1/demo2.webp" alt="官网教程"></p>
+<ol>
+<li>带数据的 post</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"> </span><br><span class="line">host = <span class="string">&quot;http://httpbin.org/&quot;</span></span><br><span class="line">endpoint = <span class="string">&quot;post&quot;</span></span><br><span class="line">url = <span class="string">&#x27;&#x27;</span>.join([host,endpoint])</span><br><span class="line">data = &#123;<span class="string">&#x27;key1&#x27;</span>:<span class="string">&#x27;value1&#x27;</span>,<span class="string">&#x27;key2&#x27;</span>:<span class="string">&#x27;value2&#x27;</span>&#125;</span><br><span class="line"> </span><br><span class="line">r = requests.post(url,data=data)</span><br><span class="line"><span class="comment">#response = r.json()</span></span><br><span class="line"><span class="built_in">print</span> (r.text)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>多文件上传</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"> </span><br><span class="line">host = <span class="string">&quot;http://httpbin.org/&quot;</span></span><br><span class="line">endpoint = <span class="string">&quot;post&quot;</span></span><br><span class="line"> </span><br><span class="line">url = <span class="string">&#x27;&#x27;</span>.join([host,endpoint])</span><br><span class="line"><span class="comment">#多文件上传</span></span><br><span class="line">files = [</span><br><span class="line">    (<span class="string">&#x27;file1&#x27;</span>,(<span class="string">&#x27;test.txt&#x27;</span>,<span class="built_in">open</span>(<span class="string">&#x27;test.txt&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>))),</span><br><span class="line">    (<span class="string">&#x27;file2&#x27;</span>, (<span class="string">&#x27;test.png&#x27;</span>, <span class="built_in">open</span>(<span class="string">&#x27;test.png&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>)))</span><br><span class="line">    ]</span><br><span class="line"> </span><br><span class="line">r = requests.post(url,files=files)</span><br><span class="line"><span class="built_in">print</span> (r.text)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="冷门-Put-请求"><a href="#冷门-Put-请求" class="headerlink" title="冷门 {Put 请求}"></a>冷门 {Put 请求}</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line">url_put = <span class="string">&quot;http://127.0.0.1:8080/&quot;</span></span><br><span class="line">headers_put = &#123;</span><br><span class="line">	<span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&quot;application/json&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">param = &#123;</span><br><span class="line">	<span class="string">&#x27;myObjectField&#x27;</span>: <span class="string">&#x27;hello&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">payload = json.dumps(param)</span><br><span class="line">response_put = requests.put(url, data=payload, headers=headers_put)</span><br></pre></td></tr></table></figure>
+
+<h2 id="项目实战-梨视频爬虫"><a href="#项目实战-梨视频爬虫" class="headerlink" title="项目实战: 梨视频爬虫"></a>项目实战: 梨视频爬虫</h2><p>这个项目我以前做过，就直接复制过来啦，摆烂啦 （</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># !/usr/bin/python3</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">@author: </span></span><br><span class="line"><span class="string">@file: 梨视频爬虫.py</span></span><br><span class="line"><span class="string">@time: 2021/7/11 21:48</span></span><br><span class="line"><span class="string">@desc: </span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://www.pearvideo.com/video_1731260&quot;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;user-agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;referer&quot;</span>: url,</span><br><span class="line">&#125;</span><br><span class="line">contId = url.split(<span class="string">&quot;_&quot;</span>)[<span class="number">1</span>]</span><br><span class="line">videoStatusUrl = <span class="string">f&quot;https://video.pearvideo.com/mp4/third/20210603/cont-<span class="subst">&#123;contId&#125;</span>-15316010-202041-hd.mp4&quot;</span></span><br><span class="line"><span class="comment"># &#x27;https://video.pearvideo.com/mp4/third/20210603/cont-1731260-15316010-202041-hd.mp4&#x27;</span></span><br><span class="line"></span><br><span class="line">resp = requests.get(videoStatusUrl, headers=headers).content</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;video.mp4&quot;</span>, mode=<span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    file.write(resp)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<ol>
+<li>第14行,referer的定义，因梨视频请求头中必须有<code>防盗链</code>，即字典中的<code>referer</code>，如果没有，则获取不到视频数据。</li>
+<li>第16、17行，通过抓包得知，梨视频的视频直链即为一串固定地址加上视频ID号，只需进行字符串分割即可。</li>
+<li>第20行，向服务器发起<code>GET</code>请求，注意,<code>.content</code>是获取网页的<code>二进制数据</code>。</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这库是真的好用，方便。比Python标准库urllib好N倍不止，平时爬虫爬个电影数据就好，不要太过分。</p>
+]]></content>
+      <categories>
+        <category>🛫万年鲲鹏号</category>
+      </categories>
+      <tags>
+        <tag>🐍Python</tag>
       </tags>
   </entry>
   <entry>
@@ -128,54 +171,39 @@
       </tags>
   </entry>
   <entry>
-    <title>Python-Requests</title>
-    <url>/article/e9ee3cf1/</url>
-    <content><![CDATA[<p>本教程使用Python语言，需提前安装Pip3 or Pip，例如Linux类的，请在命令行内输入:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install python3-pip</span><br></pre></td></tr></table></figure>
+    <title>Python Selenium自动化详解</title>
+    <url>/article/6dh83ks9/</url>
+    <content><![CDATA[<h2 id="废话"><a href="#废话" class="headerlink" title="废话"></a>废话</h2><p>Selenium，Python的浏览器自动化大佬库，称霸Python<strong>浏览器</strong>自动化领域。</p>
+<p>注意，阅读本文需要有亿点点前端知识才容易理解。<del>要是大佬看到了不会冒犯到吧，不会吧……</del></p>
+<h2 id="安装-Selenium-包"><a href="#安装-Selenium-包" class="headerlink" title="安装 Selenium 包"></a>安装 Selenium 包</h2><h3 id="Pip-安装"><a href="#Pip-安装" class="headerlink" title="Pip 安装"></a>Pip 安装</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo pip install selenium</span><br></pre></td></tr></table></figure>
 
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>一条命令(临时换源):<br>Linux:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo pip install requests -i https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
+<h3 id="源码包安装"><a href="#源码包安装" class="headerlink" title="源码包安装"></a>源码包安装</h3><p><a href="https://pypi.org/project/selenium/#files">源码链接</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo python setup.py install</span><br></pre></td></tr></table></figure>
 
-<p>Windows:</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">pip install requests -i https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
+<h2 id="安装-对应浏览器的-WebDriver"><a href="#安装-对应浏览器的-WebDriver" class="headerlink" title="安装 对应浏览器的 WebDriver"></a>安装 对应浏览器的 <strong>WebDriver</strong></h2><p>Edge: <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/">https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/</a><br>Chrome (淘宝源) : <a href="https://npm.taobao.org/mirrors/chromedriver/">https://npm.taobao.org/mirrors/chromedriver/</a><br>Firefox:  <a href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a><br>IE: <a href="http://selenium-release.storage.googleapis.com/index.html">http://selenium-release.storage.googleapis.com/index.html?</a></p>
+<p><strong>Edge</strong>：对应浏览器对应版本，对应下载。<br><strong>Chrome</strong>: 注意，先在设置 –&gt; 关于Chrome 里查看Chrome版本号,再去我给的淘宝源里找。再注意，在淘宝源里找版本时，如果没有本浏览器的版本的话，就找自己版本号的<strong>上一个</strong>。<br><strong>Firefox</strong>: 选择自己系统版本下载对应的。<del>我不用火狐，报错别怪我 (弱小.jpeg)</del><br><strong>IE</strong>: 这我没啥注释，但建议IE11用<strong>用2.5版本</strong>就好。(这年头还有人用IE?可怕可怕。)</p>
+<p>下载解压后把文件放在Python目录下的Scripts目录中，别问为啥，问就是懒得加<strong>环境变量</strong>。Linux的可以放在&#x2F;usr&#x2F;bin下。</p>
+<h2 id="开始！"><a href="#开始！" class="headerlink" title="开始！"></a>开始！</h2><p>废话忒多了，进入正题。</p>
+<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><p>咱为啥要用Selenium，就是可以爬到普通爬虫爬不到的东东，用Selenium，更方便、更快捷、更显逼格！(打广告)</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome() <span class="comment">#按照你的浏览器来，就上面那几种</span></span><br><span class="line">driver.get(<span class="string">&quot;https://bing.com&quot;</span>) <span class="comment">#对应浏览器打开Bing标签页</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="基础-Get请求"><a href="#基础-Get请求" class="headerlink" title="基础{Get请求}"></a>基础{Get请求}</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36&#x27;</span></span><br><span class="line">&#125;  <span class="comment"># 向服务器传递的数据</span></span><br><span class="line">response = requests.get(<span class="string">&#x27;https://bing.com&#x27;</span>,data=data).text <span class="comment"># text函数:获取对应网址的源代码</span></span><br><span class="line"><span class="built_in">print</span>(response)</span><br></pre></td></tr></table></figure>
-
-<p>User-Agent就像是<strong>浏览器的身份证</strong>,如果是Requests默认的ua的话，对应服务器会拒绝你的<strong>爬虫</strong>请求，简而言之，拿不到数据，所以我们要获得浏览器的ua。</p>
-<p><img loading="lazy" src="/article/e9ee3cf1/demo1.webp" alt="就在这拿User-Agent"></p>
-<h3 id="进阶-Post请求"><a href="#进阶-Post请求" class="headerlink" title="进阶 {Post请求}"></a>进阶 {Post请求}</h3><p><img loading="lazy" src="/article/e9ee3cf1/demo2.webp" alt="官网教程"></p>
-<ol>
-<li>带数据的 post</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"> </span><br><span class="line">host = <span class="string">&quot;http://httpbin.org/&quot;</span></span><br><span class="line">endpoint = <span class="string">&quot;post&quot;</span></span><br><span class="line">url = <span class="string">&#x27;&#x27;</span>.join([host,endpoint])</span><br><span class="line">data = &#123;<span class="string">&#x27;key1&#x27;</span>:<span class="string">&#x27;value1&#x27;</span>,<span class="string">&#x27;key2&#x27;</span>:<span class="string">&#x27;value2&#x27;</span>&#125;</span><br><span class="line"> </span><br><span class="line">r = requests.post(url,data=data)</span><br><span class="line"><span class="comment">#response = r.json()</span></span><br><span class="line"><span class="built_in">print</span> (r.text)</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>多文件上传</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"> </span><br><span class="line">host = <span class="string">&quot;http://httpbin.org/&quot;</span></span><br><span class="line">endpoint = <span class="string">&quot;post&quot;</span></span><br><span class="line"> </span><br><span class="line">url = <span class="string">&#x27;&#x27;</span>.join([host,endpoint])</span><br><span class="line"><span class="comment">#多文件上传</span></span><br><span class="line">files = [</span><br><span class="line">    (<span class="string">&#x27;file1&#x27;</span>,(<span class="string">&#x27;test.txt&#x27;</span>,<span class="built_in">open</span>(<span class="string">&#x27;test.txt&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>))),</span><br><span class="line">    (<span class="string">&#x27;file2&#x27;</span>, (<span class="string">&#x27;test.png&#x27;</span>, <span class="built_in">open</span>(<span class="string">&#x27;test.png&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>)))</span><br><span class="line">    ]</span><br><span class="line"> </span><br><span class="line">r = requests.post(url,files=files)</span><br><span class="line"><span class="built_in">print</span> (r.text)</span><br></pre></td></tr></table></figure>
+<p>大概会看到这样:<br><img loading="lazy" src="/article/6dh83ks9/dri.webp"></p>
+<p>如何<strong>往输入框内填入文字</strong>并<strong>点击搜索按钮进行搜索</strong>？<br>Very Easy.</p>
+<p>不要动你那个界面，打开<strong>DevTools</strong>，找到搜索框的元素，[右键]{.kbd} - [Copy]{.kbd} - [CopyXpath]{.kbd}，再回到代码这。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome() <span class="comment">#按照你的浏览器来，就上面那几种</span></span><br><span class="line">driver.get(<span class="string">&quot;https://bing.com&quot;</span>) <span class="comment">#对应浏览器打开Bing标签页</span></span><br><span class="line"></span><br><span class="line">input_table = driver.find_element_by_xpath(<span class="string">&#x27;你Copy的值&#x27;</span>) <span class="comment">#请原谅我那糟糕的命名。</span></span><br><span class="line">input_table.send_keys(<span class="string">&#x27;梁非凡&#x27;</span>) <span class="comment"># 你想输入啥？</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-<h3 id="冷门-Put-请求"><a href="#冷门-Put-请求" class="headerlink" title="冷门 {Put 请求}"></a>冷门 {Put 请求}</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line">url_put = <span class="string">&quot;http://127.0.0.1:8080/&quot;</span></span><br><span class="line">headers_put = &#123;</span><br><span class="line">	<span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&quot;application/json&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">param = &#123;</span><br><span class="line">	<span class="string">&#x27;myObjectField&#x27;</span>: <span class="string">&#x27;hello&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">payload = json.dumps(param)</span><br><span class="line">response_put = requests.put(url, data=payload, headers=headers_put)</span><br></pre></td></tr></table></figure>
+<p><code>注意</code>，<code>find_element_by_xpath</code>这个函数很微妙，它的工作是在整个页面找<strong>一个</strong>元素，敲黑板，是<strong>一个</strong>。还有一个函数是<code>find_elements_by_xpath</code>，找的是一堆元素。很多手残的会多敲个s，找了半天的bug。说的就是我😭<br>:::</p>
+<p>运行。</p>
+<p>可以看到，输入框里输入了<strong>梁非凡</strong>，接着干。<br>按照上次那样，打开Devtools，找到<strong>搜索按钮的元素</strong>,接着Copy –&gt; Copy Xpath。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome() <span class="comment">#按照你的浏览器来，就上面那几种</span></span><br><span class="line">driver.get(<span class="string">&quot;https://bing.com&quot;</span>) <span class="comment">#对应浏览器打开Bing标签页</span></span><br><span class="line"></span><br><span class="line">input_table = driver.find_element_by_xpath(<span class="string">&#x27;你Copy的值&#x27;</span>) <span class="comment">#请原谅我那糟糕的命名。</span></span><br><span class="line">input_table.send_keys(<span class="string">&#x27;梁非凡&#x27;</span>) <span class="comment"># 你想输入啥？</span></span><br><span class="line"></span><br><span class="line">search_btn = driver.find_element_by_xpath(<span class="string">&#x27;Copy Value&#x27;</span>)</span><br><span class="line">search_btn.click()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="项目实战-梨视频爬虫"><a href="#项目实战-梨视频爬虫" class="headerlink" title="项目实战: 梨视频爬虫"></a>项目实战: 梨视频爬虫</h2><p>这个项目我以前做过，就直接复制过来啦，摆烂啦 （</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># !/usr/bin/python3</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">@author: </span></span><br><span class="line"><span class="string">@file: 梨视频爬虫.py</span></span><br><span class="line"><span class="string">@time: 2021/7/11 21:48</span></span><br><span class="line"><span class="string">@desc: </span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://www.pearvideo.com/video_1731260&quot;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;user-agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;referer&quot;</span>: url,</span><br><span class="line">&#125;</span><br><span class="line">contId = url.split(<span class="string">&quot;_&quot;</span>)[<span class="number">1</span>]</span><br><span class="line">videoStatusUrl = <span class="string">f&quot;https://video.pearvideo.com/mp4/third/20210603/cont-<span class="subst">&#123;contId&#125;</span>-15316010-202041-hd.mp4&quot;</span></span><br><span class="line"><span class="comment"># &#x27;https://video.pearvideo.com/mp4/third/20210603/cont-1731260-15316010-202041-hd.mp4&#x27;</span></span><br><span class="line"></span><br><span class="line">resp = requests.get(videoStatusUrl, headers=headers).content</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;video.mp4&quot;</span>, mode=<span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    file.write(resp)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<ol>
-<li>第14行,referer的定义，因梨视频请求头中必须有<code>防盗链</code>，即字典中的<code>referer</code>，如果没有，则获取不到视频数据。</li>
-<li>第16、17行，通过抓包得知，梨视频的视频直链即为一串固定地址加上视频ID号，只需进行字符串分割即可。</li>
-<li>第20行，向服务器发起<code>GET</code>请求，注意,<code>.content</code>是获取网页的<code>二进制数据</code>。</li>
-</ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这库是真的好用，方便。比Python标准库urllib好N倍不止，平时爬虫爬个电影数据就好，不要太过分。</p>
+<p>运行。<br>搞定！</p>
+<p>还有一种方法，将<code>click()</code>换成<code>submit()</code>，或是Webdriver模拟用户点击按键[Enter]{.kbd}进行搜索。进阶会讲。</p>
+<p><img loading="lazy" src="/article/6dh83ks9/over.webp"></p>
+<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p>学了总要运用，搞个爬虫实例。</p>
+<h3 id="实战"><a href="#实战" class="headerlink" title="实战:"></a>实战:</h3><p>(鸽着先，坑以后再填~)</p>
 ]]></content>
-      <categories>
-        <category>🛫万年鲲鹏号</category>
-      </categories>
-      <tags>
-        <tag>🐍Python</tag>
-      </tags>
   </entry>
   <entry>
     <title>Windows11 美化+优化教程</title>
@@ -225,31 +253,21 @@
       </tags>
   </entry>
   <entry>
-    <title>Vercel-加速个人博客</title>
-    <url>/article/db9907b/</url>
-    <content><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>现在有不少人的博客网站都是白嫖 Github Pages等<code>免费</code>静态文件部署站的吧，我也不例外。但免费的东西总有不足之处，例如链接太长啦、加载太慢啦、CDN流量没啦等等。在以前配置Twikoo时就发现了一个还算良心的<strong>加速</strong>平台 —— Vercel</p>
-<h2 id="登录-x2F-注册"><a href="#登录-x2F-注册" class="headerlink" title="登录&#x2F;注册"></a>登录&#x2F;注册</h2><p>官网链接: <a href="https://vercel.com/signup">https://vercel.com/signup</a></p>
-<p><img loading="lazy" src="/article/db9907b/signup.webp" alt="注册页"></p>
-<p>大概是这样，选择自己的注册方式进去注册，但有个大坑等着你跳……<br>我第一次注册的时候报了个错，就是下面这个。<br><code>Error:This user account is blocked. Contact support@vercel.com for more information.</code></p>
-<p>就是这个，整的我心态崩溃，其实解决很简单，你只需要按他要求发个邮件给他就行，就这么简单粗暴，我也是这么解决的，还多了一个外交机会，感兴趣的可以看我与可能跟我隔了大半个地球的人类对话</p>
-<h2 id="跨地球交流"><a href="#跨地球交流" class="headerlink" title="跨地球交流"></a>跨地球交流</h2><p><img loading="lazy" src="/article/db9907b/com.webp" alt="邮件"></p>
-<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>登陆后，大概会自动进入Dashboard(即仪表板)，然后点击New Project,然后会看到这样：<br><img loading="lazy" src="/article/db9907b/pro.webp" alt="New Project"></p>
-<p>我是登陆好的，一般应该是要先登录Github账号后同步才会这样。<br>到了这个界面后，点击进入下面的<code>Import Third-Party Git Repository</code>,输入自己博客静态文件的Github地址。</p>
-<p>如果还没部署到Github上，就先随便点个仓库，先创建了先。</p>
-<p>搞定这些后，会进入这样的页面：<br><img loading="lazy" src="/article/db9907b/over.webp" alt="创建仓库"></p>
-<p>注意，<code>my-repository</code>填的是将创建的仓库名，但这也是部署后的域名的一部分，能短就短，更何况填了就不能改了，慎填。</p>
-<p>整完这些后，Vercel会自动Clone源仓库的东东到你设的<code>my-repository</code>，可以在下面查看进度，等一小会……</p>
-<h2 id="Over"><a href="#Over" class="headerlink" title="Over!"></a>Over!</h2><p>搞定后，Vercel会给你重定向，放烟花，可喜庆了。<br><img loading="lazy" src="/article/db9907b/done.webp" alt="done"></p>
-<p>点击中间的Domains下面的链接，那就是你的加速博客！</p>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="设定自定义域名"><a href="#设定自定义域名" class="headerlink" title="设定自定义域名"></a>设定自定义域名</h3><p>谁都不想用这不自由的又臭又长的地址，所以我命由我不由天。点击菜单栏的<code>Settings</code>，找到 <code>Domains</code>，点击默认域名右边的<code>Edit</code>按钮，自己改。</p>
-<h3 id="更新网页"><a href="#更新网页" class="headerlink" title="更新网页"></a>更新网页</h3><p>当你又对网页进行更改了咋办？No Problem。我们只需点到菜单栏的<code>Deployments</code>，点第一个列表Item右边的那三个点，像这样。<br><img loading="lazy" src="/article/db9907b/buchong.webp" alt="补充2"><br>点击后出来一个框，点<code>Promote to Production</code>，弹出个确认框，确认完事。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://akilar.top/posts/812734f8/">Sep.21 Akilar.使用Vercel来加速Hexo博客</a></p>
+    <title>让终端更优雅—— Windows Terminal美化</title>
+    <url>/article/2fe613e2/</url>
+    <content><![CDATA[<h2 id="站长的碎碎念"><a href="#站长的碎碎念" class="headerlink" title="站长的碎碎念"></a>站长的碎碎念</h2><p><img loading="lazy" src="/article/2fe613e2/cmd.png" alt="这是默认的CMD"></p>
+<p>这就是默认的<code>命令提示符</code>，这还是我美化过的，cmd的潜质就只能被挖掘到这了。~~每天看这个我会吐的🤮 ~~<br>我们不能就苟居于此。看到微软的<code>Build 2019 大会</code>的了吗，Windows Terminal，我一看，好东西，立马看文档配置，学成以后，便有此文。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>打开<code>Microsoft Store</code>，搜索<code>Windows Terminal</code>，直接安装即可。<br><img loading="lazy" src="/article/2fe613e2/store.webp" alt="这是Win11的应用商店"></p>
+<p>还有个预览版，不知有什么差别，可以尝试。大概也差不了太多。<br><img loading="lazy" src="/article/2fe613e2/storepre.webp" alt="预览版"></p>
+<h2 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><p>打开安装好的Windows Terminal，大概是这样:<br><img loading="lazy" src="/article/2fe613e2/winter.webp" alt="请忽略我的Hexo日志"></p>
+<p>很简单，我就只是加了个壁纸，调了一下不透明度，换了个字体，就完了。<br>你只需点那个向下的箭头，在下拉菜单里点击<code>设置</code>，在新建的窗口的下面点击你想设置的终端，如常用的<code>Powershell</code>和<code>CMD</code>，再找到<code>外观</code>,如下。</p>
+<p><img loading="lazy" src="/article/2fe613e2/set.webp" alt="设置页面"></p>
 ]]></content>
       <categories>
-        <category>🛸青铜时代号</category>
+        <category>✈️自然选择号</category>
       </categories>
       <tags>
-        <tag>📁教程</tag>
+        <tag>🪟Windows 系统</tag>
       </tags>
   </entry>
   <entry>
@@ -274,24 +292,6 @@
       </categories>
       <tags>
         <tag>📖杂谈</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>让终端更优雅—— Windows Terminal美化</title>
-    <url>/article/2fe613e2/</url>
-    <content><![CDATA[<h2 id="站长的碎碎念"><a href="#站长的碎碎念" class="headerlink" title="站长的碎碎念"></a>站长的碎碎念</h2><p><img loading="lazy" src="/article/2fe613e2/cmd.png" alt="这是默认的CMD"></p>
-<p>这就是默认的<code>命令提示符</code>，这还是我美化过的，cmd的潜质就只能被挖掘到这了。~~每天看这个我会吐的🤮 ~~<br>我们不能就苟居于此。看到微软的<code>Build 2019 大会</code>的了吗，Windows Terminal，我一看，好东西，立马看文档配置，学成以后，便有此文。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>打开<code>Microsoft Store</code>，搜索<code>Windows Terminal</code>，直接安装即可。<br><img loading="lazy" src="/article/2fe613e2/store.webp" alt="这是Win11的应用商店"></p>
-<p>还有个预览版，不知有什么差别，可以尝试。大概也差不了太多。<br><img loading="lazy" src="/article/2fe613e2/storepre.webp" alt="预览版"></p>
-<h2 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><p>打开安装好的Windows Terminal，大概是这样:<br><img loading="lazy" src="/article/2fe613e2/winter.webp" alt="请忽略我的Hexo日志"></p>
-<p>很简单，我就只是加了个壁纸，调了一下不透明度，换了个字体，就完了。<br>你只需点那个向下的箭头，在下拉菜单里点击<code>设置</code>，在新建的窗口的下面点击你想设置的终端，如常用的<code>Powershell</code>和<code>CMD</code>，再找到<code>外观</code>,如下。</p>
-<p><img loading="lazy" src="/article/2fe613e2/set.webp" alt="设置页面"></p>
-]]></content>
-      <categories>
-        <category>✈️自然选择号</category>
-      </categories>
-      <tags>
-        <tag>🪟Windows 系统</tag>
       </tags>
   </entry>
   <entry>
@@ -406,6 +406,21 @@
 <p>大伯放弃了，坐在那车上看着远处，爷爷来了，他一次又一次地尝试。“轰隆隆”，好不容易启动了，大伯和奶奶拿着割下的稻子放进机子里，那旋转着的尖刺会将稻谷分离出来。农民们享受着丰收的喜悦。</p>
 <p>真好，暑假作业中的作文有了。明天还要去农田里看看，带着手机去看看，一定不能放弃这来之不易的机会。</p>
 <p>晚安，加油。</p>
+<h2 id="2022-7-14-倒霉的一天"><a href="#2022-7-14-倒霉的一天" class="headerlink" title="2022-7-14 倒霉的一天"></a>2022-7-14 倒霉的一天</h2><p>早上起的蛮早，7点多自然醒，连闹钟时间都没到，属实是有点离奇了。<br>毕竟我昨晚近<del>1点才睡的</del>。一点睡七点起，骨灰盒子长方体。</p>
+<p>早上照常浏览手机，但是做的事情有意义得多，不是总是刷B站了，而是看点电子书。</p>
+<p>中午吃完饭，我去刷牙，发现洗牙套的机器抽风了，上面显示的时间不停地跳动，无论你怎动他，他一律是不理会，就是不动的在那“抽搐”。早就发现了些异象了，前几天发现好像有点漏水，机器也是有点卡顿。大概是倒水时进水了，我也不是很清楚，反正是不能用了。</p>
+<p>随着，我在客厅溜达了一下，溜着溜着就到了楼梯底下，一开始没注意，一个不小心撞到了“天花板”，痛的我脑瓜子嗡嗡的。</p>
+<p>下午5点多，说着要去拍照，就穿袜子，上洗手间，做好万千准备准备出门。很好，我伸手拉院子里的大门，门不动。奇了怪了，我用力试，没用。</p>
+<p>我开始观察，发现是大门下面有个杆子插地下了，行，我拔。我使劲，没用；再使劲，没用。</p>
+<p>我就纳闷了，我用鞋子勾，依旧没有一丝变化。在太阳的炙烤下，我甚至还没出门就已满身大汗。</p>
+<p>行，我摆烂了。回到客厅，连楼都不上，躺在摇摇椅上，看着手机，吹着风扇，爽。</p>
+<h2 id="2022-7-15-2022-7-16-平平无常"><a href="#2022-7-15-2022-7-16-平平无常" class="headerlink" title="2022-7-15 ~ 2022-7-16 平平无常"></a>2022-7-15 ~ 2022-7-16 平平无常</h2><p>很明显我已经被手机吸引了，成天就是手机。</p>
+<p>但是电脑也有时会搞搞博客，但是我的流量不允许。</p>
+<p>这两天主要是折腾了一下hugo博客，但是折腾了好久就是没有一点变化，博客甚至还是那个样。push上去后我一看，一点改变都没有，我在那一刻甚至想爆脏话。我实在是折腾累了，不想搞了。</p>
+<p>换了无数主题，这个hugo我是真不想搞了，真是****************。</p>
+<p>15号，下午，完成了数学作业。<br>16号，下午，完成了英语作业。</p>
+<h2 id="2022-7-17-准备回家了"><a href="#2022-7-17-准备回家了" class="headerlink" title="2022-7-17 准备回家了"></a>2022-7-17 准备回家了</h2><p>今天老爸来信息，20号回家。<br>但是刚好那一天我大姑从吉安回来，我甚至当天就走。<br>我瞬间开始审视我一天都在干什么，觉得自己真颓废。</p>
+<p>开始自律吧。</p>
 ]]></content>
       <tags>
         <tag>🧳旅行</tag>
@@ -540,6 +555,29 @@
       </tags>
   </entry>
   <entry>
+    <title>大改博客</title>
+    <url>/article/8cbf9cd6/</url>
+    <content><![CDATA[<p>是的，如你所见，我换了个极极极极简的博客主题，最近总是看着shoka主题的花哨心厌，博览Github仓库，问遍群友，找中了maupassant主题。</p>
+<p>其实我一直在paper和maupassant主题中做决定，还写了个python程序用random随机选一个循环一千遍，但这依旧治不了我的选择困难症，最后还是我拼命用万千说服自己：maupassant一直保持维护，而paper早已声明不在维护，这才戒掉了使用paper的心。其实paper也是有点花的，还有点慢，所以就没选。</p>
+<p>我觉着我的风格变了。以前看到那些所谓的大佬们说博客应以内容为主，不应花哨，我那时不予理会，挑了很多艳丽的主题使用，如爆改butterfly，但结果都不合人意。但现在，时间久了，我变心了，觉得这种纯白的博客不仅清新易读而且还节省资源，再也不愁什么加载速度了，皆大欢喜。</p>
+<p>本来想把评论关了，但博客交流还是很重要的，我可以开启，但我可以决定每条评论是否可以存在在我的博客上，这样想我就通了。</p>
+<p>其实迁移主题没花多少时间精力，主要是因为之前迁移shoka时已经改的很简洁了，现在只是过一遍，其实那时我就学聪明了，之后的文章都没怎么用主题自带的tag标签，导致现在迁移相当轻松。</p>
+<p>另外，我自作主张把一部分文章删了，因为这些文章质量比较差。建博客也挺久了，博文数量也看淡了，不在意那些烂尾文了。<br>最后，开启新的博客纪元吧！</p>
+<h2 id="Updated-Blog-at-2022-x2F-07-x2F-05-10-50"><a href="#Updated-Blog-at-2022-x2F-07-x2F-05-10-50" class="headerlink" title="Updated Blog at 2022&#x2F;07&#x2F;05 10:50"></a>Updated Blog at 2022&#x2F;07&#x2F;05 10:50</h2><p>关于maupassant所有的主题更改都会在这里公布，博客公告只发布其他方面的更新。</p>
+<ol>
+<li>新增Microsoft Clarity支持，为了统计嘛，可以理解(已pr（作者已光速merge）)</li>
+<li>更改页脚显示不蒜子pv、uv，方便我看</li>
+<li>更改字体为Harmony Regular，已压缩为woff2格式，大小约477KB</li>
+<li>浅改了一下文本大小和标题大小，网站名称已改为楷体</li>
+<li>解决掉waline路径问题，现在可以正常使用了，详见<a href="https://github.com/walinejs/waline/discussions/1160">Github Discussion</a>。</li>
+</ol>
+<h2 id="Updated-Blog-at-2022-x2F-07-x2F-16-10-09"><a href="#Updated-Blog-at-2022-x2F-07-x2F-16-10-09" class="headerlink" title="Updated Blog at 2022&#x2F;07&#x2F;16 10:09"></a>Updated Blog at 2022&#x2F;07&#x2F;16 10:09</h2><ol>
+<li>更改不蒜子js源为icodeq源</li>
+<li>添加说说页 <a href="/talk">在此</a></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>基于云函数自动给网易云音乐刷歌升级</title>
     <url>/article/cead5788/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于本Niko的网易云音乐实在是菜（才8级），而自己又是懒癌晚期，不想手动登录领云贝，并且以正常人的标准一天也刷不完300首歌（如果你是超人或者闲得慌当我没说）。所以去了解了这方面的项目，最终通过使用<code>良心云的云函数</code>实现了这一目标。</p>
@@ -565,29 +603,6 @@
       <tags>
         <tag>📁教程</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>大改博客</title>
-    <url>/article/8cbf9cd6/</url>
-    <content><![CDATA[<p>是的，如你所见，我换了个极极极极简的博客主题，最近总是看着shoka主题的花哨心厌，博览Github仓库，问遍群友，找中了maupassant主题。</p>
-<p>其实我一直在paper和maupassant主题中做决定，还写了个python程序用random随机选一个循环一千遍，但这依旧治不了我的选择困难症，最后还是我拼命用万千说服自己：maupassant一直保持维护，而paper早已声明不在维护，这才戒掉了使用paper的心。其实paper也是有点花的，还有点慢，所以就没选。</p>
-<p>我觉着我的风格变了。以前看到那些所谓的大佬们说博客应以内容为主，不应花哨，我那时不予理会，挑了很多艳丽的主题使用，如爆改butterfly，但结果都不合人意。但现在，时间久了，我变心了，觉得这种纯白的博客不仅清新易读而且还节省资源，再也不愁什么加载速度了，皆大欢喜。</p>
-<p>本来想把评论关了，但博客交流还是很重要的，我可以开启，但我可以决定每条评论是否可以存在在我的博客上，这样想我就通了。</p>
-<p>其实迁移主题没花多少时间精力，主要是因为之前迁移shoka时已经改的很简洁了，现在只是过一遍，其实那时我就学聪明了，之后的文章都没怎么用主题自带的tag标签，导致现在迁移相当轻松。</p>
-<p>另外，我自作主张把一部分文章删了，因为这些文章质量比较差。建博客也挺久了，博文数量也看淡了，不在意那些烂尾文了。<br>最后，开启新的博客纪元吧！</p>
-<h2 id="Updated-Blog-at-2022-x2F-07-x2F-05-10-50"><a href="#Updated-Blog-at-2022-x2F-07-x2F-05-10-50" class="headerlink" title="Updated Blog at 2022&#x2F;07&#x2F;05 10:50"></a>Updated Blog at 2022&#x2F;07&#x2F;05 10:50</h2><p>关于maupassant所有的主题更改都会在这里公布，博客公告只发布其他方面的更新。</p>
-<ol>
-<li>新增Microsoft Clarity支持，为了统计嘛，可以理解(已pr（作者已光速merge）)</li>
-<li>更改页脚显示不蒜子pv、uv，方便我看</li>
-<li>更改字体为Harmony Regular，已压缩为woff2格式，大小约477KB</li>
-<li>浅改了一下文本大小和标题大小，网站名称已改为楷体</li>
-<li>解决掉waline路径问题，现在可以正常使用了，详见<a href="https://github.com/walinejs/waline/discussions/1160">Github Discussion</a>。</li>
-</ol>
-<h2 id="Updated-Blog-at-2022-x2F-07-x2F-16-10-09"><a href="#Updated-Blog-at-2022-x2F-07-x2F-16-10-09" class="headerlink" title="Updated Blog at 2022&#x2F;07&#x2F;16 10:09"></a>Updated Blog at 2022&#x2F;07&#x2F;16 10:09</h2><ol>
-<li>更改不蒜子js源为icodeq源</li>
-<li>添加说说页 <a href="/talk">在此</a></li>
-</ol>
-]]></content>
   </entry>
   <entry>
     <title>小升初阅读理解必备知识干货</title>
@@ -913,32 +928,6 @@
       </tags>
   </entry>
   <entry>
-    <title>网易云音乐直链</title>
-    <url>/article/2118472832/</url>
-    <content><![CDATA[<p>网易云音乐有很多方法可以获取直链，但这些方法要么很快失效，要么有缓存时间。</p>
-<p>以下提供的方法简单、快捷并且直到现在依然可用。已经稳定几年了，网易云音乐外链用官方的就好。</p>
-<p>（凡是网易云音乐可以正常试听的均可以直链，因为版权原因或其他原因无法试听的也无法外链。）</p>
-<span id="more"></span>
-<p><img loading="lazy" src="https://cdn.jsdelivr.net/gh/2501070055/PIC/usr/uploads/2021/02/2025864149.jpg"></p>
-<h4 id="标题这里需要用到网易云音乐提供的直链-api："><a href="#标题这里需要用到网易云音乐提供的直链-api：" class="headerlink" title="标题这里需要用到网易云音乐提供的直链 api："></a>标题这里需要用到网易云音乐提供的直链 api：</h4><p><code>https://music.163.com/song/media/outer/url?id=xxx.mp3</code></p>
-<p>这里的 <code>id=xxx.mp3</code> 是根据你需要的歌曲的 ID 进行更改。</p>
-<h4 id="标题例如：歌曲：纵容-x2F-Capper"><a href="#标题例如：歌曲：纵容-x2F-Capper" class="headerlink" title="标题例如：歌曲：纵容 &#x2F; Capper"></a>标题例如：歌曲：纵容 &#x2F; Capper</h4><p><code>https://music.163.com/#/song?id=1819970423</code></p>
-<h4 id="标题修改为："><a href="#标题修改为：" class="headerlink" title="标题修改为："></a>标题修改为：</h4><p><code>https://music.163.com/song/media/outer/url?id=1819970423.mp3</code></p>
-<h4 id="标题-DEMO-演示"><a href="#标题-DEMO-演示" class="headerlink" title="标题 DEMO 演示"></a>标题 DEMO 演示</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span>=<span class="string">&quot;controls&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;/i/song.ogg&quot;</span> <span class="attr">type</span>=<span class="string">&quot;audio/ogg&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;https://music.163.com/song/media/outer/url?id=1816006982.mp3&quot;</span> <span class="attr">type</span>=<span class="string">&quot;audio/mpeg&quot;</span>&gt;</span></span><br><span class="line">Your browser does not support the audio element.</span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<!-- CloudCalendar -->
-<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
-<div class="widget" id="CloudCalendar"></div>
-</div>
-]]></content>
-      <categories>
-        <category>🛸青铜时代号</category>
-      </categories>
-      <tags>
-        <tag>📡Technology</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>聊聊近况</title>
     <url>/article/549a398b/</url>
     <content><![CDATA[<p>随着放学铃声的敲响，我们小学六年的生涯终于结束了。这六年里，有欢笑、有伤心、有惊喜、有感动。<br>在还小的时候，总天真的盼望着毕业的那天快快到来，总以为毕业了就可以放飞自我。但到了高年级时，心中却总觉着时间不够，总觉着缺着些什么。<br>高年级时，同学争分夺秒地获取联系方式，总有着说不完的话、玩不完的游戏，但别离终会到来。<br>考完试后，下楼，本想着再看最后一次母校的美景，但班主任不允许，只好作罢。走到学校门前，同学们只给老师们留下一句“再见”，便各奔东西。<br><img loading="lazy" src="/article/549a398b/school.webp" alt="只好找张百度百科的图" title="只好找张百度百科的图"><br>六年光阴，阴差阳错的聚在一起，依依不舍的散去。</p>
@@ -974,6 +963,32 @@
       </categories>
       <tags>
         <tag>🐍Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网易云音乐直链</title>
+    <url>/article/2118472832/</url>
+    <content><![CDATA[<p>网易云音乐有很多方法可以获取直链，但这些方法要么很快失效，要么有缓存时间。</p>
+<p>以下提供的方法简单、快捷并且直到现在依然可用。已经稳定几年了，网易云音乐外链用官方的就好。</p>
+<p>（凡是网易云音乐可以正常试听的均可以直链，因为版权原因或其他原因无法试听的也无法外链。）</p>
+<span id="more"></span>
+<p><img loading="lazy" src="https://cdn.jsdelivr.net/gh/2501070055/PIC/usr/uploads/2021/02/2025864149.jpg"></p>
+<h4 id="标题这里需要用到网易云音乐提供的直链-api："><a href="#标题这里需要用到网易云音乐提供的直链-api：" class="headerlink" title="标题这里需要用到网易云音乐提供的直链 api："></a>标题这里需要用到网易云音乐提供的直链 api：</h4><p><code>https://music.163.com/song/media/outer/url?id=xxx.mp3</code></p>
+<p>这里的 <code>id=xxx.mp3</code> 是根据你需要的歌曲的 ID 进行更改。</p>
+<h4 id="标题例如：歌曲：纵容-x2F-Capper"><a href="#标题例如：歌曲：纵容-x2F-Capper" class="headerlink" title="标题例如：歌曲：纵容 &#x2F; Capper"></a>标题例如：歌曲：纵容 &#x2F; Capper</h4><p><code>https://music.163.com/#/song?id=1819970423</code></p>
+<h4 id="标题修改为："><a href="#标题修改为：" class="headerlink" title="标题修改为："></a>标题修改为：</h4><p><code>https://music.163.com/song/media/outer/url?id=1819970423.mp3</code></p>
+<h4 id="标题-DEMO-演示"><a href="#标题-DEMO-演示" class="headerlink" title="标题 DEMO 演示"></a>标题 DEMO 演示</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span>=<span class="string">&quot;controls&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;/i/song.ogg&quot;</span> <span class="attr">type</span>=<span class="string">&quot;audio/ogg&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;https://music.163.com/song/media/outer/url?id=1816006982.mp3&quot;</span> <span class="attr">type</span>=<span class="string">&quot;audio/mpeg&quot;</span>&gt;</span></span><br><span class="line">Your browser does not support the audio element.</span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+<div class="widget" id="CloudCalendar"></div>
+</div>
+]]></content>
+      <categories>
+        <category>🛸青铜时代号</category>
+      </categories>
+      <tags>
+        <tag>📡Technology</tag>
       </tags>
   </entry>
 </search>
