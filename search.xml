@@ -31,84 +31,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Vercel-加速个人博客</title>
-    <url>/article/db9907b/</url>
-    <content><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>现在有不少人的博客网站都是白嫖 Github Pages等<code>免费</code>静态文件部署站的吧，我也不例外。但免费的东西总有不足之处，例如链接太长啦、加载太慢啦、CDN流量没啦等等。在以前配置Twikoo时就发现了一个还算良心的<strong>加速</strong>平台 —— Vercel</p>
-<h2 id="登录-x2F-注册"><a href="#登录-x2F-注册" class="headerlink" title="登录&#x2F;注册"></a>登录&#x2F;注册</h2><p>官网链接: <a href="https://vercel.com/signup">https://vercel.com/signup</a></p>
-<p><img loading="lazy" src="/article/db9907b/signup.webp" alt="注册页"></p>
-<p>大概是这样，选择自己的注册方式进去注册，但有个大坑等着你跳……<br>我第一次注册的时候报了个错，就是下面这个。<br><code>Error:This user account is blocked. Contact support@vercel.com for more information.</code></p>
-<p>就是这个，整的我心态崩溃，其实解决很简单，你只需要按他要求发个邮件给他就行，就这么简单粗暴，我也是这么解决的，还多了一个外交机会，感兴趣的可以看我与可能跟我隔了大半个地球的人类对话</p>
-<h2 id="跨地球交流"><a href="#跨地球交流" class="headerlink" title="跨地球交流"></a>跨地球交流</h2><p><img loading="lazy" src="/article/db9907b/com.webp" alt="邮件"></p>
-<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>登陆后，大概会自动进入Dashboard(即仪表板)，然后点击New Project,然后会看到这样：<br><img loading="lazy" src="/article/db9907b/pro.webp" alt="New Project"></p>
-<p>我是登陆好的，一般应该是要先登录Github账号后同步才会这样。<br>到了这个界面后，点击进入下面的<code>Import Third-Party Git Repository</code>,输入自己博客静态文件的Github地址。</p>
-<p>如果还没部署到Github上，就先随便点个仓库，先创建了先。</p>
-<p>搞定这些后，会进入这样的页面：<br><img loading="lazy" src="/article/db9907b/over.webp" alt="创建仓库"></p>
-<p>注意，<code>my-repository</code>填的是将创建的仓库名，但这也是部署后的域名的一部分，能短就短，更何况填了就不能改了，慎填。</p>
-<p>整完这些后，Vercel会自动Clone源仓库的东东到你设的<code>my-repository</code>，可以在下面查看进度，等一小会……</p>
-<h2 id="Over"><a href="#Over" class="headerlink" title="Over!"></a>Over!</h2><p>搞定后，Vercel会给你重定向，放烟花，可喜庆了。<br><img loading="lazy" src="/article/db9907b/done.webp" alt="done"></p>
-<p>点击中间的Domains下面的链接，那就是你的加速博客！</p>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="设定自定义域名"><a href="#设定自定义域名" class="headerlink" title="设定自定义域名"></a>设定自定义域名</h3><p>谁都不想用这不自由的又臭又长的地址，所以我命由我不由天。点击菜单栏的<code>Settings</code>，找到 <code>Domains</code>，点击默认域名右边的<code>Edit</code>按钮，自己改。</p>
-<h3 id="更新网页"><a href="#更新网页" class="headerlink" title="更新网页"></a>更新网页</h3><p>当你又对网页进行更改了咋办？No Problem。我们只需点到菜单栏的<code>Deployments</code>，点第一个列表Item右边的那三个点，像这样。<br><img loading="lazy" src="/article/db9907b/buchong.webp" alt="补充2"><br>点击后出来一个框，点<code>Promote to Production</code>，弹出个确认框，确认完事。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://akilar.top/posts/812734f8/">Sep.21 Akilar.使用Vercel来加速Hexo博客</a></p>
-]]></content>
-      <categories>
-        <category>🛸青铜时代号</category>
-      </categories>
-      <tags>
-        <tag>📁教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python-Requests</title>
-    <url>/article/e9ee3cf1/</url>
-    <content><![CDATA[<p>本教程使用Python语言，需提前安装Pip3 or Pip，例如Linux类的，请在命令行内输入:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install python3-pip</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>一条命令(临时换源):<br>Linux:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo pip install requests -i https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
-
-<p>Windows:</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">pip install requests -i https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="基础-Get请求"><a href="#基础-Get请求" class="headerlink" title="基础{Get请求}"></a>基础{Get请求}</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36&#x27;</span></span><br><span class="line">&#125;  <span class="comment"># 向服务器传递的数据</span></span><br><span class="line">response = requests.get(<span class="string">&#x27;https://bing.com&#x27;</span>,data=data).text <span class="comment"># text函数:获取对应网址的源代码</span></span><br><span class="line"><span class="built_in">print</span>(response)</span><br></pre></td></tr></table></figure>
-
-<p>User-Agent就像是<strong>浏览器的身份证</strong>,如果是Requests默认的ua的话，对应服务器会拒绝你的<strong>爬虫</strong>请求，简而言之，拿不到数据，所以我们要获得浏览器的ua。</p>
-<p><img loading="lazy" src="/article/e9ee3cf1/demo1.webp" alt="就在这拿User-Agent"></p>
-<h3 id="进阶-Post请求"><a href="#进阶-Post请求" class="headerlink" title="进阶 {Post请求}"></a>进阶 {Post请求}</h3><p><img loading="lazy" src="/article/e9ee3cf1/demo2.webp" alt="官网教程"></p>
-<ol>
-<li>带数据的 post</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"> </span><br><span class="line">host = <span class="string">&quot;http://httpbin.org/&quot;</span></span><br><span class="line">endpoint = <span class="string">&quot;post&quot;</span></span><br><span class="line">url = <span class="string">&#x27;&#x27;</span>.join([host,endpoint])</span><br><span class="line">data = &#123;<span class="string">&#x27;key1&#x27;</span>:<span class="string">&#x27;value1&#x27;</span>,<span class="string">&#x27;key2&#x27;</span>:<span class="string">&#x27;value2&#x27;</span>&#125;</span><br><span class="line"> </span><br><span class="line">r = requests.post(url,data=data)</span><br><span class="line"><span class="comment">#response = r.json()</span></span><br><span class="line"><span class="built_in">print</span> (r.text)</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>多文件上传</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"> </span><br><span class="line">host = <span class="string">&quot;http://httpbin.org/&quot;</span></span><br><span class="line">endpoint = <span class="string">&quot;post&quot;</span></span><br><span class="line"> </span><br><span class="line">url = <span class="string">&#x27;&#x27;</span>.join([host,endpoint])</span><br><span class="line"><span class="comment">#多文件上传</span></span><br><span class="line">files = [</span><br><span class="line">    (<span class="string">&#x27;file1&#x27;</span>,(<span class="string">&#x27;test.txt&#x27;</span>,<span class="built_in">open</span>(<span class="string">&#x27;test.txt&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>))),</span><br><span class="line">    (<span class="string">&#x27;file2&#x27;</span>, (<span class="string">&#x27;test.png&#x27;</span>, <span class="built_in">open</span>(<span class="string">&#x27;test.png&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>)))</span><br><span class="line">    ]</span><br><span class="line"> </span><br><span class="line">r = requests.post(url,files=files)</span><br><span class="line"><span class="built_in">print</span> (r.text)</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="冷门-Put-请求"><a href="#冷门-Put-请求" class="headerlink" title="冷门 {Put 请求}"></a>冷门 {Put 请求}</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line">url_put = <span class="string">&quot;http://127.0.0.1:8080/&quot;</span></span><br><span class="line">headers_put = &#123;</span><br><span class="line">	<span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&quot;application/json&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">param = &#123;</span><br><span class="line">	<span class="string">&#x27;myObjectField&#x27;</span>: <span class="string">&#x27;hello&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">payload = json.dumps(param)</span><br><span class="line">response_put = requests.put(url, data=payload, headers=headers_put)</span><br></pre></td></tr></table></figure>
-
-<h2 id="项目实战-梨视频爬虫"><a href="#项目实战-梨视频爬虫" class="headerlink" title="项目实战: 梨视频爬虫"></a>项目实战: 梨视频爬虫</h2><p>这个项目我以前做过，就直接复制过来啦，摆烂啦 （</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># !/usr/bin/python3</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">@author: </span></span><br><span class="line"><span class="string">@file: 梨视频爬虫.py</span></span><br><span class="line"><span class="string">@time: 2021/7/11 21:48</span></span><br><span class="line"><span class="string">@desc: </span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://www.pearvideo.com/video_1731260&quot;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;user-agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;referer&quot;</span>: url,</span><br><span class="line">&#125;</span><br><span class="line">contId = url.split(<span class="string">&quot;_&quot;</span>)[<span class="number">1</span>]</span><br><span class="line">videoStatusUrl = <span class="string">f&quot;https://video.pearvideo.com/mp4/third/20210603/cont-<span class="subst">&#123;contId&#125;</span>-15316010-202041-hd.mp4&quot;</span></span><br><span class="line"><span class="comment"># &#x27;https://video.pearvideo.com/mp4/third/20210603/cont-1731260-15316010-202041-hd.mp4&#x27;</span></span><br><span class="line"></span><br><span class="line">resp = requests.get(videoStatusUrl, headers=headers).content</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;video.mp4&quot;</span>, mode=<span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    file.write(resp)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<ol>
-<li>第14行,referer的定义，因梨视频请求头中必须有<code>防盗链</code>，即字典中的<code>referer</code>，如果没有，则获取不到视频数据。</li>
-<li>第16、17行，通过抓包得知，梨视频的视频直链即为一串固定地址加上视频ID号，只需进行字符串分割即可。</li>
-<li>第20行，向服务器发起<code>GET</code>请求，注意,<code>.content</code>是获取网页的<code>二进制数据</code>。</li>
-</ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这库是真的好用，方便。比Python标准库urllib好N倍不止，平时爬虫爬个电影数据就好，不要太过分。</p>
-]]></content>
-      <categories>
-        <category>🛫万年鲲鹏号</category>
-      </categories>
-      <tags>
-        <tag>🐍Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python Jieba库</title>
     <url>/article/2176063644/</url>
     <content><![CDATA[<h2 id="1-jieba-的江湖地位"><a href="#1-jieba-的江湖地位" class="headerlink" title="1. jieba 的江湖地位"></a><strong>1. jieba 的江湖地位</strong></h2><p>NLP（自然语言）领域现在可谓是群雄纷争，各种开源组件层出不穷，其中一支不可忽视的力量便是 jieba 分词，号称要做最好的 Python 中文分词组件。</p>
@@ -171,6 +93,56 @@
       </tags>
   </entry>
   <entry>
+    <title>Python-Requests</title>
+    <url>/article/e9ee3cf1/</url>
+    <content><![CDATA[<p>本教程使用Python语言，需提前安装Pip3 or Pip，例如Linux类的，请在命令行内输入:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install python3-pip</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>一条命令(临时换源):<br>Linux:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo pip install requests -i https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
+
+<p>Windows:</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">pip install requests -i https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="基础-Get请求"><a href="#基础-Get请求" class="headerlink" title="基础{Get请求}"></a>基础{Get请求}</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36&#x27;</span></span><br><span class="line">&#125;  <span class="comment"># 向服务器传递的数据</span></span><br><span class="line">response = requests.get(<span class="string">&#x27;https://bing.com&#x27;</span>,data=data).text <span class="comment"># text函数:获取对应网址的源代码</span></span><br><span class="line"><span class="built_in">print</span>(response)</span><br></pre></td></tr></table></figure>
+
+<p>User-Agent就像是<strong>浏览器的身份证</strong>,如果是Requests默认的ua的话，对应服务器会拒绝你的<strong>爬虫</strong>请求，简而言之，拿不到数据，所以我们要获得浏览器的ua。</p>
+<p><img loading="lazy" src="/article/e9ee3cf1/demo1.webp" alt="就在这拿User-Agent"></p>
+<h3 id="进阶-Post请求"><a href="#进阶-Post请求" class="headerlink" title="进阶 {Post请求}"></a>进阶 {Post请求}</h3><p><img loading="lazy" src="/article/e9ee3cf1/demo2.webp" alt="官网教程"></p>
+<ol>
+<li>带数据的 post</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"> </span><br><span class="line">host = <span class="string">&quot;http://httpbin.org/&quot;</span></span><br><span class="line">endpoint = <span class="string">&quot;post&quot;</span></span><br><span class="line">url = <span class="string">&#x27;&#x27;</span>.join([host,endpoint])</span><br><span class="line">data = &#123;<span class="string">&#x27;key1&#x27;</span>:<span class="string">&#x27;value1&#x27;</span>,<span class="string">&#x27;key2&#x27;</span>:<span class="string">&#x27;value2&#x27;</span>&#125;</span><br><span class="line"> </span><br><span class="line">r = requests.post(url,data=data)</span><br><span class="line"><span class="comment">#response = r.json()</span></span><br><span class="line"><span class="built_in">print</span> (r.text)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>多文件上传</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"> </span><br><span class="line">host = <span class="string">&quot;http://httpbin.org/&quot;</span></span><br><span class="line">endpoint = <span class="string">&quot;post&quot;</span></span><br><span class="line"> </span><br><span class="line">url = <span class="string">&#x27;&#x27;</span>.join([host,endpoint])</span><br><span class="line"><span class="comment">#多文件上传</span></span><br><span class="line">files = [</span><br><span class="line">    (<span class="string">&#x27;file1&#x27;</span>,(<span class="string">&#x27;test.txt&#x27;</span>,<span class="built_in">open</span>(<span class="string">&#x27;test.txt&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>))),</span><br><span class="line">    (<span class="string">&#x27;file2&#x27;</span>, (<span class="string">&#x27;test.png&#x27;</span>, <span class="built_in">open</span>(<span class="string">&#x27;test.png&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>)))</span><br><span class="line">    ]</span><br><span class="line"> </span><br><span class="line">r = requests.post(url,files=files)</span><br><span class="line"><span class="built_in">print</span> (r.text)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="冷门-Put-请求"><a href="#冷门-Put-请求" class="headerlink" title="冷门 {Put 请求}"></a>冷门 {Put 请求}</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line">url_put = <span class="string">&quot;http://127.0.0.1:8080/&quot;</span></span><br><span class="line">headers_put = &#123;</span><br><span class="line">	<span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&quot;application/json&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">param = &#123;</span><br><span class="line">	<span class="string">&#x27;myObjectField&#x27;</span>: <span class="string">&#x27;hello&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">payload = json.dumps(param)</span><br><span class="line">response_put = requests.put(url, data=payload, headers=headers_put)</span><br></pre></td></tr></table></figure>
+
+<h2 id="项目实战-梨视频爬虫"><a href="#项目实战-梨视频爬虫" class="headerlink" title="项目实战: 梨视频爬虫"></a>项目实战: 梨视频爬虫</h2><p>这个项目我以前做过，就直接复制过来啦，摆烂啦 （</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># !/usr/bin/python3</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">@author: </span></span><br><span class="line"><span class="string">@file: 梨视频爬虫.py</span></span><br><span class="line"><span class="string">@time: 2021/7/11 21:48</span></span><br><span class="line"><span class="string">@desc: </span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://www.pearvideo.com/video_1731260&quot;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;user-agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;referer&quot;</span>: url,</span><br><span class="line">&#125;</span><br><span class="line">contId = url.split(<span class="string">&quot;_&quot;</span>)[<span class="number">1</span>]</span><br><span class="line">videoStatusUrl = <span class="string">f&quot;https://video.pearvideo.com/mp4/third/20210603/cont-<span class="subst">&#123;contId&#125;</span>-15316010-202041-hd.mp4&quot;</span></span><br><span class="line"><span class="comment"># &#x27;https://video.pearvideo.com/mp4/third/20210603/cont-1731260-15316010-202041-hd.mp4&#x27;</span></span><br><span class="line"></span><br><span class="line">resp = requests.get(videoStatusUrl, headers=headers).content</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;video.mp4&quot;</span>, mode=<span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    file.write(resp)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<ol>
+<li>第14行,referer的定义，因梨视频请求头中必须有<code>防盗链</code>，即字典中的<code>referer</code>，如果没有，则获取不到视频数据。</li>
+<li>第16、17行，通过抓包得知，梨视频的视频直链即为一串固定地址加上视频ID号，只需进行字符串分割即可。</li>
+<li>第20行，向服务器发起<code>GET</code>请求，注意,<code>.content</code>是获取网页的<code>二进制数据</code>。</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这库是真的好用，方便。比Python标准库urllib好N倍不止，平时爬虫爬个电影数据就好，不要太过分。</p>
+]]></content>
+      <categories>
+        <category>🛫万年鲲鹏号</category>
+      </categories>
+      <tags>
+        <tag>🐍Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python Selenium自动化详解</title>
     <url>/article/6dh83ks9/</url>
     <content><![CDATA[<h2 id="废话"><a href="#废话" class="headerlink" title="废话"></a>废话</h2><p>Selenium，Python的浏览器自动化大佬库，称霸Python<strong>浏览器</strong>自动化领域。</p>
@@ -204,6 +176,52 @@
 <h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p>学了总要运用，搞个爬虫实例。</p>
 <h3 id="实战"><a href="#实战" class="headerlink" title="实战:"></a>实战:</h3><p>(鸽着先，坑以后再填~)</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Vercel-加速个人博客</title>
+    <url>/article/db9907b/</url>
+    <content><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>现在有不少人的博客网站都是白嫖 Github Pages等<code>免费</code>静态文件部署站的吧，我也不例外。但免费的东西总有不足之处，例如链接太长啦、加载太慢啦、CDN流量没啦等等。在以前配置Twikoo时就发现了一个还算良心的<strong>加速</strong>平台 —— Vercel</p>
+<h2 id="登录-x2F-注册"><a href="#登录-x2F-注册" class="headerlink" title="登录&#x2F;注册"></a>登录&#x2F;注册</h2><p>官网链接: <a href="https://vercel.com/signup">https://vercel.com/signup</a></p>
+<p><img loading="lazy" src="/article/db9907b/signup.webp" alt="注册页"></p>
+<p>大概是这样，选择自己的注册方式进去注册，但有个大坑等着你跳……<br>我第一次注册的时候报了个错，就是下面这个。<br><code>Error:This user account is blocked. Contact support@vercel.com for more information.</code></p>
+<p>就是这个，整的我心态崩溃，其实解决很简单，你只需要按他要求发个邮件给他就行，就这么简单粗暴，我也是这么解决的，还多了一个外交机会，感兴趣的可以看我与可能跟我隔了大半个地球的人类对话</p>
+<h2 id="跨地球交流"><a href="#跨地球交流" class="headerlink" title="跨地球交流"></a>跨地球交流</h2><p><img loading="lazy" src="/article/db9907b/com.webp" alt="邮件"></p>
+<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>登陆后，大概会自动进入Dashboard(即仪表板)，然后点击New Project,然后会看到这样：<br><img loading="lazy" src="/article/db9907b/pro.webp" alt="New Project"></p>
+<p>我是登陆好的，一般应该是要先登录Github账号后同步才会这样。<br>到了这个界面后，点击进入下面的<code>Import Third-Party Git Repository</code>,输入自己博客静态文件的Github地址。</p>
+<p>如果还没部署到Github上，就先随便点个仓库，先创建了先。</p>
+<p>搞定这些后，会进入这样的页面：<br><img loading="lazy" src="/article/db9907b/over.webp" alt="创建仓库"></p>
+<p>注意，<code>my-repository</code>填的是将创建的仓库名，但这也是部署后的域名的一部分，能短就短，更何况填了就不能改了，慎填。</p>
+<p>整完这些后，Vercel会自动Clone源仓库的东东到你设的<code>my-repository</code>，可以在下面查看进度，等一小会……</p>
+<h2 id="Over"><a href="#Over" class="headerlink" title="Over!"></a>Over!</h2><p>搞定后，Vercel会给你重定向，放烟花，可喜庆了。<br><img loading="lazy" src="/article/db9907b/done.webp" alt="done"></p>
+<p>点击中间的Domains下面的链接，那就是你的加速博客！</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="设定自定义域名"><a href="#设定自定义域名" class="headerlink" title="设定自定义域名"></a>设定自定义域名</h3><p>谁都不想用这不自由的又臭又长的地址，所以我命由我不由天。点击菜单栏的<code>Settings</code>，找到 <code>Domains</code>，点击默认域名右边的<code>Edit</code>按钮，自己改。</p>
+<h3 id="更新网页"><a href="#更新网页" class="headerlink" title="更新网页"></a>更新网页</h3><p>当你又对网页进行更改了咋办？No Problem。我们只需点到菜单栏的<code>Deployments</code>，点第一个列表Item右边的那三个点，像这样。<br><img loading="lazy" src="/article/db9907b/buchong.webp" alt="补充2"><br>点击后出来一个框，点<code>Promote to Production</code>，弹出个确认框，确认完事。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://akilar.top/posts/812734f8/">Sep.21 Akilar.使用Vercel来加速Hexo博客</a></p>
+]]></content>
+      <categories>
+        <category>🛸青铜时代号</category>
+      </categories>
+      <tags>
+        <tag>📁教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>让终端更优雅—— Windows Terminal美化</title>
+    <url>/article/2fe613e2/</url>
+    <content><![CDATA[<h2 id="站长的碎碎念"><a href="#站长的碎碎念" class="headerlink" title="站长的碎碎念"></a>站长的碎碎念</h2><p><img loading="lazy" src="/article/2fe613e2/cmd.png" alt="这是默认的CMD"></p>
+<p>这就是默认的<code>命令提示符</code>，这还是我美化过的，cmd的潜质就只能被挖掘到这了。~~每天看这个我会吐的🤮 ~~<br>我们不能就苟居于此。看到微软的<code>Build 2019 大会</code>的了吗，Windows Terminal，我一看，好东西，立马看文档配置，学成以后，便有此文。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>打开<code>Microsoft Store</code>，搜索<code>Windows Terminal</code>，直接安装即可。<br><img loading="lazy" src="/article/2fe613e2/store.webp" alt="这是Win11的应用商店"></p>
+<p>还有个预览版，不知有什么差别，可以尝试。大概也差不了太多。<br><img loading="lazy" src="/article/2fe613e2/storepre.webp" alt="预览版"></p>
+<h2 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><p>打开安装好的Windows Terminal，大概是这样:<br><img loading="lazy" src="/article/2fe613e2/winter.webp" alt="请忽略我的Hexo日志"></p>
+<p>很简单，我就只是加了个壁纸，调了一下不透明度，换了个字体，就完了。<br>你只需点那个向下的箭头，在下拉菜单里点击<code>设置</code>，在新建的窗口的下面点击你想设置的终端，如常用的<code>Powershell</code>和<code>CMD</code>，再找到<code>外观</code>,如下。</p>
+<p><img loading="lazy" src="/article/2fe613e2/set.webp" alt="设置页面"></p>
+]]></content>
+      <categories>
+        <category>✈️自然选择号</category>
+      </categories>
+      <tags>
+        <tag>🪟Windows 系统</tag>
+      </tags>
   </entry>
   <entry>
     <title>Windows11 美化+优化教程</title>
@@ -253,21 +271,29 @@
       </tags>
   </entry>
   <entry>
-    <title>让终端更优雅—— Windows Terminal美化</title>
-    <url>/article/2fe613e2/</url>
-    <content><![CDATA[<h2 id="站长的碎碎念"><a href="#站长的碎碎念" class="headerlink" title="站长的碎碎念"></a>站长的碎碎念</h2><p><img loading="lazy" src="/article/2fe613e2/cmd.png" alt="这是默认的CMD"></p>
-<p>这就是默认的<code>命令提示符</code>，这还是我美化过的，cmd的潜质就只能被挖掘到这了。~~每天看这个我会吐的🤮 ~~<br>我们不能就苟居于此。看到微软的<code>Build 2019 大会</code>的了吗，Windows Terminal，我一看，好东西，立马看文档配置，学成以后，便有此文。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>打开<code>Microsoft Store</code>，搜索<code>Windows Terminal</code>，直接安装即可。<br><img loading="lazy" src="/article/2fe613e2/store.webp" alt="这是Win11的应用商店"></p>
-<p>还有个预览版，不知有什么差别，可以尝试。大概也差不了太多。<br><img loading="lazy" src="/article/2fe613e2/storepre.webp" alt="预览版"></p>
-<h2 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><p>打开安装好的Windows Terminal，大概是这样:<br><img loading="lazy" src="/article/2fe613e2/winter.webp" alt="请忽略我的Hexo日志"></p>
-<p>很简单，我就只是加了个壁纸，调了一下不透明度，换了个字体，就完了。<br>你只需点那个向下的箭头，在下拉菜单里点击<code>设置</code>，在新建的窗口的下面点击你想设置的终端，如常用的<code>Powershell</code>和<code>CMD</code>，再找到<code>外观</code>,如下。</p>
-<p><img loading="lazy" src="/article/2fe613e2/set.webp" alt="设置页面"></p>
+    <title>关于我玩Phigros的历程</title>
+    <url>/article/bfdf9e97/</url>
+    <content><![CDATA[<p><img loading="lazy" src="/article/bfdf9e97/1.jpg" alt="开启动画"></p>
+<p>一转眼我玩phigros（以下简称“phi”）快半年了，当初怎么入坑的也不记得了，刚入坑第一想法：好简单，好快乐。入坑差不多一个多月内的时间只打HD难度的，EZ不屑打，IN打不过。之前最喜欢的歌就是Sultan Rage，然后就是各种疯狂肝，甚至离谱到闭上眼睛都能打前面那一段……</p>
+<p>那段时间是什么都不记的，什么note键全都不知道是啥，就记红键蓝键黄键。然后突发奇想去打了ENERGY SYNERGY MATRIX，被虐的很惨，这个故事告诉我们不要越级打歌。啊然后我的肝就放在了这两首歌上面，每天这个一遍那个一遍，结果就是一个上了蓝V（95W），一个卡在A(91w)再起不能。</p>
+<p>接着就是打主线，你知道这主线我是怎么过的吗！（拍桌）。说实话，对于我这样一个只想打自己喜欢的歌的“佛系玩家”，要把完全不喜欢的歌都打一遍还得A或S才能解锁，我的内心是崩溃的。啊当然每首歌的创作者都很厉害，歌也很好，是鄙人欣赏不来，抱拳，告辞（求生欲满分）。</p>
+<p>好像是在第五章，隐藏歌开始了。我第一次碰到的时候一脸懵逼，没想起来查攻略，傻呵呵的把整个phi都翻了一遍也没找到。一查攻略，哦要A以上解锁隐藏啊，然后我就死抠着Spasmodic的HD难度打了N遍，再一看，我去打EZ都能解，不早说？！自此我就开始了我的……应该说fw之录吧？因为从我知道这些隐藏歌打EZ也能解锁之后，我就没怎么打过HD了。</p>
+<p>第六章最草率，为了赶紧解锁魔王曲就打的飞快，全打的EZ。然后就是跟着攻略走，看见攻略说有一个下落比较缓慢的蓝键不能按的时候我还有点紧张，因为我怕按错，再者就是真的不想打第二遍了。</p>
+<p>第七章我就觉得挺麻烦的，因为全部曲子打完一遍都是A以上之后再重新打第一首就会变成隐藏曲，最最关键的是，隐藏曲他要全连啊！！！就因为这个全连，我重新打了两遍才过……当时我还觉得特激动来着，毕竟是最初版本的phi打魔王曲，截了挺多张图，最后都因为内存不够被删了。</p>
+<p>然后我就开始“养老”，打魔王曲的HD，结果怎么都打不到S……91w是我的极限了。</p>
+<p>这个时候，MARENOL出现在了我的视线里。我挺喜欢这种歌的，因为听着就有一种“啊我真帅”“啊我就是末日唯一幸存者”这种沙雕的感觉……这个比喻可能不太好，但是我也想不到其他的比喻了23333。我就一直在打这首，因为是手机所以操作不是很方便，而且我这小米手机老是打一半突然卡一下，等再连上的时候就只有一句恶魔低语“你 线 白 了”。</p>
+<p>而且这还是看运气的，唉我真无语。</p>
+<p>我在B站就刷到了996，挺想尝试一下的，但是怎么搜都给我显示996只要更新到最新版本就有，我还以为是又要打歌呢。我的phi是浏览器搜出来下的，因为应用商店没有，所以网上搜出来的那些更新方法对我似乎都没啥用。我看有人说卸掉重新装就能更到最新版本，但是我不敢啊。有了先前在iPad上删掉再下啥也没了的经验，我是真的不敢删了。于是我就在iPad上又下了回来，就单纯打996，手机上就不管了。</p>
+<p>结果事情出现了转机，我当时就是想在手机上也有996打，但又不想卸载，就寻思着下个taptap再下一个phi。我在taptap上下载了phi之后没在桌面上发现新的phi，回去一看哦豁原来人家是直接在taptap里面玩的。激动人心的时刻到来了，我登上去发现是自己的号！我怀着激动的心情退出了taptap去看手机上的phi，哇它真的更了！！！没有人知道我当时有多开心，狂喜了简直。</p>
+<p>说完了过去，来说说我现在都在干啥。首先就是前面提到过的MARENOL，手机卡95w了，iPad到是上了99w。996也是，iPad92w手机91w卡死。然后就是Another Round，手机有98w，iPad因为MB不够了所以没解锁。还有就是rks，写这篇的时候我的rks才9.62……我朋友都疑惑为什么这么低，我去浏览器一搜，他告诉我rks跟准度和你打的歌的多少计算……对于我这种只打爱听的歌的人非常不友好！！！（梅开二度）放几张图</p>
+<p><img loading="lazy" src="/article/bfdf9e97/a15a9b8f745f76ec7b945b58653a253.jpg" alt="996"><br><img loading="lazy" src="/article/bfdf9e97/e6ec8019257f466f008053681412bdf.jpg" alt="Another Round"><br><img loading="lazy" src="/article/bfdf9e97/0d189b4c6e06597598662a7cc0bd904.jpg" alt="MARENOL"></p>
+<p>该讲的到这里就讲完了，一篇基本都是流水账，我果然没有写作文的天赋啊唉</p>
 ]]></content>
       <categories>
-        <category>✈️自然选择号</category>
+        <category>🚁无限边疆号</category>
       </categories>
       <tags>
-        <tag>🪟Windows 系统</tag>
+        <tag>🎮游戏</tag>
       </tags>
   </entry>
   <entry>
@@ -295,32 +321,6 @@
       </tags>
   </entry>
   <entry>
-    <title>关于我玩Phigros的历程</title>
-    <url>/article/bfdf9e97/</url>
-    <content><![CDATA[<p><img loading="lazy" src="/article/bfdf9e97/1.jpg" alt="开启动画"></p>
-<p>一转眼我玩phigros（以下简称“phi”）快半年了，当初怎么入坑的也不记得了，刚入坑第一想法：好简单，好快乐。入坑差不多一个多月内的时间只打HD难度的，EZ不屑打，IN打不过。之前最喜欢的歌就是Sultan Rage，然后就是各种疯狂肝，甚至离谱到闭上眼睛都能打前面那一段……</p>
-<p>那段时间是什么都不记的，什么note键全都不知道是啥，就记红键蓝键黄键。然后突发奇想去打了ENERGY SYNERGY MATRIX，被虐的很惨，这个故事告诉我们不要越级打歌。啊然后我的肝就放在了这两首歌上面，每天这个一遍那个一遍，结果就是一个上了蓝V（95W），一个卡在A(91w)再起不能。</p>
-<p>接着就是打主线，你知道这主线我是怎么过的吗！（拍桌）。说实话，对于我这样一个只想打自己喜欢的歌的“佛系玩家”，要把完全不喜欢的歌都打一遍还得A或S才能解锁，我的内心是崩溃的。啊当然每首歌的创作者都很厉害，歌也很好，是鄙人欣赏不来，抱拳，告辞（求生欲满分）。</p>
-<p>好像是在第五章，隐藏歌开始了。我第一次碰到的时候一脸懵逼，没想起来查攻略，傻呵呵的把整个phi都翻了一遍也没找到。一查攻略，哦要A以上解锁隐藏啊，然后我就死抠着Spasmodic的HD难度打了N遍，再一看，我去打EZ都能解，不早说？！自此我就开始了我的……应该说fw之录吧？因为从我知道这些隐藏歌打EZ也能解锁之后，我就没怎么打过HD了。</p>
-<p>第六章最草率，为了赶紧解锁魔王曲就打的飞快，全打的EZ。然后就是跟着攻略走，看见攻略说有一个下落比较缓慢的蓝键不能按的时候我还有点紧张，因为我怕按错，再者就是真的不想打第二遍了。</p>
-<p>第七章我就觉得挺麻烦的，因为全部曲子打完一遍都是A以上之后再重新打第一首就会变成隐藏曲，最最关键的是，隐藏曲他要全连啊！！！就因为这个全连，我重新打了两遍才过……当时我还觉得特激动来着，毕竟是最初版本的phi打魔王曲，截了挺多张图，最后都因为内存不够被删了。</p>
-<p>然后我就开始“养老”，打魔王曲的HD，结果怎么都打不到S……91w是我的极限了。</p>
-<p>这个时候，MARENOL出现在了我的视线里。我挺喜欢这种歌的，因为听着就有一种“啊我真帅”“啊我就是末日唯一幸存者”这种沙雕的感觉……这个比喻可能不太好，但是我也想不到其他的比喻了23333。我就一直在打这首，因为是手机所以操作不是很方便，而且我这小米手机老是打一半突然卡一下，等再连上的时候就只有一句恶魔低语“你 线 白 了”。</p>
-<p>而且这还是看运气的，唉我真无语。</p>
-<p>我在B站就刷到了996，挺想尝试一下的，但是怎么搜都给我显示996只要更新到最新版本就有，我还以为是又要打歌呢。我的phi是浏览器搜出来下的，因为应用商店没有，所以网上搜出来的那些更新方法对我似乎都没啥用。我看有人说卸掉重新装就能更到最新版本，但是我不敢啊。有了先前在iPad上删掉再下啥也没了的经验，我是真的不敢删了。于是我就在iPad上又下了回来，就单纯打996，手机上就不管了。</p>
-<p>结果事情出现了转机，我当时就是想在手机上也有996打，但又不想卸载，就寻思着下个taptap再下一个phi。我在taptap上下载了phi之后没在桌面上发现新的phi，回去一看哦豁原来人家是直接在taptap里面玩的。激动人心的时刻到来了，我登上去发现是自己的号！我怀着激动的心情退出了taptap去看手机上的phi，哇它真的更了！！！没有人知道我当时有多开心，狂喜了简直。</p>
-<p>说完了过去，来说说我现在都在干啥。首先就是前面提到过的MARENOL，手机卡95w了，iPad到是上了99w。996也是，iPad92w手机91w卡死。然后就是Another Round，手机有98w，iPad因为MB不够了所以没解锁。还有就是rks，写这篇的时候我的rks才9.62……我朋友都疑惑为什么这么低，我去浏览器一搜，他告诉我rks跟准度和你打的歌的多少计算……对于我这种只打爱听的歌的人非常不友好！！！（梅开二度）放几张图</p>
-<p><img loading="lazy" src="/article/bfdf9e97/a15a9b8f745f76ec7b945b58653a253.jpg" alt="996"><br><img loading="lazy" src="/article/bfdf9e97/e6ec8019257f466f008053681412bdf.jpg" alt="Another Round"><br><img loading="lazy" src="/article/bfdf9e97/0d189b4c6e06597598662a7cc0bd904.jpg" alt="MARENOL"></p>
-<p>该讲的到这里就讲完了，一篇基本都是流水账，我果然没有写作文的天赋啊唉</p>
-]]></content>
-      <categories>
-        <category>🚁无限边疆号</category>
-      </categories>
-      <tags>
-        <tag>🎮游戏</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Niko&#39;s Pan —— 免费的公开网盘</title>
     <url>/article/cdd581d8/</url>
     <content><![CDATA[<p>昨天晚上，我与怀春君聊天时，了解到Vercel平台也能部署云盘，只不过是Onedrive作后台，我乐开了花，白嫖的能部署就不错了，不在意这些小细节。<br>于是，我就来回在Vercel和Github间反复横跳，终于搭建出这套公有读私有写的公共网盘 —— <strong>Niko’s Pan</strong></p>
@@ -338,34 +338,10 @@
       </tags>
   </entry>
   <entry>
-    <title>升级+优化的网易云歌单下载器</title>
-    <url>/article/783094e0/</url>
-    <content><![CDATA[<p>嘿，大家好，今天复习了一下爬虫知识，自己想爬个网易云的歌单下来，备着以后禁网的时候听。但由于我懒癌晚期，懒得直接上浏览器上搜，搜着，发现没有一个合格的。<br>为什么？其实是因为那些爬虫是打开浏览器（即Selenium）、打开歌单的网址、把其中的歌曲名和链接拿下、依次用外链下载。<br>这个方法不好，原因是在网页版的网易云的<strong>无登陆状态</strong>是只能在歌单里看到十首歌，无法看全。就好比我歌单里有50首歌，而你的爬虫只能爬10首下来，没效果。</p>
-<p>没办法，只能自己写了。<del>就是套了个api嘛。</del>源码如下。</p>
-<p>只有进度条版本的。。。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> jsonpath</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">choose = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;1.歌单 2.歌曲&quot;</span>))</span><br><span class="line"><span class="keyword">if</span> choose == <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">    playlist_url = <span class="built_in">input</span>(<span class="string">&#x27;请输入歌单网址: &gt;&gt;&gt;&#x27;</span>)</span><br><span class="line">    playlist_id = <span class="built_in">int</span>(playlist_url.strip().split(<span class="string">&#x27;=&#x27;</span>)[-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    myjson = requests.get(</span><br><span class="line">        <span class="string">&#x27;https://api.injahow.cn/meting/?type=playlist&amp;id=&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(playlist_id)</span><br><span class="line">    )</span><br><span class="line">    data = json.loads(myjson.text)</span><br><span class="line"></span><br><span class="line">    urls = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">        url = jsonpath.jsonpath(i, <span class="string">&#x27;$..url&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        urls.append(url[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># https://api.injahow.cn/meting/?server=netease&amp;type=url&amp;id=1344088470</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;总共有&#123;&#125;个链接，开始下载……\n&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(urls)))</span><br><span class="line"></span><br><span class="line">    os.makedirs(<span class="string">&#x27;.\\dmusic\\playlist\\&#123;&#125;\\&#x27;</span>.<span class="built_in">format</span>(playlist_id),exist_ok=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> tqdm(urls, desc=<span class="string">&#x27;下载中&#x27;</span>):</span><br><span class="line">        song_id = url.strip().split(<span class="string">&#x27;=&#x27;</span>)[-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">with</span> requests.get(url) <span class="keyword">as</span> resp:</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(</span><br><span class="line">                <span class="string">&#x27;.\\dmusic\\playlist\\&#123;&#125;\\&#x27;</span>.<span class="built_in">format</span>(playlist_id) + <span class="built_in">str</span>(song_id) + <span class="string">&#x27;.mp3&#x27;</span>,</span><br><span class="line">                mode=<span class="string">&#x27;wb&#x27;</span>,</span><br><span class="line">            ) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(resp.content)</span><br><span class="line"></span><br><span class="line"><span class="keyword">elif</span> choose == <span class="number">2</span>:</span><br><span class="line">    song_url = <span class="built_in">input</span>(<span class="string">&#x27;请输入歌曲网址 (q退出): &gt;&gt;&gt;&#x27;</span>)</span><br><span class="line">    <span class="keyword">while</span> song_url != <span class="string">&#x27;q&#x27;</span>:</span><br><span class="line">        song_id = <span class="built_in">int</span>(song_url.strip().split(<span class="string">&#x27;=&#x27;</span>)[-<span class="number">1</span>])</span><br><span class="line">        myjson = requests.get(</span><br><span class="line">            <span class="string">&#x27;https://api.injahow.cn/meting/?type=song&amp;id=&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(song_id)</span><br><span class="line">        )</span><br><span class="line">        data = json.loads(myjson.text)</span><br><span class="line"></span><br><span class="line">        os.makedirs(<span class="string">&#x27;.\\dmusic\\song\\&#x27;</span>,exist_ok=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> requests.get(url=jsonpath.jsonpath(data, <span class="string">&#x27;$..url&#x27;</span>)[<span class="number">0</span>]) <span class="keyword">as</span> resp:</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(</span><br><span class="line">                <span class="string">&#x27;.\\dmusic\\song\\&#x27;</span> + <span class="built_in">str</span>(song_id) + <span class="string">&#x27;.mp3&#x27;</span>,</span><br><span class="line">                mode=<span class="string">&#x27;wb&#x27;</span>,</span><br><span class="line">            ) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(resp.content)</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">str</span>(song_id) + <span class="string">&quot;下载成功&quot;</span>)</span><br><span class="line">        song_url = <span class="built_in">input</span>(<span class="string">&#x27;请输入歌曲网址 (q退出): &gt;&gt;&gt;&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>效果:<br><img loading="lazy" src="/article/783094e0/done.webp"></p>
-<p>如果看到那些用ID命名的歌曲不惯呢，可以打开网易云音乐桌面版 –&gt; 打开本地音乐 –&gt; 选择目录 –&gt; 把<code>缓存糖果屋</code>添加进去 –&gt; 添加完后，点击匹配音乐 –&gt; ALL DONE!</p>
-<h1 id="Update-at-22-x2F-06-x2F-18"><a href="#Update-at-22-x2F-06-x2F-18" class="headerlink" title="Update at 22&#x2F;06&#x2F;18"></a>Update at 22&#x2F;06&#x2F;18</h1><p>今天新的读卡器到了，给音响里加几首歌，急需歌曲单首下载，加了点功能。<br>请在上面代码查看，没有普通版本（懒得一批）<br>主要是更新了单曲连续下载，只要不按q键就不会停止询问下载。<br>其次，整理了一下歌曲下载的文件夹。<br><strong>618快乐！</strong></p>
-<p>TO DO LIST:</p>
-<ul>
-<li><input disabled="" type="checkbox"> 将文件命名为歌曲名 </li>
-<li><input checked="" disabled="" type="checkbox"> <del>加入歌曲下载</del> <strong>已改进</strong></li>
-<li><input disabled="" type="checkbox"> 实现GUI</li>
-</ul>
-]]></content>
-      <categories>
-        <category>🛫万年鲲鹏号</category>
-      </categories>
-      <tags>
-        <tag>🎵死磕记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>出发，向江西进发！</title>
     <url>/article/5ce5d338/</url>
-    <content><![CDATA[<h2 id="2022-7-7-踏上回家乡的征程"><a href="#2022-7-7-踏上回家乡的征程" class="headerlink" title="2022-7-7 踏上回家乡的征程"></a>2022-7-7 踏上回家乡的征程</h2><p>想来也有个把年头没回老家了。早就有计划这个暑假要回老家了，只是因为毕业那会事比较多，学业也重，一直没有时间顾虑。这次回家也是急匆匆的，本来计划下午还是晚上在坐车回家，但车上午就来了，所以我中午饭都没吃就上了车，和我爸的朋友的朋友或者说我的朋友的爸爸的朋友和他的妻子一起回家。</p>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文为我从2022年7月7日至2022年7月20日在老家的经历，最后一次编辑于2022-7-20 21：03，目前已完结，不再更新。</p>
+<h2 id="2022-7-7-踏上回家乡的征程"><a href="#2022-7-7-踏上回家乡的征程" class="headerlink" title="2022-7-7 踏上回家乡的征程"></a>2022-7-7 踏上回家乡的征程</h2><p>想来也有个把年头没回老家了。早就有计划这个暑假要回老家了，只是因为毕业那会事比较多，学业也重，一直没有时间顾虑。这次回家也是急匆匆的，本来计划下午还是晚上在坐车回家，但车上午就来了，所以我中午饭都没吃就上了车，和我爸的朋友的朋友或者说我的朋友的爸爸的朋友和他的妻子一起回家。</p>
 <p>车很大，看车型和车标是丰田的MPV奥德赛，白色。车上很大，车门是自动的，座椅甚至可以下放，可以舒服地躺着。自从我爸买了车，我就一直对车上的味道有些敏感，所以坐车去长途旅行在车上都会戴口罩，有时甚至会带两个（味太冲了），所以，在这辆车上，我也是一直带着口罩度过的。</p>
 <p>这位叔叔很随和、很大方，是那种很懂得欣赏美景的人，他不会把车开得太快，用他自己的话说是“你看这路上的风景多好啊，要不是着急赶路，我们都可以把车停下拍几张照呼吸一下新鲜空气呢。”</p>
 <p>在车上，我大部分时间在看外头的风景，一小部分时间会听一下周董的歌消遣一下（这会儿不是很火吗），也小睡了一会。</p>
@@ -421,9 +397,82 @@
 <p>15号，下午，完成了数学作业。<br>16号，下午，完成了英语作业。</p>
 <h2 id="2022-7-17-准备回家了"><a href="#2022-7-17-准备回家了" class="headerlink" title="2022-7-17 准备回家了"></a>2022-7-17 准备回家了</h2><p>今天老爸来信息，20号回家。<br>但是刚好那一天我大姑从吉安回来，我甚至当天就走。<br>我瞬间开始审视我一天都在干什么，觉得自己真颓废。</p>
 <p>开始自律吧。</p>
+<h2 id="2022-7-18-2022-7-19-临行前的准备"><a href="#2022-7-18-2022-7-19-临行前的准备" class="headerlink" title="2022-7-18 ~ 2022-7-19 临行前的准备"></a>2022-7-18 ~ 2022-7-19 临行前的准备</h2><p>越是临行前，更加有恋恋不舍地情愫。只有即将失去，才会珍惜。</p>
+<p>所以我拍了相当多的照片。</p>
+<p><img loading="lazy" src="/article/5ce5d338/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220720204700.jpg"><br><img loading="lazy" src="/article/5ce5d338/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220720204704.jpg"></p>
+<p>真的拍得相当多，只是懒得放出来。<br>即将离别了，该作何感想呢？<br>我在深夜里思索。</p>
+<h2 id="2022-7-20-回家！"><a href="#2022-7-20-回家！" class="headerlink" title="2022-7-20 回家！"></a>2022-7-20 回家！</h2><p>6：04，我醒来了。自从暑假来最早的一次，跑到外头呼吸新鲜空气，这种感觉就是不一样，清新，较之前7点起来的时候的气象完全两样。</p>
+<p>6：30，看狗子，拍照，留念。<br>7：00，回家吃早餐。<br>7：30，接着散步。<br><img loading="lazy" src="/article/5ce5d338/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220720204700.jpg"><br><img loading="lazy" src="/article/5ce5d338/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220720204704.jpg"><br>8：00，回家坐着，等车。<br>9：00，车来了。型号为雷克萨斯ES300h。</p>
+<video controls="" autoplay="" name="media"><source src="80a3f72ae503a45dcd73a42903d89264.mp4" type="video/mp4"></video>
+<p><img loading="lazy" src="/article/5ce5d338/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220720204655.jpg"><br>奶奶带了许多家里自己种的粮食，轿车都装不下了，在车行驶的那一刻，我向爷爷奶奶道别。下次来不知是国庆假期，还是过年。都怪这万恶的COVID-19。</p>
+<p>16：00（具体没记清），回到家了。</p>
+<p>完结撒花，感谢陪伴~</p>
 ]]></content>
       <tags>
         <tag>🧳旅行</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>升级+优化的网易云歌单下载器</title>
+    <url>/article/783094e0/</url>
+    <content><![CDATA[<p>嘿，大家好，今天复习了一下爬虫知识，自己想爬个网易云的歌单下来，备着以后禁网的时候听。但由于我懒癌晚期，懒得直接上浏览器上搜，搜着，发现没有一个合格的。<br>为什么？其实是因为那些爬虫是打开浏览器（即Selenium）、打开歌单的网址、把其中的歌曲名和链接拿下、依次用外链下载。<br>这个方法不好，原因是在网页版的网易云的<strong>无登陆状态</strong>是只能在歌单里看到十首歌，无法看全。就好比我歌单里有50首歌，而你的爬虫只能爬10首下来，没效果。</p>
+<p>没办法，只能自己写了。<del>就是套了个api嘛。</del>源码如下。</p>
+<p>只有进度条版本的。。。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> jsonpath</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">choose = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;1.歌单 2.歌曲&quot;</span>))</span><br><span class="line"><span class="keyword">if</span> choose == <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">    playlist_url = <span class="built_in">input</span>(<span class="string">&#x27;请输入歌单网址: &gt;&gt;&gt;&#x27;</span>)</span><br><span class="line">    playlist_id = <span class="built_in">int</span>(playlist_url.strip().split(<span class="string">&#x27;=&#x27;</span>)[-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    myjson = requests.get(</span><br><span class="line">        <span class="string">&#x27;https://api.injahow.cn/meting/?type=playlist&amp;id=&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(playlist_id)</span><br><span class="line">    )</span><br><span class="line">    data = json.loads(myjson.text)</span><br><span class="line"></span><br><span class="line">    urls = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">        url = jsonpath.jsonpath(i, <span class="string">&#x27;$..url&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        urls.append(url[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># https://api.injahow.cn/meting/?server=netease&amp;type=url&amp;id=1344088470</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;总共有&#123;&#125;个链接，开始下载……\n&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(urls)))</span><br><span class="line"></span><br><span class="line">    os.makedirs(<span class="string">&#x27;.\\dmusic\\playlist\\&#123;&#125;\\&#x27;</span>.<span class="built_in">format</span>(playlist_id),exist_ok=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> tqdm(urls, desc=<span class="string">&#x27;下载中&#x27;</span>):</span><br><span class="line">        song_id = url.strip().split(<span class="string">&#x27;=&#x27;</span>)[-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">with</span> requests.get(url) <span class="keyword">as</span> resp:</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(</span><br><span class="line">                <span class="string">&#x27;.\\dmusic\\playlist\\&#123;&#125;\\&#x27;</span>.<span class="built_in">format</span>(playlist_id) + <span class="built_in">str</span>(song_id) + <span class="string">&#x27;.mp3&#x27;</span>,</span><br><span class="line">                mode=<span class="string">&#x27;wb&#x27;</span>,</span><br><span class="line">            ) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(resp.content)</span><br><span class="line"></span><br><span class="line"><span class="keyword">elif</span> choose == <span class="number">2</span>:</span><br><span class="line">    song_url = <span class="built_in">input</span>(<span class="string">&#x27;请输入歌曲网址 (q退出): &gt;&gt;&gt;&#x27;</span>)</span><br><span class="line">    <span class="keyword">while</span> song_url != <span class="string">&#x27;q&#x27;</span>:</span><br><span class="line">        song_id = <span class="built_in">int</span>(song_url.strip().split(<span class="string">&#x27;=&#x27;</span>)[-<span class="number">1</span>])</span><br><span class="line">        myjson = requests.get(</span><br><span class="line">            <span class="string">&#x27;https://api.injahow.cn/meting/?type=song&amp;id=&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(song_id)</span><br><span class="line">        )</span><br><span class="line">        data = json.loads(myjson.text)</span><br><span class="line"></span><br><span class="line">        os.makedirs(<span class="string">&#x27;.\\dmusic\\song\\&#x27;</span>,exist_ok=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> requests.get(url=jsonpath.jsonpath(data, <span class="string">&#x27;$..url&#x27;</span>)[<span class="number">0</span>]) <span class="keyword">as</span> resp:</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(</span><br><span class="line">                <span class="string">&#x27;.\\dmusic\\song\\&#x27;</span> + <span class="built_in">str</span>(song_id) + <span class="string">&#x27;.mp3&#x27;</span>,</span><br><span class="line">                mode=<span class="string">&#x27;wb&#x27;</span>,</span><br><span class="line">            ) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(resp.content)</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">str</span>(song_id) + <span class="string">&quot;下载成功&quot;</span>)</span><br><span class="line">        song_url = <span class="built_in">input</span>(<span class="string">&#x27;请输入歌曲网址 (q退出): &gt;&gt;&gt;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>效果:<br><img loading="lazy" src="/article/783094e0/done.webp"></p>
+<p>如果看到那些用ID命名的歌曲不惯呢，可以打开网易云音乐桌面版 –&gt; 打开本地音乐 –&gt; 选择目录 –&gt; 把<code>缓存糖果屋</code>添加进去 –&gt; 添加完后，点击匹配音乐 –&gt; ALL DONE!</p>
+<h1 id="Update-at-22-x2F-06-x2F-18"><a href="#Update-at-22-x2F-06-x2F-18" class="headerlink" title="Update at 22&#x2F;06&#x2F;18"></a>Update at 22&#x2F;06&#x2F;18</h1><p>今天新的读卡器到了，给音响里加几首歌，急需歌曲单首下载，加了点功能。<br>请在上面代码查看，没有普通版本（懒得一批）<br>主要是更新了单曲连续下载，只要不按q键就不会停止询问下载。<br>其次，整理了一下歌曲下载的文件夹。<br><strong>618快乐！</strong></p>
+<p>TO DO LIST:</p>
+<ul>
+<li><input disabled="" type="checkbox"> 将文件命名为歌曲名 </li>
+<li><input checked="" disabled="" type="checkbox"> <del>加入歌曲下载</del> <strong>已改进</strong></li>
+<li><input disabled="" type="checkbox"> 实现GUI</li>
+</ul>
+]]></content>
+      <categories>
+        <category>🛫万年鲲鹏号</category>
+      </categories>
+      <tags>
+        <tag>🎵死磕记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在Linux上使用WoeUsb制作Windows启动盘解救你的电脑</title>
+    <url>/article/8b97978b/</url>
+    <content><![CDATA[<h2 id="一些废话"><a href="#一些废话" class="headerlink" title="一些废话"></a>一些废话</h2><p>前不久，又将旧电脑搬出来，为了尝鲜、体验大家都说好的Linux Mint系统，我安装了它的xfce版本，但对于一台仅有2G内存的比我都大的上古渣机而言，还是太逊了。所以，为了重回本属于他的Windows世界，我开始了漫长的折腾之路。</p>
+<p>首先，我尝试了在安装好的Windows PE中通过迅雷下载MSDN的原版镜像，但是，这台机子运行FirPE的Win11内核还是卡爆了，下载不了。没办法，只能重回Linux Mint找找法子。</p>
+<p>回到Linux，我想到了我以前使用过的一个工具——WoeUSB，它可以制作Windows的启动U盘，但配置较麻烦。为了换个流畅点的系统，我上CSDN下官方Github，终于找到办法。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="下载迅雷，下载镜像"><a href="#下载迅雷，下载镜像" class="headerlink" title="下载迅雷，下载镜像"></a>下载迅雷，下载镜像</h3><p>由于MSDN的镜像都是ed2k链接的，而在linux上能下载ed2k的无非只有amule，但这个玩意儿的配置简直不当人，我立马退坑。所以，咱可以使用从deepin移植来的迅雷用于下载。</p>
+<h3 id="安装迅雷"><a href="#安装迅雷" class="headerlink" title="安装迅雷"></a>安装迅雷</h3><p>打开链接：<a href="https://wwa.lanzouj.com/b0af64egb">https://wwa.lanzouj.com/b0af64egb</a><br>密码为<strong>6z8f</strong><br>将里面两个文件都下载下来，在下载的目录里输入这两条命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dpkg -i deepin-elf-verify_0.0.16.10-1_amd64.deb</span><br><span class="line">sudo dpkg -i com.xunlei.download_1.0.0.1-1_repack1_amd64.deb</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>需要先输入上面那条再输入下面的，因为deepin-elf-verify是deepin仓库的认证，需要先添加才能安装从deepin移植来的软件。</p>
+<p>接着就在启动栏启动就好，一般在“互联网”分类中。</p>
+<h3 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h3><p>到了这一步基本上安装完成了，接下来就是下载镜像。<br>在迅雷的界面点击下载按钮，上MSDN找或者自己有，就填入，下载。</p>
+<h2 id="安装WoeUSB"><a href="#安装WoeUSB" class="headerlink" title="安装WoeUSB"></a>安装WoeUSB</h2><p>如果你上网找教程，你应该会看到直接使用pip安装woeusb的教程，但这样很鸡肋，因为woeusb的wxPython库的build不知为何会卡bug，一直完不成，所以还是跟着官方Github来做。</p>
+<p>打开你的终端，输入对应你系统的代码：</p>
+<figure class="highlight bash"><figcaption><span>Ubuntu</span></figcaption><table><tr><td class="code"><pre><span class="line">sudo apt install git p7zip-full python3-pip python3-wxgtk4.0 grub2-common grub-pc-bin</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>Arch</span></figcaption><table><tr><td class="code"><pre><span class="line">sudo pacman -Suy p7zip python-pip python-wxpython</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>Fedora</span></figcaption><table><tr><td class="code"><pre><span class="line">sudo dnf install git p7zip p7zip-plugins python3-pip python3-wxpython4</span><br></pre></td></tr></table></figure>
+
+<p>接着，使用git命令下载源码包。如果你没有可以直接上官方仓库上下载源码，并且解压缩：<a href="https://github.com/WoeUSB/WoeUSB-ng">https://github.com/WoeUSB/WoeUSB-ng</a></p>
+<p>如果你有git，那么请继续：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/WoeUSB/WoeUSB-ng.git</span><br></pre></td></tr></table></figure>
+
+<p>下载完后继续输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> WoeUSB-ng</span><br><span class="line">sudo pip3 install .</span><br></pre></td></tr></table></figure>
+
+<p>稍等片刻，你的WoeUSB就安装好啦~</p>
+<h2 id="使用WoeUSB"><a href="#使用WoeUSB" class="headerlink" title="使用WoeUSB"></a>使用WoeUSB</h2><p>WoeUSB可以使用应用程序或者命令行来使用，应用程序操作简便，直接在启动栏里调用即可，这里不做介绍。以下仅介绍命令行的用法。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo woeusb --target-filesystem NTFS --device &lt;镜像位置&gt; &lt;u盘挂载位置&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这个u盘挂载位置一般都是<code>/dev/sdb</code>，如果不同可以使用<code>fdisk -l</code>查看。</p>
+<p>再次稍等片刻，你就得到一个Windows启动盘用于重装你的系统啦~</p>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>当然啦，最简单的方法还是用身边的Windows电脑用refus或yumi制作一个系统啦，或者使用常备的PE系统也可以，所以，要想装一个Linux系统还是常备一个启动盘好点，防止哪天变心了要滚回Windows也方便点~ （</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>（Apr.13）<a href="https://github.com/WoeUSB/WoeUSB-ng/blob/master/README.md">WoeUSB-ng-Github’s README</a></p>
+]]></content>
+      <tags>
+        <tag>📁教程</tag>
       </tags>
   </entry>
   <entry>
@@ -480,39 +529,28 @@
       </categories>
   </entry>
   <entry>
-    <title>在Linux上使用WoeUsb制作Windows启动盘解救你的电脑</title>
-    <url>/article/8b97978b/</url>
-    <content><![CDATA[<h2 id="一些废话"><a href="#一些废话" class="headerlink" title="一些废话"></a>一些废话</h2><p>前不久，又将旧电脑搬出来，为了尝鲜、体验大家都说好的Linux Mint系统，我安装了它的xfce版本，但对于一台仅有2G内存的比我都大的上古渣机而言，还是太逊了。所以，为了重回本属于他的Windows世界，我开始了漫长的折腾之路。</p>
-<p>首先，我尝试了在安装好的Windows PE中通过迅雷下载MSDN的原版镜像，但是，这台机子运行FirPE的Win11内核还是卡爆了，下载不了。没办法，只能重回Linux Mint找找法子。</p>
-<p>回到Linux，我想到了我以前使用过的一个工具——WoeUSB，它可以制作Windows的启动U盘，但配置较麻烦。为了换个流畅点的系统，我上CSDN下官方Github，终于找到办法。</p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="下载迅雷，下载镜像"><a href="#下载迅雷，下载镜像" class="headerlink" title="下载迅雷，下载镜像"></a>下载迅雷，下载镜像</h3><p>由于MSDN的镜像都是ed2k链接的，而在linux上能下载ed2k的无非只有amule，但这个玩意儿的配置简直不当人，我立马退坑。所以，咱可以使用从deepin移植来的迅雷用于下载。</p>
-<h3 id="安装迅雷"><a href="#安装迅雷" class="headerlink" title="安装迅雷"></a>安装迅雷</h3><p>打开链接：<a href="https://wwa.lanzouj.com/b0af64egb">https://wwa.lanzouj.com/b0af64egb</a><br>密码为<strong>6z8f</strong><br>将里面两个文件都下载下来，在下载的目录里输入这两条命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dpkg -i deepin-elf-verify_0.0.16.10-1_amd64.deb</span><br><span class="line">sudo dpkg -i com.xunlei.download_1.0.0.1-1_repack1_amd64.deb</span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong>需要先输入上面那条再输入下面的，因为deepin-elf-verify是deepin仓库的认证，需要先添加才能安装从deepin移植来的软件。</p>
-<p>接着就在启动栏启动就好，一般在“互联网”分类中。</p>
-<h3 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h3><p>到了这一步基本上安装完成了，接下来就是下载镜像。<br>在迅雷的界面点击下载按钮，上MSDN找或者自己有，就填入，下载。</p>
-<h2 id="安装WoeUSB"><a href="#安装WoeUSB" class="headerlink" title="安装WoeUSB"></a>安装WoeUSB</h2><p>如果你上网找教程，你应该会看到直接使用pip安装woeusb的教程，但这样很鸡肋，因为woeusb的wxPython库的build不知为何会卡bug，一直完不成，所以还是跟着官方Github来做。</p>
-<p>打开你的终端，输入对应你系统的代码：</p>
-<figure class="highlight bash"><figcaption><span>Ubuntu</span></figcaption><table><tr><td class="code"><pre><span class="line">sudo apt install git p7zip-full python3-pip python3-wxgtk4.0 grub2-common grub-pc-bin</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><figcaption><span>Arch</span></figcaption><table><tr><td class="code"><pre><span class="line">sudo pacman -Suy p7zip python-pip python-wxpython</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><figcaption><span>Fedora</span></figcaption><table><tr><td class="code"><pre><span class="line">sudo dnf install git p7zip p7zip-plugins python3-pip python3-wxpython4</span><br></pre></td></tr></table></figure>
-
-<p>接着，使用git命令下载源码包。如果你没有可以直接上官方仓库上下载源码，并且解压缩：<a href="https://github.com/WoeUSB/WoeUSB-ng">https://github.com/WoeUSB/WoeUSB-ng</a></p>
-<p>如果你有git，那么请继续：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/WoeUSB/WoeUSB-ng.git</span><br></pre></td></tr></table></figure>
-
-<p>下载完后继续输入以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> WoeUSB-ng</span><br><span class="line">sudo pip3 install .</span><br></pre></td></tr></table></figure>
-
-<p>稍等片刻，你的WoeUSB就安装好啦~</p>
-<h2 id="使用WoeUSB"><a href="#使用WoeUSB" class="headerlink" title="使用WoeUSB"></a>使用WoeUSB</h2><p>WoeUSB可以使用应用程序或者命令行来使用，应用程序操作简便，直接在启动栏里调用即可，这里不做介绍。以下仅介绍命令行的用法。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo woeusb --target-filesystem NTFS --device &lt;镜像位置&gt; &lt;u盘挂载位置&gt;</span><br></pre></td></tr></table></figure>
-
-<p>这个u盘挂载位置一般都是<code>/dev/sdb</code>，如果不同可以使用<code>fdisk -l</code>查看。</p>
-<p>再次稍等片刻，你就得到一个Windows启动盘用于重装你的系统啦~</p>
-<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>当然啦，最简单的方法还是用身边的Windows电脑用refus或yumi制作一个系统啦，或者使用常备的PE系统也可以，所以，要想装一个Linux系统还是常备一个启动盘好点，防止哪天变心了要滚回Windows也方便点~ （</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>（Apr.13）<a href="https://github.com/WoeUSB/WoeUSB-ng/blob/master/README.md">WoeUSB-ng-Github’s README</a></p>
+    <title>基于云函数自动给网易云音乐刷歌升级</title>
+    <url>/article/cead5788/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于本Niko的网易云音乐实在是菜（才8级），而自己又是懒癌晚期，不想手动登录领云贝，并且以正常人的标准一天也刷不完300首歌（如果你是超人或者闲得慌当我没说）。所以去了解了这方面的项目，最终通过使用<code>良心云的云函数</code>实现了这一目标。</p>
+<h2 id="白嫖良心云的云函数服务"><a href="#白嫖良心云的云函数服务" class="headerlink" title="白嫖良心云的云函数服务"></a>白嫖良心云的<strong>云函数服务</strong></h2><p>进入良心云的<code>云函数SCF</code>网站，<a href="https://cloud.tencent.com/product/scf">https://cloud.tencent.com/product/scf</a>。先登录，接着进入云函数<strong>控制台</strong>，<a href="https://console.cloud.tencent.com/scf/list">https://console.cloud.tencent.com/scf</a>。</p>
+<ol>
+<li><p>如图，点击<code>新建按钮</code>:<br><img loading="lazy" src="https://pic.imgdb.cn/item/625c326b239250f7c57fb450.jpg" title="进入后点击新建按钮"></p>
+</li>
+<li><p>接着点击<code>从头开始</code>:<br><img loading="lazy" src="https://pic.imgdb.cn/item/625c32b4239250f7c58039de.jpg" title="点击‘从头开始’"></p>
+</li>
+<li><p>如图。<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cb687239250f7c51f0355.jpg" title="按照图片操作"><br>将<code>函数名称</code>改成你喜欢的。将<code>地域</code>改为你目前所在地。将<code>运行环境</code>改为NodeJs的最高版本（目前是<code>NodeJs 16.13</code>）<br>然后点击<code>本地上传zip包</code>将执行方法改为<strong>index.main</strong><br>再在下面将函数代码上传。代码下载链接: <a href="https://github.com/LittleControl/AutoNeteaseMusic/releases">https://github.com/LittleControl/AutoNeteaseMusic/releases</a></p>
+</li>
+<li><p>如图。<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cb87b239250f7c521e8f6.jpg" title="如图设置"><br><code>描述</code>随便填，<code>内存</code>改为<strong>64MB</strong>（64MB免费额度更高，能省则省），再将<code>执行超时时间</code>设置为<strong>900</strong>.</p>
+</li>
+<li><p>如图。<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cb977239250f7c5237995.jpg" title="如图设置"><br>选择<code>自定义创建</code>。<code>触发周期</code>切换为<strong>自定义触发周期</strong>。<code>Cron表达式</code>输入<code>0 0 1,16 * * * *</code><br>接着，点击完成。</p>
+</li>
+</ol>
+<h2 id="设置云函数"><a href="#设置云函数" class="headerlink" title="设置云函数"></a>设置云函数</h2><p>设置好云函数后，我们还需要将账号密码、api链接搞好。<br>进入<code>函数代码</code>部分，等待一小会，会看到这样一幅画面：<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cbaa0239250f7c5253f08.jpg" title="如图"><br>打开 <code>/src/config/api</code>将里面的所有内容替换为<code>https://music163-api-seven.vercel.app/</code>（这是我部署的API，出问题找我）<br>接着，打开<code>/src/config/account</code>，在文件的<strong>第一行</strong>写上你的<code>手机号码</code>或<code>网易邮箱</code>，然后在第二行写上你的密码。如果你有多账号，请按照”账号、密码、账号、密码……”的顺序写下去。</p>
+<h2 id="部署、测试云函数"><a href="#部署、测试云函数" class="headerlink" title="部署、测试云函数"></a>部署、测试云函数</h2><p><img loading="lazy" src="https://pic.imgdb.cn/item/625cbcb8239250f7c5286c6f.jpg" title="如图"><br>点击<code>自动安装依赖</code>。点击<code>部署</code>按钮，等待提示<strong>部署成功</strong>后，再点击<strong>测试</strong>按钮。<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cbd09239250f7c528ebb0.jpg" title="成功！"><br>如果是看到如上图，那你就成功啦！一天会签到两次、刷完所有的歌、分别登录Web&#x2F;PC和Android端，保你成为云村最亮的仔！</p>
 ]]></content>
+      <categories>
+        <category>🛸青铜时代号</category>
+      </categories>
       <tags>
         <tag>📁教程</tag>
       </tags>
@@ -578,30 +616,68 @@
 ]]></content>
   </entry>
   <entry>
-    <title>基于云函数自动给网易云音乐刷歌升级</title>
-    <url>/article/cead5788/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于本Niko的网易云音乐实在是菜（才8级），而自己又是懒癌晚期，不想手动登录领云贝，并且以正常人的标准一天也刷不完300首歌（如果你是超人或者闲得慌当我没说）。所以去了解了这方面的项目，最终通过使用<code>良心云的云函数</code>实现了这一目标。</p>
-<h2 id="白嫖良心云的云函数服务"><a href="#白嫖良心云的云函数服务" class="headerlink" title="白嫖良心云的云函数服务"></a>白嫖良心云的<strong>云函数服务</strong></h2><p>进入良心云的<code>云函数SCF</code>网站，<a href="https://cloud.tencent.com/product/scf">https://cloud.tencent.com/product/scf</a>。先登录，接着进入云函数<strong>控制台</strong>，<a href="https://console.cloud.tencent.com/scf/list">https://console.cloud.tencent.com/scf</a>。</p>
+    <title>杂谈·关于SCP基金会被禁这档子事</title>
+    <url>/article/491b90e5/</url>
+    <content><![CDATA[<blockquote><p>今日我等若冷眼旁观，他日祸临己身，则无人为我摇旗呐喊。</p>
+<footer><strong>鲁迅</strong></footer></blockquote>
+
+<h2 id="关于-SCP-基金会"><a href="#关于-SCP-基金会" class="headerlink" title="关于 SCP 基金会"></a>关于 SCP 基金会</h2><p><strong>以下摘自<a href="https://zh.moegirl.org.cn/SCP%E5%9F%BA%E9%87%91%E4%BC%9A">萌娘百科</a></strong></p>
+<p><strong>SCP基金会</strong>（Special Containment Procedures Foundation）是一个虚构的全球性超自然事物调查管理组织。</p>
+<h3 id="使命宣言"><a href="#使命宣言" class="headerlink" title="使命宣言"></a>使命宣言</h3><p>于世界各地的暗处活动，基金会的目标是收容异常物品，个体及现象，而且其本身运作不受各个主要国家政府的司法管辖权，授权和委托的干扰。这些异常透过物理或心理危害对全球安全造成显著威胁。</p>
+<p>基金会维持常态，从而使世界各地的平民得以生存并免受恐惧，不信或对个人信念的怀疑的影响，并从地外、异次元和外层空间的影响中维持人类的独立自主。</p>
+<p>我们的任务有三方面：</p>
 <ol>
-<li><p>如图，点击<code>新建按钮</code>:<br><img loading="lazy" src="https://pic.imgdb.cn/item/625c326b239250f7c57fb450.jpg" title="进入后点击新建按钮"></p>
+<li><p>控制<br>基金会控制异常以防止它们落入平民或敌对组织手中，透过广泛观察及监测并采取行动尽早拦截它们。</p>
 </li>
-<li><p>接着点击<code>从头开始</code>:<br><img loading="lazy" src="https://pic.imgdb.cn/item/625c32b4239250f7c58039de.jpg" title="点击‘从头开始’"></p>
+<li><p>收容<br>基金会收容异常以防止它们的影响或效应散播，通过迁移，掩饰，或拆除它们或通过抑制或阻止公众传播它们的知识进行。</p>
 </li>
-<li><p>如图。<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cb687239250f7c51f0355.jpg" title="按照图片操作"><br>将<code>函数名称</code>改成你喜欢的。将<code>地域</code>改为你目前所在地。将<code>运行环境</code>改为NodeJs的最高版本（目前是<code>NodeJs 16.13</code>）<br>然后点击<code>本地上传zip包</code>将执行方法改为<strong>index.main</strong><br>再在下面将函数代码上传。代码下载链接: <a href="https://github.com/LittleControl/AutoNeteaseMusic/releases">https://github.com/LittleControl/AutoNeteaseMusic/releases</a></p>
-</li>
-<li><p>如图。<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cb87b239250f7c521e8f6.jpg" title="如图设置"><br><code>描述</code>随便填，<code>内存</code>改为<strong>64MB</strong>（64MB免费额度更高，能省则省），再将<code>执行超时时间</code>设置为<strong>900</strong>.</p>
-</li>
-<li><p>如图。<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cb977239250f7c5237995.jpg" title="如图设置"><br>选择<code>自定义创建</code>。<code>触发周期</code>切换为<strong>自定义触发周期</strong>。<code>Cron表达式</code>输入<code>0 0 1,16 * * * *</code><br>接着，点击完成。</p>
+<li><p>保护<br>基金会保护人类免受异常的影响并保护异常本身直至它们被完全理解以及出现自它们的特性及行为上制定的新科学定理为止。如果异常被收容时被判定为过度危险，基金会或也会以将异常无效化或摧毁作为最后手段。</p>
 </li>
 </ol>
-<h2 id="设置云函数"><a href="#设置云函数" class="headerlink" title="设置云函数"></a>设置云函数</h2><p>设置好云函数后，我们还需要将账号密码、api链接搞好。<br>进入<code>函数代码</code>部分，等待一小会，会看到这样一幅画面：<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cbaa0239250f7c5253f08.jpg" title="如图"><br>打开 <code>/src/config/api</code>将里面的所有内容替换为<code>https://music163-api-seven.vercel.app/</code>（这是我部署的API，出问题找我）<br>接着，打开<code>/src/config/account</code>，在文件的<strong>第一行</strong>写上你的<code>手机号码</code>或<code>网易邮箱</code>，然后在第二行写上你的密码。如果你有多账号，请按照”账号、密码、账号、密码……”的顺序写下去。</p>
-<h2 id="部署、测试云函数"><a href="#部署、测试云函数" class="headerlink" title="部署、测试云函数"></a>部署、测试云函数</h2><p><img loading="lazy" src="https://pic.imgdb.cn/item/625cbcb8239250f7c5286c6f.jpg" title="如图"><br>点击<code>自动安装依赖</code>。点击<code>部署</code>按钮，等待提示<strong>部署成功</strong>后，再点击<strong>测试</strong>按钮。<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cbd09239250f7c528ebb0.jpg" title="成功！"><br>如果是看到如上图，那你就成功啦！一天会签到两次、刷完所有的歌、分别登录Web&#x2F;PC和Android端，保你成为云村最亮的仔！</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>2021的某一天，我上百度搜索’SCP基金会官网’时，发现出现的并不是像平常一样的官网结果，而是像下面这样的‘儿童邪典’字样。</p>
+<p><img loading="lazy" src="/article/491b90e5/SrcPic_220326_132515.png" alt="百度的结果"></p>
+<p>我觉得奇怪，点进中国网那个链接去看，<a href="http://news.china.com.cn/2021-06/02/content_77543659.htm">戳这</a>。</p>
+<p>文章很长，主要讲得就是各种SCPs怎么怎么污染儿童心灵，如何bl，sq，不仅仅是SCPs们的锅，还有类似 “女性做手术”的外科游戏，如何xx，sw。</p>
+<p>确实，这些东西不适合非成年人观看，但是，为何要把SCP所有的东西都一并清除呢？他们说B站上的视频容易让未成年人看到，就全删了。为啥啊，B站明明有未成年模式，更何况家长不将手机给孩子玩、或者把B站等应用在给孩子前先“应用限时”啊。明明有解决办法，但不少家长依旧将SCP基金会举报了，而基金会也消失在我们的视线中。</p>
+<blockquote><p>起初家长们疯狂举报虹猫蓝兔，我没有说话，因为我不看虹猫蓝兔；接着他们举报喜羊羊，我没有说话，因为我不看喜羊羊；后来他们举报了十万个冷笑话，我没有说话，因为我不看十万个冷笑话；后来他们举报了心跳文学部，我没有说话，因为我不玩心跳文学部；如今他们冲SCP基金会而来，我却发现再也没有人为我说话了。</p>
+<footer><strong>雷霆之怒</strong><cite>萌娘百科评论</cite></footer></blockquote>
+
+<p>除了SCP基金会，还有《查理九世》、《超级飞侠》、《虹猫蓝兔》等等诸多的书籍和动画片都被“家长们”举报。甚至连《超级飞侠》也被封杀了，我的妹妹小时候很喜欢看这部动画片，因为可以了解更多国家的历史、文化，看看他乡的风景，但家长们却以崇洋媚外为由封禁了这部动画，我妹妹吵着要看，但却在各大视频网站消失了。</p>
+<p>到了现在，情况缓和了许多，用必应搜索基金会可以看到官网，在爱奇艺上也可以搜到超级飞侠，甚至还能看到新出的11季。</p>
+<p>虽然放松很多了，但并不能代表将来没有更多的动画、虚构物等被举报。在这，我希望各大家长们说：<strong>“为了孩子，这样做是正确的，但也不能反应过度，不能因为单纯的‘为孩子好’就将SCP彻底封杀，还有许多成年人热爱这个社区，为这些社区做贡献。”</strong></p>
+<p><code>声明: 仅代表个人观点，如有错误，请在评论区指出，个人会更正。如有不妥，请联系删除</code></p>
 ]]></content>
       <categories>
-        <category>🛸青铜时代号</category>
+        <category>🚁无限边疆号</category>
       </categories>
       <tags>
-        <tag>📁教程</tag>
+        <tag>📖杂谈</tag>
+        <tag>⭐️评价</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>New Product -- 网易云下载播放器</title>
+    <url>/article/759379402/</url>
+    <content><![CDATA[<p>昨天翻了下写过的博文，其中有一篇是写<a href="http://localhost:4000/posts/2118472832/" title="文章">网易云直链</a>的，看着看着，一个邪恶的想法油然而生……</p>
+<span id="more"></span>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1344438011&auto=1&height=66"></iframe>
+
+<blockquote><p>“为何不做一个集合音乐下载和播放的小程序呢？以我的能力完全可以的啊！搞他。”</p>
+<footer><strong>Niko</strong><cite>贱贱的语言</cite></footer></blockquote>
+<p>于是开始搞了。</p>
+<p>也没多久，一天一夜，搞定了。<br><img loading="lazy" src="/article/759379402/1.webp" alt="项目打包好的文件"><br>下载的音乐会以歌曲id命名，放在文件目录，支持多文件下载（不是同时）。<br><img loading="lazy" src="/article/759379402/2.webp" alt="软件界面(丑不？)"><br>看到没，下载完之后支持选择播放，但，凡事就怕但。<br>界面是在太 {丑} 好 {得} 看 {一} 了{批}！</p>
+<p>没办法啊！Python语言没一个好看的UI界面，也可能有，我不会用，比如Pyqt5。<br>害，不多说了，多说无益，放源代码！</p>
+<p><a href="https://github.com/Niko-Karen/my_code/blob/master/Python/%E6%92%AD%E6%94%BE.py">Github文件地址</a></p>
+<figure class="highlight python"><figcaption><span>源码</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> tkinter.constants <span class="keyword">import</span> LEFT, RIGHT</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> tkinter</span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> messagebox</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">music_play</span>():</span><br><span class="line">    <span class="keyword">import</span> pygame</span><br><span class="line"></span><br><span class="line">    pygame.mixer.init()</span><br><span class="line">    pygame.mixer.music.load(<span class="built_in">str</span>(<span class="built_in">id</span>) + <span class="string">&#x27;.mp3&#x27;</span>)</span><br><span class="line">    pygame.mixer.music.play()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_link</span>():</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        text = entry.get()</span><br><span class="line">        lst = text.split(<span class="string">&#x27;?&#x27;</span>)</span><br><span class="line">        str_lst = lst[<span class="number">1</span>].split(<span class="string">&#x27;=&#x27;</span>)[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        link = <span class="string">&#x27;https://music.163.com/song/media/outer/url?id=&#x27;</span> + str_lst</span><br><span class="line"></span><br><span class="line">        <span class="keyword">global</span> <span class="built_in">id</span></span><br><span class="line">        <span class="built_in">id</span> = <span class="built_in">str</span>(str_lst)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> link, <span class="built_in">id</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> error:</span><br><span class="line">        error_s = <span class="string">&#x27;ERROR:&#x27;</span>, <span class="built_in">str</span>(error)</span><br><span class="line">        entry.delete(<span class="number">0</span>, tkinter.END)</span><br><span class="line">        messagebox.showerror(error_s)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_song</span>(<span class="params">link, <span class="built_in">id</span></span>):</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    resp = requests.get(link, data=data).content</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;.\\&#x27;</span> + <span class="built_in">id</span> + <span class="string">&#x27;.mp3&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> s:</span><br><span class="line">        s.write(resp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">global</span> result</span><br><span class="line">    result = messagebox.askyesno(title=<span class="string">&#x27;是否播放？&#x27;</span>, message=<span class="string">&#x27;下载完成，是否播放？&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> result:</span><br><span class="line">        music_play()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ex</span>():</span><br><span class="line">    sys.exit(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">tkin_canvas</span>():</span><br><span class="line">    <span class="keyword">global</span> top</span><br><span class="line">    top = tkinter.Tk()</span><br><span class="line">    top.title(<span class="string">&#x27;网易云音乐下载&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    L1 = tkinter.Label(top, text=<span class="string">&#x27;请输入歌曲网址:&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">global</span> entry</span><br><span class="line">    entry = tkinter.Entry(top)</span><br><span class="line"></span><br><span class="line">    button = tkinter.Button(top, text=<span class="string">&#x27;下载&#x27;</span>, command=main)</span><br><span class="line">    button_exit = tkinter.Button(top, text=<span class="string">&#x27;退出&#x27;</span>, command=ex)</span><br><span class="line"></span><br><span class="line">    L1.pack(side=LEFT)</span><br><span class="line">    button_exit.pack(side=RIGHT)</span><br><span class="line">    button.pack(side=RIGHT)</span><br><span class="line">    entry.pack(side=RIGHT)</span><br><span class="line"></span><br><span class="line">    top.mainloop()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;System Starting......&#x27;</span>)</span><br><span class="line">    <span class="built_in">all</span> = get_link()</span><br><span class="line">    link = <span class="built_in">all</span>[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">id</span> = <span class="built_in">all</span>[<span class="number">1</span>]</span><br><span class="line">    chose = get_song(link, <span class="built_in">id</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;All Done.&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    tkin_canvas()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>也没多少，80多行，轻轻松松。<br>搞完了这个，以后再来个进阶的，不断进步，积极进取！</p>
+]]></content>
+      <categories>
+        <category>🛫万年鲲鹏号</category>
+      </categories>
+      <tags>
+        <tag>🐍Python</tag>
       </tags>
   </entry>
   <entry>
@@ -812,31 +888,6 @@
       </tags>
   </entry>
   <entry>
-    <title>New Product -- 网易云下载播放器</title>
-    <url>/article/759379402/</url>
-    <content><![CDATA[<p>昨天翻了下写过的博文，其中有一篇是写<a href="http://localhost:4000/posts/2118472832/" title="文章">网易云直链</a>的，看着看着，一个邪恶的想法油然而生……</p>
-<span id="more"></span>
-
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1344438011&auto=1&height=66"></iframe>
-
-<blockquote><p>“为何不做一个集合音乐下载和播放的小程序呢？以我的能力完全可以的啊！搞他。”</p>
-<footer><strong>Niko</strong><cite>贱贱的语言</cite></footer></blockquote>
-<p>于是开始搞了。</p>
-<p>也没多久，一天一夜，搞定了。<br><img loading="lazy" src="/article/759379402/1.webp" alt="项目打包好的文件"><br>下载的音乐会以歌曲id命名，放在文件目录，支持多文件下载（不是同时）。<br><img loading="lazy" src="/article/759379402/2.webp" alt="软件界面(丑不？)"><br>看到没，下载完之后支持选择播放，但，凡事就怕但。<br>界面是在太 {丑} 好 {得} 看 {一} 了{批}！</p>
-<p>没办法啊！Python语言没一个好看的UI界面，也可能有，我不会用，比如Pyqt5。<br>害，不多说了，多说无益，放源代码！</p>
-<p><a href="https://github.com/Niko-Karen/my_code/blob/master/Python/%E6%92%AD%E6%94%BE.py">Github文件地址</a></p>
-<figure class="highlight python"><figcaption><span>源码</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> tkinter.constants <span class="keyword">import</span> LEFT, RIGHT</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> tkinter</span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> messagebox</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">music_play</span>():</span><br><span class="line">    <span class="keyword">import</span> pygame</span><br><span class="line"></span><br><span class="line">    pygame.mixer.init()</span><br><span class="line">    pygame.mixer.music.load(<span class="built_in">str</span>(<span class="built_in">id</span>) + <span class="string">&#x27;.mp3&#x27;</span>)</span><br><span class="line">    pygame.mixer.music.play()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_link</span>():</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        text = entry.get()</span><br><span class="line">        lst = text.split(<span class="string">&#x27;?&#x27;</span>)</span><br><span class="line">        str_lst = lst[<span class="number">1</span>].split(<span class="string">&#x27;=&#x27;</span>)[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        link = <span class="string">&#x27;https://music.163.com/song/media/outer/url?id=&#x27;</span> + str_lst</span><br><span class="line"></span><br><span class="line">        <span class="keyword">global</span> <span class="built_in">id</span></span><br><span class="line">        <span class="built_in">id</span> = <span class="built_in">str</span>(str_lst)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> link, <span class="built_in">id</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> error:</span><br><span class="line">        error_s = <span class="string">&#x27;ERROR:&#x27;</span>, <span class="built_in">str</span>(error)</span><br><span class="line">        entry.delete(<span class="number">0</span>, tkinter.END)</span><br><span class="line">        messagebox.showerror(error_s)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_song</span>(<span class="params">link, <span class="built_in">id</span></span>):</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    resp = requests.get(link, data=data).content</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;.\\&#x27;</span> + <span class="built_in">id</span> + <span class="string">&#x27;.mp3&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> s:</span><br><span class="line">        s.write(resp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">global</span> result</span><br><span class="line">    result = messagebox.askyesno(title=<span class="string">&#x27;是否播放？&#x27;</span>, message=<span class="string">&#x27;下载完成，是否播放？&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> result:</span><br><span class="line">        music_play()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ex</span>():</span><br><span class="line">    sys.exit(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">tkin_canvas</span>():</span><br><span class="line">    <span class="keyword">global</span> top</span><br><span class="line">    top = tkinter.Tk()</span><br><span class="line">    top.title(<span class="string">&#x27;网易云音乐下载&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    L1 = tkinter.Label(top, text=<span class="string">&#x27;请输入歌曲网址:&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">global</span> entry</span><br><span class="line">    entry = tkinter.Entry(top)</span><br><span class="line"></span><br><span class="line">    button = tkinter.Button(top, text=<span class="string">&#x27;下载&#x27;</span>, command=main)</span><br><span class="line">    button_exit = tkinter.Button(top, text=<span class="string">&#x27;退出&#x27;</span>, command=ex)</span><br><span class="line"></span><br><span class="line">    L1.pack(side=LEFT)</span><br><span class="line">    button_exit.pack(side=RIGHT)</span><br><span class="line">    button.pack(side=RIGHT)</span><br><span class="line">    entry.pack(side=RIGHT)</span><br><span class="line"></span><br><span class="line">    top.mainloop()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;System Starting......&#x27;</span>)</span><br><span class="line">    <span class="built_in">all</span> = get_link()</span><br><span class="line">    link = <span class="built_in">all</span>[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">id</span> = <span class="built_in">all</span>[<span class="number">1</span>]</span><br><span class="line">    chose = get_song(link, <span class="built_in">id</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;All Done.&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    tkin_canvas()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>也没多少，80多行，轻轻松松。<br>搞完了这个，以后再来个进阶的，不断进步，积极进取！</p>
-]]></content>
-      <categories>
-        <category>🛫万年鲲鹏号</category>
-      </categories>
-      <tags>
-        <tag>🐍Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>杂谈·自己玩美少女万花镜等Galgame的感受</title>
     <url>/article/84d3d1c5/</url>
     <content><![CDATA[<h2 id="废话"><a href="#废话" class="headerlink" title="废话"></a>废话</h2><p>虽然我人才仅仅12岁，但通过辽阔的互联网还是能被推送到一些 有 意 思 的东东。<br>记得我第一次接触Galgame是因逛 神 通 广 大 的B站推到的，看完这个视频我感到很感兴趣（当时还不知道Galgame有种东西叫拔作），十分纯真的以为只是普通的文字游戏，仅仅就是加上了点点美少女罢了（有点冒犯Galgame了）。所以就在电脑上搜关于这类的知名游戏，直接就搜上了”美少女万华镜”。了解了ωstar此系列全作，按照自己审美和剧情选出了万花镜2（玩完才知道剧情实在狗血），再在辽阔的互联网上遨游，也找到了资源，算是开始我的Galgame史。</p>
@@ -851,46 +902,6 @@
 <h2 id="关于新开的坑《千恋·万花》"><a href="#关于新开的坑《千恋·万花》" class="headerlink" title="关于新开的坑《千恋·万花》"></a>关于新开的坑《千恋·万花》</h2><p>这部就开放许多，剧情也不单一，有很强的可玩性，不得不说，这UI这功能比勿忘草好多了。你可以像平常看日常番（只要没打r18补丁）一样看就好了。新开的坑，也没啥指导经验，发几张萌百上的图吧。</p>
 <h2 id="一些图片"><a href="#一些图片" class="headerlink" title="一些图片"></a>一些图片</h2><p><img loading="lazy" src="https://img.moegirl.org.cn/common/7/7c/Qlwhbkg.jpg" alt="萌百专栏上的背景图"><br><img loading="lazy" src="/article/84d3d1c5/1.png" alt="人物介绍"><br><img loading="lazy" src="/article/84d3d1c5/3.png" alt="你选哪个呢？"><br><img loading="lazy" src="/article/84d3d1c5/4.png" alt="不要误会啊！我只是刚好打到这里刚好退而已！！" title="不要误会啊！我只是刚好打到这里刚好退而已！！"></p>
 <h2 id="22-x2F-6-x2F-1-更新"><a href="#22-x2F-6-x2F-1-更新" class="headerlink" title="22&#x2F;6&#x2F;1 更新"></a>22&#x2F;6&#x2F;1 更新</h2><p>刚打完千恋万花蕾娜线，这……<br>咋说呢。。。<br><img loading="lazy" src="/article/84d3d1c5/5.png" alt="嗨害嗨"><br>上图为打完后日谈之后的cg鉴赏。<br>就是角色一多，单个角色的cg就缩水<br>不信你对比下美少女万华镜<br>天 差 地 别 😌</p>
-]]></content>
-      <categories>
-        <category>🚁无限边疆号</category>
-      </categories>
-      <tags>
-        <tag>📖杂谈</tag>
-        <tag>⭐️评价</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>杂谈·关于SCP基金会被禁这档子事</title>
-    <url>/article/491b90e5/</url>
-    <content><![CDATA[<blockquote><p>今日我等若冷眼旁观，他日祸临己身，则无人为我摇旗呐喊。</p>
-<footer><strong>鲁迅</strong></footer></blockquote>
-
-<h2 id="关于-SCP-基金会"><a href="#关于-SCP-基金会" class="headerlink" title="关于 SCP 基金会"></a>关于 SCP 基金会</h2><p><strong>以下摘自<a href="https://zh.moegirl.org.cn/SCP%E5%9F%BA%E9%87%91%E4%BC%9A">萌娘百科</a></strong></p>
-<p><strong>SCP基金会</strong>（Special Containment Procedures Foundation）是一个虚构的全球性超自然事物调查管理组织。</p>
-<h3 id="使命宣言"><a href="#使命宣言" class="headerlink" title="使命宣言"></a>使命宣言</h3><p>于世界各地的暗处活动，基金会的目标是收容异常物品，个体及现象，而且其本身运作不受各个主要国家政府的司法管辖权，授权和委托的干扰。这些异常透过物理或心理危害对全球安全造成显著威胁。</p>
-<p>基金会维持常态，从而使世界各地的平民得以生存并免受恐惧，不信或对个人信念的怀疑的影响，并从地外、异次元和外层空间的影响中维持人类的独立自主。</p>
-<p>我们的任务有三方面：</p>
-<ol>
-<li><p>控制<br>基金会控制异常以防止它们落入平民或敌对组织手中，透过广泛观察及监测并采取行动尽早拦截它们。</p>
-</li>
-<li><p>收容<br>基金会收容异常以防止它们的影响或效应散播，通过迁移，掩饰，或拆除它们或通过抑制或阻止公众传播它们的知识进行。</p>
-</li>
-<li><p>保护<br>基金会保护人类免受异常的影响并保护异常本身直至它们被完全理解以及出现自它们的特性及行为上制定的新科学定理为止。如果异常被收容时被判定为过度危险，基金会或也会以将异常无效化或摧毁作为最后手段。</p>
-</li>
-</ol>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>2021的某一天，我上百度搜索’SCP基金会官网’时，发现出现的并不是像平常一样的官网结果，而是像下面这样的‘儿童邪典’字样。</p>
-<p><img loading="lazy" src="/article/491b90e5/SrcPic_220326_132515.png" alt="百度的结果"></p>
-<p>我觉得奇怪，点进中国网那个链接去看，<a href="http://news.china.com.cn/2021-06/02/content_77543659.htm">戳这</a>。</p>
-<p>文章很长，主要讲得就是各种SCPs怎么怎么污染儿童心灵，如何bl，sq，不仅仅是SCPs们的锅，还有类似 “女性做手术”的外科游戏，如何xx，sw。</p>
-<p>确实，这些东西不适合非成年人观看，但是，为何要把SCP所有的东西都一并清除呢？他们说B站上的视频容易让未成年人看到，就全删了。为啥啊，B站明明有未成年模式，更何况家长不将手机给孩子玩、或者把B站等应用在给孩子前先“应用限时”啊。明明有解决办法，但不少家长依旧将SCP基金会举报了，而基金会也消失在我们的视线中。</p>
-<blockquote><p>起初家长们疯狂举报虹猫蓝兔，我没有说话，因为我不看虹猫蓝兔；接着他们举报喜羊羊，我没有说话，因为我不看喜羊羊；后来他们举报了十万个冷笑话，我没有说话，因为我不看十万个冷笑话；后来他们举报了心跳文学部，我没有说话，因为我不玩心跳文学部；如今他们冲SCP基金会而来，我却发现再也没有人为我说话了。</p>
-<footer><strong>雷霆之怒</strong><cite>萌娘百科评论</cite></footer></blockquote>
-
-<p>除了SCP基金会，还有《查理九世》、《超级飞侠》、《虹猫蓝兔》等等诸多的书籍和动画片都被“家长们”举报。甚至连《超级飞侠》也被封杀了，我的妹妹小时候很喜欢看这部动画片，因为可以了解更多国家的历史、文化，看看他乡的风景，但家长们却以崇洋媚外为由封禁了这部动画，我妹妹吵着要看，但却在各大视频网站消失了。</p>
-<p>到了现在，情况缓和了许多，用必应搜索基金会可以看到官网，在爱奇艺上也可以搜到超级飞侠，甚至还能看到新出的11季。</p>
-<p>虽然放松很多了，但并不能代表将来没有更多的动画、虚构物等被举报。在这，我希望各大家长们说：<strong>“为了孩子，这样做是正确的，但也不能反应过度，不能因为单纯的‘为孩子好’就将SCP彻底封杀，还有许多成年人热爱这个社区，为这些社区做贡献。”</strong></p>
-<p><code>声明: 仅代表个人观点，如有错误，请在评论区指出，个人会更正。如有不妥，请联系删除</code></p>
 ]]></content>
       <categories>
         <category>🚁无限边疆号</category>
@@ -928,44 +939,6 @@
       </tags>
   </entry>
   <entry>
-    <title>聊聊近况</title>
-    <url>/article/549a398b/</url>
-    <content><![CDATA[<p>随着放学铃声的敲响，我们小学六年的生涯终于结束了。这六年里，有欢笑、有伤心、有惊喜、有感动。<br>在还小的时候，总天真的盼望着毕业的那天快快到来，总以为毕业了就可以放飞自我。但到了高年级时，心中却总觉着时间不够，总觉着缺着些什么。<br>高年级时，同学争分夺秒地获取联系方式，总有着说不完的话、玩不完的游戏，但别离终会到来。<br>考完试后，下楼，本想着再看最后一次母校的美景，但班主任不允许，只好作罢。走到学校门前，同学们只给老师们留下一句“再见”，便各奔东西。<br><img loading="lazy" src="/article/549a398b/school.webp" alt="只好找张百度百科的图" title="只好找张百度百科的图"><br>六年光阴，阴差阳错的聚在一起，依依不舍的散去。</p>
-<p>因为是电脑派位，所以同学去的中学大都不一样，一个电脑程序在不到30秒内就决定了万千学子的命运，成绩好的有可能摇中差的学校，成绩差的有可能摇中好的学校。但我们英语老师说得好：“只要你成绩好、心态好、有上进心，在怎样差的学校都不会自卑，是金子总会发光的。但如果你的成绩差，再好的中学也会让你感到自卑。所以，不要在意摇号的结果，把心放在学习上，加油！”</p>
-<p>说说我自己吧，我6月初去考了黄冈，意想不到中了，并且拿到了补录的资格，当天下午就有空出来的学位，第二天就交了钱，80000一年。原本是想摇号能摇中广雅的，但命运弄人，只能摇到秀雅（虽然同学老师都说秀雅挺好）。所以现在已经确定去黄冈了，在黄冈里，我没有一个同班同学，只有一个刚中考完的同小区的朋友，和一个补习班黄冈小学直升的同学。而且听说黄冈的管理很严格，所以还得加倍努力。</p>
-<p>再说说以后的安排吧，7月初完成黄冈的暑假作业，7月中旬回江西老家住个十几天（写篇文章），8月21号NCT Python 1级考试，感觉超简单，挺有把握，9月的NCRE Python 二级，有一定难度，但还好。</p>
-<p>祝同志们好事连连、寿与天齐、开门大吉、生意兴隆、百年好合、寿与天齐、蒸蒸日上、福如东海、寿比南山、年年有鱼、彩蝶翩翩、身体健康、幸福快乐、开开心心、生活幸福、学习进步、工作顺利、吉祥如意、事事顺心、幸福如意、心想事成、如意吉祥、万事胜意、出入平安、春风得意、阖家安康！</p>
-<h2 id="Updated-at-6-x2F-29-10-31"><a href="#Updated-at-6-x2F-29-10-31" class="headerlink" title="Updated at 6&#x2F;29 10:31"></a>Updated at 6&#x2F;29 10:31</h2><p>回学校拍了几张照片<br><img loading="lazy" src="/article/549a398b/1.jpg" title="这张是我同学给的"><br><img loading="lazy" src="/article/549a398b/2.jpg"><br><img loading="lazy" src="/article/549a398b/3.jpg"><br><img loading="lazy" src="/article/549a398b/4.jpg"><br><img loading="lazy" src="/article/549a398b/5.jpg"><br><img loading="lazy" src="/article/549a398b/6.jpg"><br><img loading="lazy" src="/article/549a398b/7.jpg"><br><img loading="lazy" src="/article/549a398b/8.jpg"></p>
-]]></content>
-      <categories>
-        <category>🚁无限边疆号</category>
-      </categories>
-      <tags>
-        <tag>🔚总结</tag>
-        <tag>📖杂谈</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>随机森林以及AMR训练出的诗词制造器</title>
-    <url>/article/eb558c72/</url>
-    <content><![CDATA[<p>AMR即Artificial mental retardation（即人工智障），是一种新兴的机器学习算法，旨在将最好的数据同通过百般蹂躏，变成一堆垃圾，下面将指导读者如何使用这种算法。</p>
-<h1 id="案例-诗词制造器"><a href="#案例-诗词制造器" class="headerlink" title="案例 诗词制造器"></a>案例 诗词制造器</h1><p>此案例较为简单，只需要运用到随机森林和AMR技术即可，难度在于有没有熟练掌握，贴源码。</p>
-<figure class="highlight python"><figcaption><span>（垃圾）诗词制造器</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">typ = <span class="built_in">input</span>(<span class="string">&quot;请输入选择： 1.五言 2.七言&quot;</span>)</span><br><span class="line">data = [</span><br><span class="line">    <span class="string">&#x27;垂杨&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;新柳&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;玉丝纶&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;金嫩&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;柔条&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;曲岸垂杨&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;柳丝&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;闲柳&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;千花万柳&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;花海&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;芳甸吐嫩&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;摇绿&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;绿卷&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;浓翠&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;横翠&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;金碧&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;舒卷款款&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;片片&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;缕缕&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;落纷纷新晴&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;笼晴&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;韶光&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;婉媚&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;温丽&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;芊绵&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;春华&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;空灵&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;春柔&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;清婉&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;馨烈&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;和婉&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;清蕊&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;清芬&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;素约&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;红素&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;旖旎飞花&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;浮花&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;落英&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;花影&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;芳丛&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;浮香&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;锦花&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;绣草&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;烂漫&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;芳踪&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;镂玉&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;雕琼&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;繁枝&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;素景&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;密叶&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;稠花点水&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;扑面&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;风轻&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;水胧&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;倚暖胭脂色&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;水溶溶&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;不留痕&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;几点春&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;邀春驻&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;花映柳&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;花深浅&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;树高低&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;翻微风&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;香接天浓露飘香&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;软软东风&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;水逝云卷&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;繁花盈枝&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;百卉团团&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;和风轻暖&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;春光满树&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;秀色灼灼&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;红尘倦客&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;柳带摇风&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;香坠庭户&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;水阔花飞&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;瘦叶和风&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;叶叶心心&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;眼迷魂牵&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;浅粉深红&#x27;</span>,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">choose_word</span>(<span class="params">num</span>):</span><br><span class="line">    chose = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num):</span><br><span class="line">        chose.append(random.choice(data))</span><br><span class="line">    <span class="keyword">return</span> chose</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">int</span>(typ) == <span class="number">1</span>:</span><br><span class="line">    sentence_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        chose = choose_word(<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">len</span>(chose[-<span class="number">1</span>]) + <span class="built_in">len</span>(chose[-<span class="number">2</span>]) != <span class="number">5</span>:</span><br><span class="line">            chose = choose_word(<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(chose[-<span class="number">1</span>]) == <span class="number">2</span> <span class="keyword">and</span> <span class="built_in">len</span>(chose[-<span class="number">2</span>]) == <span class="number">3</span>:</span><br><span class="line">            sentence_list.append(chose[-<span class="number">1</span>] + chose[-<span class="number">2</span>])</span><br><span class="line">        <span class="keyword">elif</span> <span class="built_in">len</span>(chose[-<span class="number">1</span>]) == <span class="number">3</span> <span class="keyword">and</span> <span class="built_in">len</span>(chose[-<span class="number">2</span>]) == <span class="number">2</span>:</span><br><span class="line">            sentence_list.append(chose[-<span class="number">2</span>] + chose[-<span class="number">1</span>])</span><br><span class="line">    <span class="built_in">print</span>(sentence_list)</span><br><span class="line"></span><br><span class="line"><span class="keyword">elif</span> <span class="built_in">int</span>(typ) == <span class="number">2</span>:</span><br><span class="line">    sentence_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        chose = choose_word(<span class="number">3</span>)</span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">len</span>(chose[-<span class="number">1</span>]) + <span class="built_in">len</span>(chose[-<span class="number">2</span>]) != <span class="number">7</span>:</span><br><span class="line">            chose = choose_word(<span class="number">3</span>)</span><br><span class="line">        sentence_list.append(chose[-<span class="number">1</span>] + chose[-<span class="number">2</span>])</span><br><span class="line">    <span class="built_in">print</span>(sentence_list)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>131行代码，数据就占了一大半，这证明数据的庞大，考验了你的编码速度以及耐心。 下面的逻辑处理，使用了随机森林<code>random</code>高级库。</p>
-<figure class="highlight python"><figcaption><span>random</span></figcaption><table><tr><td class="code"><pre><span class="line">random.choice(<span class="built_in">list</span>)</span><br></pre></td></tr></table></figure>
-
-<p>此代码就是为了随机森林训练数据集，AMR就体现于代码编写的愚蠢以及运行结果的<strong>rubbish</strong>。<br><img loading="lazy" src="/article/eb558c72/SrcPic_220627_113719.png" alt="rubbish" title="rubbish"></p>
-<p>此算法的时间复杂度为O(2^n)，生成的诗皆为<strong>烂诗</strong>，为精品也。是AMR测试的好样本，随机森林的好榜样！</p>
-]]></content>
-      <categories>
-        <category>🛫万年鲲鹏号</category>
-      </categories>
-      <tags>
-        <tag>🐍Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>网易云音乐直链</title>
     <url>/article/2118472832/</url>
     <content><![CDATA[<p>网易云音乐有很多方法可以获取直链，但这些方法要么很快失效，要么有缓存时间。</p>
@@ -989,6 +962,44 @@
       </categories>
       <tags>
         <tag>📡Technology</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>随机森林以及AMR训练出的诗词制造器</title>
+    <url>/article/eb558c72/</url>
+    <content><![CDATA[<p>AMR即Artificial mental retardation（即人工智障），是一种新兴的机器学习算法，旨在将最好的数据同通过百般蹂躏，变成一堆垃圾，下面将指导读者如何使用这种算法。</p>
+<h1 id="案例-诗词制造器"><a href="#案例-诗词制造器" class="headerlink" title="案例 诗词制造器"></a>案例 诗词制造器</h1><p>此案例较为简单，只需要运用到随机森林和AMR技术即可，难度在于有没有熟练掌握，贴源码。</p>
+<figure class="highlight python"><figcaption><span>（垃圾）诗词制造器</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">typ = <span class="built_in">input</span>(<span class="string">&quot;请输入选择： 1.五言 2.七言&quot;</span>)</span><br><span class="line">data = [</span><br><span class="line">    <span class="string">&#x27;垂杨&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;新柳&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;玉丝纶&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;金嫩&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;柔条&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;曲岸垂杨&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;柳丝&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;闲柳&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;千花万柳&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;花海&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;芳甸吐嫩&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;摇绿&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;绿卷&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;浓翠&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;横翠&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;金碧&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;舒卷款款&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;片片&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;缕缕&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;落纷纷新晴&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;笼晴&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;韶光&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;婉媚&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;温丽&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;芊绵&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;春华&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;空灵&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;春柔&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;清婉&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;馨烈&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;和婉&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;清蕊&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;清芬&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;素约&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;红素&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;旖旎飞花&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;浮花&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;落英&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;花影&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;芳丛&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;浮香&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;锦花&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;绣草&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;烂漫&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;芳踪&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;镂玉&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;雕琼&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;繁枝&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;素景&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;密叶&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;稠花点水&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;扑面&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;风轻&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;水胧&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;倚暖胭脂色&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;水溶溶&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;不留痕&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;几点春&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;邀春驻&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;花映柳&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;花深浅&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;树高低&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;翻微风&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;香接天浓露飘香&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;软软东风&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;水逝云卷&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;繁花盈枝&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;百卉团团&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;和风轻暖&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;春光满树&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;秀色灼灼&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;红尘倦客&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;柳带摇风&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;香坠庭户&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;水阔花飞&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;瘦叶和风&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;叶叶心心&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;眼迷魂牵&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;浅粉深红&#x27;</span>,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">choose_word</span>(<span class="params">num</span>):</span><br><span class="line">    chose = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num):</span><br><span class="line">        chose.append(random.choice(data))</span><br><span class="line">    <span class="keyword">return</span> chose</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">int</span>(typ) == <span class="number">1</span>:</span><br><span class="line">    sentence_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        chose = choose_word(<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">len</span>(chose[-<span class="number">1</span>]) + <span class="built_in">len</span>(chose[-<span class="number">2</span>]) != <span class="number">5</span>:</span><br><span class="line">            chose = choose_word(<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(chose[-<span class="number">1</span>]) == <span class="number">2</span> <span class="keyword">and</span> <span class="built_in">len</span>(chose[-<span class="number">2</span>]) == <span class="number">3</span>:</span><br><span class="line">            sentence_list.append(chose[-<span class="number">1</span>] + chose[-<span class="number">2</span>])</span><br><span class="line">        <span class="keyword">elif</span> <span class="built_in">len</span>(chose[-<span class="number">1</span>]) == <span class="number">3</span> <span class="keyword">and</span> <span class="built_in">len</span>(chose[-<span class="number">2</span>]) == <span class="number">2</span>:</span><br><span class="line">            sentence_list.append(chose[-<span class="number">2</span>] + chose[-<span class="number">1</span>])</span><br><span class="line">    <span class="built_in">print</span>(sentence_list)</span><br><span class="line"></span><br><span class="line"><span class="keyword">elif</span> <span class="built_in">int</span>(typ) == <span class="number">2</span>:</span><br><span class="line">    sentence_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        chose = choose_word(<span class="number">3</span>)</span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">len</span>(chose[-<span class="number">1</span>]) + <span class="built_in">len</span>(chose[-<span class="number">2</span>]) != <span class="number">7</span>:</span><br><span class="line">            chose = choose_word(<span class="number">3</span>)</span><br><span class="line">        sentence_list.append(chose[-<span class="number">1</span>] + chose[-<span class="number">2</span>])</span><br><span class="line">    <span class="built_in">print</span>(sentence_list)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>131行代码，数据就占了一大半，这证明数据的庞大，考验了你的编码速度以及耐心。 下面的逻辑处理，使用了随机森林<code>random</code>高级库。</p>
+<figure class="highlight python"><figcaption><span>random</span></figcaption><table><tr><td class="code"><pre><span class="line">random.choice(<span class="built_in">list</span>)</span><br></pre></td></tr></table></figure>
+
+<p>此代码就是为了随机森林训练数据集，AMR就体现于代码编写的愚蠢以及运行结果的<strong>rubbish</strong>。<br><img loading="lazy" src="/article/eb558c72/SrcPic_220627_113719.png" alt="rubbish" title="rubbish"></p>
+<p>此算法的时间复杂度为O(2^n)，生成的诗皆为<strong>烂诗</strong>，为精品也。是AMR测试的好样本，随机森林的好榜样！</p>
+]]></content>
+      <categories>
+        <category>🛫万年鲲鹏号</category>
+      </categories>
+      <tags>
+        <tag>🐍Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>聊聊近况</title>
+    <url>/article/549a398b/</url>
+    <content><![CDATA[<p>随着放学铃声的敲响，我们小学六年的生涯终于结束了。这六年里，有欢笑、有伤心、有惊喜、有感动。<br>在还小的时候，总天真的盼望着毕业的那天快快到来，总以为毕业了就可以放飞自我。但到了高年级时，心中却总觉着时间不够，总觉着缺着些什么。<br>高年级时，同学争分夺秒地获取联系方式，总有着说不完的话、玩不完的游戏，但别离终会到来。<br>考完试后，下楼，本想着再看最后一次母校的美景，但班主任不允许，只好作罢。走到学校门前，同学们只给老师们留下一句“再见”，便各奔东西。<br><img loading="lazy" src="/article/549a398b/school.webp" alt="只好找张百度百科的图" title="只好找张百度百科的图"><br>六年光阴，阴差阳错的聚在一起，依依不舍的散去。</p>
+<p>因为是电脑派位，所以同学去的中学大都不一样，一个电脑程序在不到30秒内就决定了万千学子的命运，成绩好的有可能摇中差的学校，成绩差的有可能摇中好的学校。但我们英语老师说得好：“只要你成绩好、心态好、有上进心，在怎样差的学校都不会自卑，是金子总会发光的。但如果你的成绩差，再好的中学也会让你感到自卑。所以，不要在意摇号的结果，把心放在学习上，加油！”</p>
+<p>说说我自己吧，我6月初去考了黄冈，意想不到中了，并且拿到了补录的资格，当天下午就有空出来的学位，第二天就交了钱，80000一年。原本是想摇号能摇中广雅的，但命运弄人，只能摇到秀雅（虽然同学老师都说秀雅挺好）。所以现在已经确定去黄冈了，在黄冈里，我没有一个同班同学，只有一个刚中考完的同小区的朋友，和一个补习班黄冈小学直升的同学。而且听说黄冈的管理很严格，所以还得加倍努力。</p>
+<p>再说说以后的安排吧，7月初完成黄冈的暑假作业，7月中旬回江西老家住个十几天（写篇文章），8月21号NCT Python 1级考试，感觉超简单，挺有把握，9月的NCRE Python 二级，有一定难度，但还好。</p>
+<p>祝同志们好事连连、寿与天齐、开门大吉、生意兴隆、百年好合、寿与天齐、蒸蒸日上、福如东海、寿比南山、年年有鱼、彩蝶翩翩、身体健康、幸福快乐、开开心心、生活幸福、学习进步、工作顺利、吉祥如意、事事顺心、幸福如意、心想事成、如意吉祥、万事胜意、出入平安、春风得意、阖家安康！</p>
+<h2 id="Updated-at-6-x2F-29-10-31"><a href="#Updated-at-6-x2F-29-10-31" class="headerlink" title="Updated at 6&#x2F;29 10:31"></a>Updated at 6&#x2F;29 10:31</h2><p>回学校拍了几张照片<br><img loading="lazy" src="/article/549a398b/1.jpg" title="这张是我同学给的"><br><img loading="lazy" src="/article/549a398b/2.jpg"><br><img loading="lazy" src="/article/549a398b/3.jpg"><br><img loading="lazy" src="/article/549a398b/4.jpg"><br><img loading="lazy" src="/article/549a398b/5.jpg"><br><img loading="lazy" src="/article/549a398b/6.jpg"><br><img loading="lazy" src="/article/549a398b/7.jpg"><br><img loading="lazy" src="/article/549a398b/8.jpg"></p>
+]]></content>
+      <categories>
+        <category>🚁无限边疆号</category>
+      </categories>
+      <tags>
+        <tag>🔚总结</tag>
+        <tag>📖杂谈</tag>
       </tags>
   </entry>
 </search>
