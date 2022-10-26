@@ -106,6 +106,8 @@
     <div class="entry">
       
         <p>嘿，大家好，今天复习了一下爬虫知识，自己想爬个网易云的歌单下来，备着以后禁网的时候听。但由于我懒癌晚期，懒得直接上浏览器上搜，搜着，发现没有一个合格的。<br>为什么？其实是因为那些爬虫是打开浏览器（即Selenium）、打开歌单的网址、把其中的歌曲名和链接拿下、依次用外链下载。<br>这个方法不好，原因是在网页版的网易云的<strong>无登陆状态</strong>是只能在歌单里看到十首歌，无法看全。就好比我歌单里有50首歌，而你的爬虫只能爬10首下来，没效果。</p>
+<span id="more"></span>
+
 <p>没办法，只能自己写了。<del>就是套了个api嘛。</del>源码如下。</p>
 <p>只有进度条版本的。。。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
