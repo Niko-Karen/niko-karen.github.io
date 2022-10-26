@@ -1,0 +1,8 @@
+@font-face {
+    font-family: ' harmony';
+    src: url('/HarmonyOS_Sans_SC_Regular.subset.woff2') format("woff2");
+}
+
+body {
+    font-family: 'harmony';
+}

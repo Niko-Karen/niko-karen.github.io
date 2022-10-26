@@ -1,421 +1,186 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-    <head>
-    <meta charset="utf-8">
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+    <title>
+      基于云函数自动给网易云音乐刷歌升级 | Niko&#39;s Blog | 世间所有的相遇，都是久别重逢</title>
 
-    
+  
+  <meta name="author" content="Niko">
+  
 
-    <!-- 渲染优化 -->
-    <meta name="renderer" content="webkit">
-    <meta name="force-rendering" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="HandheldFriendly" content="True" >
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="description" content="教你如何从网易云音乐v0萌新升级到v10大佬的超级无敌厉害的教程（一脸虚荣)">
+  
 
-    <!--icon-->
+  
+  <meta name="keywords" content="Niko,NikoBlog,教程,小学生,筱晓,学习分享,csdn,博客园">
+  
 
-    
-        <link rel="shortcut icon" href="/favicon.ico">
-    
-    
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
-    
-    
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
-    
-    
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
-    
-    
-        <link rel="mask-icon" href="/favicon.ico">
-    
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
+  <meta property="og:title" content="基于云函数自动给网易云音乐刷歌升级"/>
 
-    <!-- meta -->
+  <meta property="og:site_name" content="Niko&#39;s Blog"/>
 
-
-<title>基于云函数自动给网易云音乐刷歌升级 | Niko&#39;s Blog</title>
-
-
-    <meta name="keywords" content="📁教程, Niko,NikoBlog,教程,小学生,筱晓,学习分享,csdn,博客园">
-
-
-
-
-    <!-- OpenGraph -->
- 
-    <meta name="description" content="教你如何从网易云音乐v0萌新升级到v10大佬的超级无敌厉害的教程（一脸虚荣)">
-<meta property="og:type" content="article">
-<meta property="og:title" content="基于云函数自动给网易云音乐刷歌升级">
-<meta property="og:url" content="https://www.nikoblog.top/article/cead5788/index.html">
-<meta property="og:site_name" content="Niko&#39;s Blog">
-<meta property="og:description" content="教你如何从网易云音乐v0萌新升级到v10大佬的超级无敌厉害的教程（一脸虚荣)">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://pic.imgdb.cn/item/625c326b239250f7c57fb450.jpg">
-<meta property="og:image" content="https://pic.imgdb.cn/item/625c32b4239250f7c58039de.jpg">
-<meta property="og:image" content="https://pic.imgdb.cn/item/625cb687239250f7c51f0355.jpg">
-<meta property="og:image" content="https://pic.imgdb.cn/item/625cb87b239250f7c521e8f6.jpg">
-<meta property="og:image" content="https://pic.imgdb.cn/item/625cb977239250f7c5237995.jpg">
-<meta property="og:image" content="https://pic.imgdb.cn/item/625cbaa0239250f7c5253f08.jpg">
-<meta property="og:image" content="https://pic.imgdb.cn/item/625cbcb8239250f7c5286c6f.jpg">
-<meta property="og:image" content="https://pic.imgdb.cn/item/625cbd09239250f7c528ebb0.jpg">
-<meta property="article:published_time" content="2022-04-17T14:59:58.000Z">
-<meta property="article:modified_time" content="2022-04-17T14:59:58.000Z">
-<meta property="article:author" content="Niko">
-<meta property="article:tag" content="📁教程">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://pic.imgdb.cn/item/625c326b239250f7c57fb450.jpg">
-
-
-    
-<link rel="stylesheet" href="/css/style/main.css">
- 
-
-    
-    
-    
-    
-        <link rel="stylesheet" id="hl-default-theme" href="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/themes/prism.min.css" media="none" >
-        
-            <link rel="stylesheet" id="hl-dark-theme" href="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/themes/prism-dark.min.css" media="none">
-        
-    
-    
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/plugins/line-numbers/prism-line-numbers.min.css" media="none" onload="this.media='all'">
-    
-
-
-    
-    
-<link rel="stylesheet" href="/css/style/dark.css">
-
-    
-<script src="/js/darkmode.js"></script>
-
-
-
-     
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
- 
-
-    <!-- custom head -->
-
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Niko's Blog" type="application/atom+xml">
-</head>
-
-    <body>
-        <div id="app" tabindex="-1">
-            <header class="header">
-    <div class="header__left">
-        <a href="/" class="button">
-            <span class="logo__text">Niko&#39;s Blog</span>
-        </a>
-    </div>
-    <div class="header__right">
-        
-            <div class="navbar__menus">
-                
-                    <a href="/" class="navbar-menu button">首页</a>
-                
-                    <a href="/archives/" class="navbar-menu button">归档</a>
-                
-                    <a href="/tags/" class="navbar-menu button">标签</a>
-                
-                    <a href="/categories/" class="navbar-menu button">分类</a>
-                
-                    <a href="/about/" class="navbar-menu button">关于</a>
-                
-            </div>
-        
-        
-        
-    <a href="/search/" id="btn-search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
-    </a>
-
+  
+  <meta property="og:image" content="http://hch-1309492355.cos.ap-nanjing.myqcloud.com/2022/04/18/625d1bc3c6009.jpg" />
+  
+  
+  <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css">
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js"> </script>
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Niko&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "ag8ctuxw9k");
+  </script>
+  <style>
+  body {
+    font-family: ' harmony'; } </style>
 
         
-        
-    <a href="javaScript:void(0);" id="btn-toggle-dark">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-    </a>
+<script src="/js/fancybox.js"></script>
 
+<meta name="generator" content="Hexo 6.3.0"></head>
 
-        
-            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
-            <div class="dropdown-menus" id="dropdown-menus">
-                
-                    <a href="/" class="dropdown-menu button">首页</a>
-                
-                    <a href="/archives/" class="dropdown-menu button">归档</a>
-                
-                    <a href="/tags/" class="dropdown-menu button">标签</a>
-                
-                    <a href="/categories/" class="dropdown-menu button">分类</a>
-                
-                    <a href="/about/" class="dropdown-menu button">关于</a>
-                
-            </div>
-        
-    </div>
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Niko&#39;s Blog</a>
+    </h1>
+    <p class="site-description">世间所有的相遇，都是久别重逢</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/categories">分类</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
 </header>
 
+    <main class="site-main posts-loop">
+    <article>
 
-            <main class="main">
+  
     
-
-<div class="post-title">
-    <h1 class="post-title__text">
-        基于云函数自动给网易云音乐刷歌升级
-    </h1>
-    <div class="post-title__meta">
-        <a href="/archives/2022/04/" class="post-meta__date button">2022-04-17</a>
-        
-    <span class="separate-dot"></span><a href="/categories/%F0%9F%9B%B8%E9%9D%92%E9%93%9C%E6%97%B6%E4%BB%A3%E5%8F%B7/" class="button">🛸青铜时代号</a>
-
- 
-        
+    <h3 class="article-title"><span>基于云函数自动给网易云音乐刷歌升级</span></h3>
     
-     
-    <span id="busuanzi_container_page_pv" hidden>
-        <span class="separate-dot"></span>
-        <span></span>
-        <span id="busuanzi_value_page_pv"></span>
-        <span>阅读</span>
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/article/cead5788/" rel="bookmark">
+        <time class="entry-date published" datetime="2022-04-17T14:59:58.000Z">
+          2022-04-17
+        </time>
+      </a>
     </span>
+  </div>
 
 
+  
 
- 
-
- 
-    </div>
-</div>
-
-
-
-<article class="post content-card">
-    <div class="post__header">
-    <div class="post__expire" id="post-expired-notify">
-        <p>
-            本文最后更新于 &lt;span id=&#34;expire-date&#34;&gt;&lt;/span&gt; 天前，文中部分描述可能已经过时。
-        </p>
-    </div>
-    <script>
-        (() => {
-            var update = Date.parse("2022-04-17"),
-                date = new Date(),
-                now = date.getTime(),
-                expire = now - update,
-                expire_days = Math.floor(expire/(24*3600*1000));
-            if (expire_days >= 120) {
-                document.querySelectorAll('#expire-date')[0].innerHTML = expire_days;
-                document.querySelectorAll('#post-expired-notify')[0].style.display = 'block';
-            }
-        })();
-    </script>
-</div>
-    <div class="post__content">
+  <div class="article-content">
+    <div class="entry">
+      
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于本Niko的网易云音乐实在是菜（才8级），而自己又是懒癌晚期，不想手动登录领云贝，并且以正常人的标准一天也刷不完300首歌（如果你是超人或者闲得慌当我没说）。所以去了解了这方面的项目，最终通过使用<code>良心云的云函数</code>实现了这一目标。</p>
 <h2 id="白嫖良心云的云函数服务"><a href="#白嫖良心云的云函数服务" class="headerlink" title="白嫖良心云的云函数服务"></a>白嫖良心云的<strong>云函数服务</strong></h2><p>进入良心云的<code>云函数SCF</code>网站，<a target="_blank" rel="noopener external nofollow noopener noreferrer" href="https://cloud.tencent.com/product/scf" target="_blank">https://cloud.tencent.com/product/scf</a>。先登录，接着进入云函数<strong>控制台</strong>，<a target="_blank" rel="noopener external nofollow noopener noreferrer" href="https://console.cloud.tencent.com/scf/list" target="_blank">https://console.cloud.tencent.com/scf</a>。</p>
 <ol>
-<li><p>如图，点击<code>新建按钮</code>:<br><img loading="lazy" src="https://pic.imgdb.cn/item/625c326b239250f7c57fb450.jpg" class="lazy" data-srcset="https://pic.imgdb.cn/item/625c326b239250f7c57fb450.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" title="进入后点击新建按钮"></p>
+<li><p>如图，点击<code>新建按钮</code>:<br><img loading="lazy" src="https://pic.imgdb.cn/item/625c326b239250f7c57fb450.jpg" title="进入后点击新建按钮"></p>
 </li>
-<li><p>接着点击<code>从头开始</code>:<br><img loading="lazy" src="https://pic.imgdb.cn/item/625c32b4239250f7c58039de.jpg" class="lazy" data-srcset="https://pic.imgdb.cn/item/625c32b4239250f7c58039de.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" title="点击‘从头开始’"></p>
+<li><p>接着点击<code>从头开始</code>:<br><img loading="lazy" src="https://pic.imgdb.cn/item/625c32b4239250f7c58039de.jpg" title="点击‘从头开始’"></p>
 </li>
-<li><p>如图。<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cb687239250f7c51f0355.jpg" class="lazy" data-srcset="https://pic.imgdb.cn/item/625cb687239250f7c51f0355.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" title="按照图片操作"><br>将<code>函数名称</code>改成你喜欢的。将<code>地域</code>改为你目前所在地。将<code>运行环境</code>改为NodeJs的最高版本（目前是<code>NodeJs 16.13</code>）<br>然后点击<code>本地上传zip包</code>将执行方法改为<strong>index.main</strong><br>再在下面将函数代码上传。代码下载链接: <a target="_blank" rel="noopener external nofollow noopener noreferrer" href="https://github.com/LittleControl/AutoNeteaseMusic/releases" target="_blank">https://github.com/LittleControl/AutoNeteaseMusic/releases</a></p>
+<li><p>如图。<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cb687239250f7c51f0355.jpg" title="按照图片操作"><br>将<code>函数名称</code>改成你喜欢的。将<code>地域</code>改为你目前所在地。将<code>运行环境</code>改为NodeJs的最高版本（目前是<code>NodeJs 16.13</code>）<br>然后点击<code>本地上传zip包</code>将执行方法改为<strong>index.main</strong><br>再在下面将函数代码上传。代码下载链接: <a target="_blank" rel="noopener external nofollow noopener noreferrer" href="https://github.com/LittleControl/AutoNeteaseMusic/releases" target="_blank">https://github.com/LittleControl/AutoNeteaseMusic/releases</a></p>
 </li>
-<li><p>如图。<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cb87b239250f7c521e8f6.jpg" class="lazy" data-srcset="https://pic.imgdb.cn/item/625cb87b239250f7c521e8f6.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" title="如图设置"><br><code>描述</code>随便填，<code>内存</code>改为<strong>64MB</strong>（64MB免费额度更高，能省则省），再将<code>执行超时时间</code>设置为<strong>900</strong>.</p>
+<li><p>如图。<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cb87b239250f7c521e8f6.jpg" title="如图设置"><br><code>描述</code>随便填，<code>内存</code>改为<strong>64MB</strong>（64MB免费额度更高，能省则省），再将<code>执行超时时间</code>设置为<strong>900</strong>.</p>
 </li>
-<li><p>如图。<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cb977239250f7c5237995.jpg" class="lazy" data-srcset="https://pic.imgdb.cn/item/625cb977239250f7c5237995.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" title="如图设置"><br>选择<code>自定义创建</code>。<code>触发周期</code>切换为<strong>自定义触发周期</strong>。<code>Cron表达式</code>输入<code>0 0 1,16 * * * *</code><br>接着，点击完成。</p>
+<li><p>如图。<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cb977239250f7c5237995.jpg" title="如图设置"><br>选择<code>自定义创建</code>。<code>触发周期</code>切换为<strong>自定义触发周期</strong>。<code>Cron表达式</code>输入<code>0 0 1,16 * * * *</code><br>接着，点击完成。</p>
 </li>
 </ol>
-<h2 id="设置云函数"><a href="#设置云函数" class="headerlink" title="设置云函数"></a>设置云函数</h2><p>设置好云函数后，我们还需要将账号密码、api链接搞好。<br>进入<code>函数代码</code>部分，等待一小会，会看到这样一幅画面：<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cbaa0239250f7c5253f08.jpg" class="lazy" data-srcset="https://pic.imgdb.cn/item/625cbaa0239250f7c5253f08.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" title="如图"><br>打开 <code>/src/config/api</code>将里面的所有内容替换为<code>https://music163-api-seven.vercel.app/</code>（这是我部署的API，出问题找我）<br>接着，打开<code>/src/config/account</code>，在文件的<strong>第一行</strong>写上你的<code>手机号码</code>或<code>网易邮箱</code>，然后在第二行写上你的密码。如果你有多账号，请按照”账号、密码、账号、密码……”的顺序写下去。</p>
-<h2 id="部署、测试云函数"><a href="#部署、测试云函数" class="headerlink" title="部署、测试云函数"></a>部署、测试云函数</h2><p><img loading="lazy" src="https://pic.imgdb.cn/item/625cbcb8239250f7c5286c6f.jpg" class="lazy" data-srcset="https://pic.imgdb.cn/item/625cbcb8239250f7c5286c6f.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" title="如图"><br>点击<code>自动安装依赖</code>。点击<code>部署</code>按钮，等待提示<strong>部署成功</strong>后，再点击<strong>测试</strong>按钮。<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cbd09239250f7c528ebb0.jpg" class="lazy" data-srcset="https://pic.imgdb.cn/item/625cbd09239250f7c528ebb0.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" title="成功！"><br>如果是看到如上图，那你就成功啦！一天会签到两次、刷完所有的歌、分别登录Web&#x2F;PC和Android端，保你成为云村最亮的仔！</p>
+<h2 id="设置云函数"><a href="#设置云函数" class="headerlink" title="设置云函数"></a>设置云函数</h2><p>设置好云函数后，我们还需要将账号密码、api链接搞好。<br>进入<code>函数代码</code>部分，等待一小会，会看到这样一幅画面：<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cbaa0239250f7c5253f08.jpg" title="如图"><br>打开 <code>/src/config/api</code>将里面的所有内容替换为<code>https://music163-api-seven.vercel.app/</code>（这是我部署的API，出问题找我）<br>接着，打开<code>/src/config/account</code>，在文件的<strong>第一行</strong>写上你的<code>手机号码</code>或<code>网易邮箱</code>，然后在第二行写上你的密码。如果你有多账号，请按照”账号、密码、账号、密码……”的顺序写下去。</p>
+<h2 id="部署、测试云函数"><a href="#部署、测试云函数" class="headerlink" title="部署、测试云函数"></a>部署、测试云函数</h2><p><img loading="lazy" src="https://pic.imgdb.cn/item/625cbcb8239250f7c5286c6f.jpg" title="如图"><br>点击<code>自动安装依赖</code>。点击<code>部署</code>按钮，等待提示<strong>部署成功</strong>后，再点击<strong>测试</strong>按钮。<br><img loading="lazy" src="https://pic.imgdb.cn/item/625cbd09239250f7c528ebb0.jpg" title="成功！"><br>如果是看到如上图，那你就成功啦！一天会签到两次、刷完所有的歌、分别登录Web&#x2F;PC和Android端，保你成为云村最亮的仔！</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/🛸青铜时代号/">🛸青铜时代号</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/📁教程/">📁教程</a>
+    </span>
+    
 
     </div>
-     
-    <div class="post-footer__meta"><p>更新于 2022-04-17</p></div> 
-    <div class="post-entry__tags"><a href="/tags/%F0%9F%93%81%E6%95%99%E7%A8%8B/" class="post-tags__link button"># 📁教程</a></div> 
+
+    
+  </div>
 </article>
 
-
-    <div class="nav">
-        <div class="nav__prev">
-            
-                <a href="/article/2604ea40/" class="nav__link">
-                    <div>
-                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
-                    </div>
-                    <div>
-                        <div class="nav__label">
-                            上一篇
-                        </div>
-                        <div class="nav__title">
-                            小升初阅读理解必备知识干货
-                        </div>
-                    </div>
-                </a>
-            
-        </div>
-        <div class="nav__next">
-            
-                <a href="/article/cdd581d8/" class="nav__link">
-                    <div>
-                        <div class="nav__label">
-                            下一篇
-                        </div>
-                        <div class="nav__title">
-                            Niko&#39;s Pan —— 免费的公开网盘
-                        </div>
-                    </div>
-                    <div>
-                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
-                    </div>
-                </a>
-            
-        </div>
-    </div>
+  
 
 
 
 
 
-</main>
 
-            <footer class="footer">
-     
-    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
-            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
-        </svg>
-    </a>
 
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Hacker</a>
+    </br>
     
-
-
+    &copy; 2022 Niko
     
-    
-    
-        <span id="busuanzi_container_site_uv" hidden>
-            <span>已有</span>
-            <span id="busuanzi_value_site_uv"></span>
-            <span>人访问</span>
-            
-        </span>
-    
-    
-        <span id="busuanzi_container_site_pv" hidden>
-            <span>这些人共访问了</span>
-            <span id="busuanzi_value_site_pv"></span>
-            <span>次</span>
-            
-        </span>
-    
- 
- 
-
- 
-    
-        
-        <p class="footer-copyright">
-            Copyright © 2020&nbsp;-&nbsp;2022 <a href="/">Niko&#39;s Blog</a>
-        </p>
-    
-    
-        
-            <p>祝你每天开心哦~😘</p>
-
-        
-    
-    <p>Powered by <a href="https://hexo.io" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Cards</a></p>
+  </p>
 </footer>
-
-        </div>
-        
-    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
-    <script>
-        window.lazyLoadOptions = {
-            elements_selector: ".lazy",
-            threshold: 0
-        };
-    </script>
- 
-
- 
-
- 
-
- 
-
- 
-
-
-
- 
-
-
-
- 
-
-
     
- 
-
-
     
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
-
-    
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
-
-    <script>
-        let lazyloadT = Boolean('true'),
-            auto_fancybox = Boolean('false')
-        if (auto_fancybox) {
-            $(".post__content").find('img').each(function () {
-                var element = document.createElement("a");
-                $(element).attr("data-fancybox", "gallery");
-                $(element).attr("href", $(this).attr("src"));
-                if (lazyloadT) {
-                    $(element).attr("href", $(this).attr("data-srcset"));
-                }
-                $(this).wrap(element);
-            });
-        } else {
-            $(".post__content").find("fancybox").find('img').each(function () {
-                var element = document.createElement("a");
-                $(element).attr("data-fancybox", "gallery");
-                $(element).attr("href", $(this).attr("src"));
-                if (lazyloadT) {
-                    $(element).attr("href", $(this).attr("data-srcset"));
-                }
-                $(this).wrap(element);
-            });
-        }
-    </script>
- 
-
- 
-
- 
-
- 
-
- 
-
-
-
-
-    
-        <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","ag8ctuxw9k");</script> 
-    
-
-    <script>
+  </div>
+</div>
+<script>
     if(!('loading' in HTMLImageElement.prototype)) {
         const srp = document.createElement('script');
         srp.src = 'https://cdn.jsdelivr.net/npm/lazysizes@5.1.1/lazysizes.min.js';
