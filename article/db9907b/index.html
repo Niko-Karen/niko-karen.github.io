@@ -1,188 +1,420 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-    <title>
-      Vercel-加速个人博客 | Niko&#39;s Blog | 世间所有的相遇，都是久别重逢</title>
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
 
-  
-  <meta name="author" content="Niko">
-  
+    
 
-  
-  <meta name="description" content="白嫖Vercel，让你的博客嗖嗖的">
-  
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
-  <meta name="keywords" content="Niko,NikoBlog,教程,小学生,筱晓,学习分享,csdn,博客园">
-  
+    <!--icon-->
 
-  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+        <link rel="shortcut icon" href="/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    
+    
+        <link rel="mask-icon" href="/favicon.ico">
+    
 
-  <meta property="og:title" content="Vercel-加速个人博客"/>
 
-  <meta property="og:site_name" content="Niko&#39;s Blog"/>
+    <!-- meta -->
 
-  
-  <meta property="og:image" content="cover.webp" />
-  
-  
-  <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css">
-  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-  <script src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js"> </script>
-  <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="Niko&#39;s Blog" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <script type="text/javascript">
-    (function (c, l, a, r, i, t, y) {
-      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "ag8ctuxw9k");
-  </script>
-  <style>
-  body {
-    font-family: ' harmony'; } </style>
+
+<title>Vercel-加速个人博客 | Niko&#39;s Blog</title>
+
+
+    <meta name="keywords" content="📁教程, Niko,NikoBlog,教程,小学生,筱晓,学习分享,csdn,博客园">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="白嫖Vercel，让你的博客嗖嗖的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vercel-加速个人博客">
+<meta property="og:url" content="https://www.nikoblog.top/article/db9907b/index.html">
+<meta property="og:site_name" content="Niko&#39;s Blog">
+<meta property="og:description" content="白嫖Vercel，让你的博客嗖嗖的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.nikoblog.top/article/db9907b/signup.webp">
+<meta property="og:image" content="https://www.nikoblog.top/article/db9907b/com.webp">
+<meta property="og:image" content="https://www.nikoblog.top/article/db9907b/pro.webp">
+<meta property="og:image" content="https://www.nikoblog.top/article/db9907b/over.webp">
+<meta property="og:image" content="https://www.nikoblog.top/article/db9907b/done.webp">
+<meta property="og:image" content="https://www.nikoblog.top/article/db9907b/buchong.webp">
+<meta property="article:published_time" content="2022-01-19T11:55:32.000Z">
+<meta property="article:modified_time" content="2022-01-19T11:55:32.000Z">
+<meta property="article:author" content="Niko">
+<meta property="article:tag" content="📁教程">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.nikoblog.top/article/db9907b/signup.webp">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/themes/prism.min.css" media="none" >
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/themes/prism-dark.min.css" media="none">
+        
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/plugins/line-numbers/prism-line-numbers.min.css" media="none" onload="this.media='all'">
+    
+
+
+    
+    
+<link rel="stylesheet" href="/css/style/dark.css">
+
+    
+<script src="/js/darkmode.js"></script>
+
+
+
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Niko's Blog" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Niko&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/tags/" class="navbar-menu button">标签</a>
+                
+                    <a href="/categories/" class="navbar-menu button">分类</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
 
         
-<script src="/js/fancybox.js"></script>
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
 
-<meta name="generator" content="Hexo 6.3.0"></head>
 
-<body>
-<div class="blog">
-  <div class="content">
-
-    <header>
-  <div class="site-branding">
-    <h1 class="site-title">
-      <a href="/">Niko&#39;s Blog</a>
-    </h1>
-    <p class="site-description">世间所有的相遇，都是久别重逢</p>
-  </div>
-  <nav class="site-navigation">
-    <ul>
-      
-        <li><a href="/">主页</a></li>
-      
-        <li><a href="/archives">归档</a></li>
-      
-        <li><a href="/categories">分类</a></li>
-      
-        <li><a href="/tags">标签</a></li>
-      
-        <li><a href="/about">关于</a></li>
-      
-    </ul>
-  </nav>
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/tags/" class="dropdown-menu button">标签</a>
+                
+                    <a href="/categories/" class="dropdown-menu button">分类</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于</a>
+                
+            </div>
+        
+    </div>
 </header>
 
-    <main class="site-main posts-loop">
-    <article>
 
-  
+            <main class="main">
     
-    <h3 class="article-title"><span>Vercel-加速个人博客</span></h3>
-    
-  
 
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/article/db9907b/" rel="bookmark">
-        <time class="entry-date published" datetime="2022-01-19T11:55:32.000Z">
-          2022-01-19
-        </time>
-      </a>
+<div class="post-title">
+    <h1 class="post-title__text">
+        Vercel-加速个人博客
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2022/01/" class="post-meta__date button">2022-01-19</a>
+        
+    <span class="separate-dot"></span><a href="/categories/%F0%9F%9B%B8%E9%9D%92%E9%93%9C%E6%97%B6%E4%BB%A3%E5%8F%B7/" class="button">🛸青铜时代号</a>
+
+ 
+        
+    
+     
+    <span id="busuanzi_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="busuanzi_value_page_pv"></span>
+        <span>阅读</span>
     </span>
-  </div>
 
 
-  
 
-  <div class="article-content">
-    <div class="entry">
-      
+ 
+
+ 
+    </div>
+</div>
+
+
+
+<article class="post content-card">
+    <div class="post__header">
+    <div class="post__expire" id="post-expired-notify">
+        <p>
+            本文最后更新于 &lt;span id=&#34;expire-date&#34;&gt;&lt;/span&gt; 天前，文中部分描述可能已经过时。
+        </p>
+    </div>
+    <script>
+        (() => {
+            var update = Date.parse("2022-01-19"),
+                date = new Date(),
+                now = date.getTime(),
+                expire = now - update,
+                expire_days = Math.floor(expire/(24*3600*1000));
+            if (expire_days >= 120) {
+                document.querySelectorAll('#expire-date')[0].innerHTML = expire_days;
+                document.querySelectorAll('#post-expired-notify')[0].style.display = 'block';
+            }
+        })();
+    </script>
+</div>
+    <div class="post__content">
         <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>现在有不少人的博客网站都是白嫖 Github Pages等<code>免费</code>静态文件部署站的吧，我也不例外。但免费的东西总有不足之处，例如链接太长啦、加载太慢啦、CDN流量没啦等等。在以前配置Twikoo时就发现了一个还算良心的<strong>加速</strong>平台 —— Vercel</p>
-<span id="more"></span>
 <h2 id="登录-x2F-注册"><a href="#登录-x2F-注册" class="headerlink" title="登录&#x2F;注册"></a>登录&#x2F;注册</h2><p>官网链接: <a target="_blank" rel="noopener external nofollow noopener noreferrer" href="https://vercel.com/signup" target="_blank">https://vercel.com/signup</a></p>
-<p><img loading="lazy" src="/article/db9907b/signup.webp" alt="注册页"></p>
+<p><img loading="lazy" src="/article/db9907b/signup.webp" class="lazy" data-srcset="/article/db9907b/signup.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="注册页"></p>
 <p>大概是这样，选择自己的注册方式进去注册，但有个大坑等着你跳……<br>我第一次注册的时候报了个错，就是下面这个。<br><code>Error:This user account is blocked. Contact support@vercel.com for more information.</code></p>
 <p>就是这个，整的我心态崩溃，其实解决很简单，你只需要按他要求发个邮件给他就行，就这么简单粗暴，我也是这么解决的，还多了一个外交机会，感兴趣的可以看我与可能跟我隔了大半个地球的人类对话</p>
-<h2 id="跨地球交流"><a href="#跨地球交流" class="headerlink" title="跨地球交流"></a>跨地球交流</h2><p><img loading="lazy" src="/article/db9907b/com.webp" alt="邮件"></p>
-<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>登陆后，大概会自动进入Dashboard(即仪表板)，然后点击New Project,然后会看到这样：<br><img loading="lazy" src="/article/db9907b/pro.webp" alt="New Project"></p>
+<h2 id="跨地球交流"><a href="#跨地球交流" class="headerlink" title="跨地球交流"></a>跨地球交流</h2><p><img loading="lazy" src="/article/db9907b/com.webp" class="lazy" data-srcset="/article/db9907b/com.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="邮件"></p>
+<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>登陆后，大概会自动进入Dashboard(即仪表板)，然后点击New Project,然后会看到这样：<br><img loading="lazy" src="/article/db9907b/pro.webp" class="lazy" data-srcset="/article/db9907b/pro.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="New Project"></p>
 <p>我是登陆好的，一般应该是要先登录Github账号后同步才会这样。<br>到了这个界面后，点击进入下面的<code>Import Third-Party Git Repository</code>,输入自己博客静态文件的Github地址。</p>
 <p>如果还没部署到Github上，就先随便点个仓库，先创建了先。</p>
-<p>搞定这些后，会进入这样的页面：<br><img loading="lazy" src="/article/db9907b/over.webp" alt="创建仓库"></p>
+<p>搞定这些后，会进入这样的页面：<br><img loading="lazy" src="/article/db9907b/over.webp" class="lazy" data-srcset="/article/db9907b/over.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="创建仓库"></p>
 <p>注意，<code>my-repository</code>填的是将创建的仓库名，但这也是部署后的域名的一部分，能短就短，更何况填了就不能改了，慎填。</p>
 <p>整完这些后，Vercel会自动Clone源仓库的东东到你设的<code>my-repository</code>，可以在下面查看进度，等一小会……</p>
-<h2 id="Over"><a href="#Over" class="headerlink" title="Over!"></a>Over!</h2><p>搞定后，Vercel会给你重定向，放烟花，可喜庆了。<br><img loading="lazy" src="/article/db9907b/done.webp" alt="done"></p>
+<h2 id="Over"><a href="#Over" class="headerlink" title="Over!"></a>Over!</h2><p>搞定后，Vercel会给你重定向，放烟花，可喜庆了。<br><img loading="lazy" src="/article/db9907b/done.webp" class="lazy" data-srcset="/article/db9907b/done.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="done"></p>
 <p>点击中间的Domains下面的链接，那就是你的加速博客！</p>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="设定自定义域名"><a href="#设定自定义域名" class="headerlink" title="设定自定义域名"></a>设定自定义域名</h3><p>谁都不想用这不自由的又臭又长的地址，所以我命由我不由天。点击菜单栏的<code>Settings</code>，找到 <code>Domains</code>，点击默认域名右边的<code>Edit</code>按钮，自己改。</p>
-<h3 id="更新网页"><a href="#更新网页" class="headerlink" title="更新网页"></a>更新网页</h3><p>当你又对网页进行更改了咋办？No Problem。我们只需点到菜单栏的<code>Deployments</code>，点第一个列表Item右边的那三个点，像这样。<br><img loading="lazy" src="/article/db9907b/buchong.webp" alt="补充2"><br>点击后出来一个框，点<code>Promote to Production</code>，弹出个确认框，确认完事。</p>
+<h3 id="更新网页"><a href="#更新网页" class="headerlink" title="更新网页"></a>更新网页</h3><p>当你又对网页进行更改了咋办？No Problem。我们只需点到菜单栏的<code>Deployments</code>，点第一个列表Item右边的那三个点，像这样。<br><img loading="lazy" src="/article/db9907b/buchong.webp" class="lazy" data-srcset="/article/db9907b/buchong.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="补充2"><br>点击后出来一个框，点<code>Promote to Production</code>，弹出个确认框，确认完事。</p>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a target="_blank" rel="noopener external nofollow noopener noreferrer" href="https://akilar.top/posts/812734f8/" target="_blank">Sep.21 Akilar.使用Vercel来加速Hexo博客</a></p>
 
-      
     </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/🛸青铜时代号/">🛸青铜时代号</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/📁教程/">📁教程</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
+     
+    <div class="post-footer__meta"><p>更新于 2022-01-19</p></div> 
+    <div class="post-entry__tags"><a href="/tags/%F0%9F%93%81%E6%95%99%E7%A8%8B/" class="post-tags__link button"># 📁教程</a></div> 
 </article>
 
-  
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/article/2fe613e2/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            上一篇
+                        </div>
+                        <div class="nav__title">
+                            让终端更优雅—— Windows Terminal美化
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/article/632f5ce3/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            下一篇
+                        </div>
+                        <div class="nav__title">
+                            2021·总结
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
 
 
 
 
 
+</main>
 
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
 
-
-
-    </main>
-
-    <footer class="site-footer">
-  <p class="site-info">
-    Proudly powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> and
-    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Hacker</a>
-    </br>
     
-    &copy; 2022 Niko
+
+
     
-  </p>
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span>已有</span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>人访问</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span>这些人共访问了</span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>次</span>
+            
+        </span>
+    
+ 
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2020&nbsp;-&nbsp;2022 <a href="/">Niko&#39;s Blog</a>
+        </p>
+    
+    
+        
+            <p>祝你每天开心哦~😘</p>
+
+        
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Cards</a></p>
 </footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
     
+ 
+
+
     
-  </div>
-</div>
-<script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('true'),
+            auto_fancybox = Boolean('false')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+    
+        <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","ag8ctuxw9k");</script> 
+    
+
+    <script>
     if(!('loading' in HTMLImageElement.prototype)) {
         const srp = document.createElement('script');
         srp.src = 'https://cdn.jsdelivr.net/npm/lazysizes@5.1.1/lazysizes.min.js';

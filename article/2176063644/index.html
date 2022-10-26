@@ -1,116 +1,224 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-    <title>
-      Python Jieba库 | Niko&#39;s Blog | 世间所有的相遇，都是久别重逢</title>
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
 
-  
-  <meta name="author" content="Niko">
-  
+    
 
-  
-  <meta name="description" content="介绍Jieba扩展库">
-  
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
-  <meta name="keywords" content="Niko,NikoBlog,教程,小学生,筱晓,学习分享,csdn,博客园">
-  
+    <!--icon-->
 
-  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+        <link rel="shortcut icon" href="/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    
+    
+        <link rel="mask-icon" href="/favicon.ico">
+    
 
-  <meta property="og:title" content="Python Jieba库"/>
 
-  <meta property="og:site_name" content="Niko&#39;s Blog"/>
+    <!-- meta -->
 
-  
-  <meta property="og:image" content="cover.webp" />
-  
-  
-  <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css">
-  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-  <script src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js"> </script>
-  <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="Niko&#39;s Blog" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <script type="text/javascript">
-    (function (c, l, a, r, i, t, y) {
-      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "ag8ctuxw9k");
-  </script>
-  <style>
-  body {
-    font-family: ' harmony'; } </style>
+
+<title>Python Jieba库 | Niko&#39;s Blog</title>
+
+
+    <meta name="keywords" content="🐍Python, Niko,NikoBlog,教程,小学生,筱晓,学习分享,csdn,博客园">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="介绍Jieba扩展库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python Jieba库">
+<meta property="og:url" content="https://www.nikoblog.top/article/2176063644/index.html">
+<meta property="og:site_name" content="Niko&#39;s Blog">
+<meta property="og:description" content="介绍Jieba扩展库">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic1.zhimg.com/v2-144f02ac2b50ee5841fb2bee3fa36948_r.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-a46b69b27e9cdd27460ef7521de90de7_r.jpg">
+<meta property="og:image" content="https://pic2.zhimg.com/v2-154d371fe8a4e1dd06829913b88c04a9_r.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-006e9b57a6f284ddce4f14314b8caa7a_b.jpg">
+<meta property="article:published_time" content="2022-01-06T05:11:13.000Z">
+<meta property="article:modified_time" content="2022-01-07T01:36:00.000Z">
+<meta property="article:author" content="Niko">
+<meta property="article:tag" content="🐍Python">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pic1.zhimg.com/v2-144f02ac2b50ee5841fb2bee3fa36948_r.jpg">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/themes/prism.min.css" media="none" >
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/themes/prism-dark.min.css" media="none">
+        
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/plugins/line-numbers/prism-line-numbers.min.css" media="none" onload="this.media='all'">
+    
+
+
+    
+    
+<link rel="stylesheet" href="/css/style/dark.css">
+
+    
+<script src="/js/darkmode.js"></script>
+
+
+
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Niko's Blog" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Niko&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/tags/" class="navbar-menu button">标签</a>
+                
+                    <a href="/categories/" class="navbar-menu button">分类</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
 
         
-<script src="/js/fancybox.js"></script>
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
 
-<meta name="generator" content="Hexo 6.3.0"></head>
 
-<body>
-<div class="blog">
-  <div class="content">
-
-    <header>
-  <div class="site-branding">
-    <h1 class="site-title">
-      <a href="/">Niko&#39;s Blog</a>
-    </h1>
-    <p class="site-description">世间所有的相遇，都是久别重逢</p>
-  </div>
-  <nav class="site-navigation">
-    <ul>
-      
-        <li><a href="/">主页</a></li>
-      
-        <li><a href="/archives">归档</a></li>
-      
-        <li><a href="/categories">分类</a></li>
-      
-        <li><a href="/tags">标签</a></li>
-      
-        <li><a href="/about">关于</a></li>
-      
-    </ul>
-  </nav>
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/tags/" class="dropdown-menu button">标签</a>
+                
+                    <a href="/categories/" class="dropdown-menu button">分类</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于</a>
+                
+            </div>
+        
+    </div>
 </header>
 
-    <main class="site-main posts-loop">
-    <article>
 
-  
+            <main class="main">
     
-    <h3 class="article-title"><span>Python Jieba库</span></h3>
-    
-  
 
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/article/2176063644/" rel="bookmark">
-        <time class="entry-date published" datetime="2022-01-06T05:11:13.000Z">
-          2022-01-06
-        </time>
-      </a>
+<div class="post-title">
+    <h1 class="post-title__text">
+        Python Jieba库
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2022/01/" class="post-meta__date button">2022-01-06</a>
+        
+    <span class="separate-dot"></span><a href="/categories/%F0%9F%9B%AB%E4%B8%87%E5%B9%B4%E9%B2%B2%E9%B9%8F%E5%8F%B7/" class="button">🛫万年鲲鹏号</a>
+
+ 
+        
+    
+     
+    <span id="busuanzi_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="busuanzi_value_page_pv"></span>
+        <span>阅读</span>
     </span>
-  </div>
 
 
-  
 
-  <div class="article-content">
-    <div class="entry">
-      
+ 
+
+ 
+    </div>
+</div>
+
+
+
+<article class="post content-card">
+    <div class="post__header">
+    <div class="post__expire" id="post-expired-notify">
+        <p>
+            本文最后更新于 &lt;span id=&#34;expire-date&#34;&gt;&lt;/span&gt; 天前，文中部分描述可能已经过时。
+        </p>
+    </div>
+    <script>
+        (() => {
+            var update = Date.parse("2022-01-07"),
+                date = new Date(),
+                now = date.getTime(),
+                expire = now - update,
+                expire_days = Math.floor(expire/(24*3600*1000));
+            if (expire_days >= 120) {
+                document.querySelectorAll('#expire-date')[0].innerHTML = expire_days;
+                document.querySelectorAll('#post-expired-notify')[0].style.display = 'block';
+            }
+        })();
+    </script>
+</div>
+    <div class="post__content">
         <h2 id="1-jieba-的江湖地位"><a href="#1-jieba-的江湖地位" class="headerlink" title="1. jieba 的江湖地位"></a><strong>1. jieba 的江湖地位</strong></h2><p>NLP（自然语言）领域现在可谓是群雄纷争，各种开源组件层出不穷，其中一支不可忽视的力量便是 jieba 分词，号称要做最好的 Python 中文分词组件。</p>
 <span id="more"></span>
-<p><img loading="lazy" src="https://pic1.zhimg.com/v2-144f02ac2b50ee5841fb2bee3fa36948_r.jpg"></p>
+<p><img loading="lazy" src="https://pic1.zhimg.com/v2-144f02ac2b50ee5841fb2bee3fa36948_r.jpg" class="lazy" data-srcset="https://pic1.zhimg.com/v2-144f02ac2b50ee5841fb2bee3fa36948_r.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg=="></p>
 <p>“最好的” 这三个字可不是空穴来风，jieba 在开源社区的受欢迎程度非常之高。</p>
 <p>jieba 项目目前的 github star 数已经达到 24k，其他热门分词组件像 HanLP star 数 20k、ansj_seg star 数 5.6k、pkuseg-python star 数 5k。可见 jieba 已经稳居中文分词领域 c 位。</p>
-<p><img loading="lazy" src="https://pic4.zhimg.com/v2-a46b69b27e9cdd27460ef7521de90de7_r.jpg"></p>
+<p><img loading="lazy" src="https://pic4.zhimg.com/v2-a46b69b27e9cdd27460ef7521de90de7_r.jpg" class="lazy" data-srcset="https://pic4.zhimg.com/v2-a46b69b27e9cdd27460ef7521de90de7_r.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg=="></p>
 <p>jieba 的主要功能是做中文分词，可以进行简单分词、并行分词、命令行分词，当然它的功能不限于此，目前还支持关键词提取、词性标注、词位置查询等。</p>
 <p>更让人愉悦的是 jieba 虽然立足于 python，但同样支持其他语言和平台，诸如：C++、Go、R、Rust、Node.js、PHP、 iOS、Android 等。所以 jieba 能满足各类开发者的需求。</p>
 <h2 id="2-如何学-jieba"><a href="#2-如何学-jieba" class="headerlink" title="2. 如何学 jieba"></a><strong>2. 如何学 jieba</strong></h2><p>据我所知，jieba 最靠谱的文档是 github 项目的 readme，因为它似乎还没有独立的使用文档。但由于使用起来简单，看 readme 也能快速上手。</p>
@@ -118,10 +226,10 @@
 <p>国内各大博客有关于 jieba 的使用教程，但需要甄别下准确度和时效性，因为 jieba 项目一直在更新。</p>
 <p>当然本文不是纯粹的种草文章，会简单介绍下 jieba 的使用方法。</p>
 <h2 id="3-安装-jieba"><a href="#3-安装-jieba" class="headerlink" title="3. 安装 jieba"></a><strong>3. 安装 jieba</strong></h2><p>jieba 支持<code>pip</code>或者<code>conda</code>安装，直接在命令行执行：</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> jieba</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">pip install jieba<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>不出意外，应该能很快安装好。</p>
-<p><img loading="lazy" src="https://pic2.zhimg.com/v2-154d371fe8a4e1dd06829913b88c04a9_r.jpg"></p>
+<p><img loading="lazy" src="https://pic2.zhimg.com/v2-154d371fe8a4e1dd06829913b88c04a9_r.jpg" class="lazy" data-srcset="https://pic2.zhimg.com/v2-154d371fe8a4e1dd06829913b88c04a9_r.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg=="></p>
 <p>你也可以下载 jieba 安装包再安装，jieba 的 pypi 地址：</p>
 <p><em><a target="_blank" rel="noopener external nofollow noopener noreferrer" href="http://pypi.python.org/pypi/jieba/" target="_blank">Pypi地址</a></em></p>
 <h2 id="4-分词初体验"><a href="#4-分词初体验" class="headerlink" title="4. 分词初体验"></a><strong>4. 分词初体验</strong></h2><p>分词是 NLP 处理的第一步，也是最基本的任务，分词的好坏直接决定了后面语义分析的精准度。</p>
@@ -131,7 +239,19 @@
 <p>参数解释：  </p>
 <p><strong>「strs」</strong>： 需要分词的字符串；<br><strong>「cut_all」</strong>：用来控制是否采用全模式；<br><strong>「HMM」</strong>：用来控制是否使用 HMM 模型；<br><strong>「use_paddle」</strong>：用来控制是否使用 paddle 模式下的分词模式，paddle 模式采用延迟加载方式，通过 enable_paddle 接口安装 paddlepaddle-tiny，并且 import 相关代码；  </p>
 <p>这里区分全模式和精确模式，举个例子先看看区别：</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 全模式</span><br><span class="line">seg_list = jieba.cut(<span class="string">&quot;中国上海是一座美丽的国际性大都市&quot;</span>, cut_all=<span class="keyword">True</span>)</span><br><span class="line"><span class="keyword">print</span>(<span class="string">&quot;Full Mode: &quot;</span> + <span class="string">&quot;/ &quot;</span>.<span class="keyword">join</span>(seg_list))  </span><br><span class="line"></span><br><span class="line"># 返回结果</span><br><span class="line">Full Mode: 中国<span class="regexp">/ 上海/</span> 是<span class="regexp">/ 一座/</span> 美丽<span class="regexp">/ 的/</span> 国际<span class="regexp">/ 国际性/</span> 大都<span class="regexp">/ 大都市/</span> 都市</span><br><span class="line"></span><br><span class="line"># 精确模式</span><br><span class="line">seg_list = jieba.cut(<span class="string">&quot;中国上海是一座美丽的国际性大都市&quot;</span>, cut_all=<span class="keyword">False</span>)</span><br><span class="line"><span class="keyword">print</span>(<span class="string">&quot;Full Mode: &quot;</span> + <span class="string">&quot;/ &quot;</span>.<span class="keyword">join</span>(seg_list))  </span><br><span class="line"></span><br><span class="line"># 返回结果</span><br><span class="line"><span class="keyword">Default</span> Mode: 中国<span class="regexp">/ 上海/</span> 是<span class="regexp">/ 一座/</span> 美丽<span class="regexp">/ 的/</span> 国际性/ 大都市</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"># 全模式
+seg_list &#x3D; jieba.cut(&quot;中国上海是一座美丽的国际性大都市&quot;, cut_all&#x3D;True)
+print(&quot;Full Mode: &quot; + &quot;&#x2F; &quot;.join(seg_list))  
+
+# 返回结果
+Full Mode: 中国&#x2F; 上海&#x2F; 是&#x2F; 一座&#x2F; 美丽&#x2F; 的&#x2F; 国际&#x2F; 国际性&#x2F; 大都&#x2F; 大都市&#x2F; 都市
+
+# 精确模式
+seg_list &#x3D; jieba.cut(&quot;中国上海是一座美丽的国际性大都市&quot;, cut_all&#x3D;False)
+print(&quot;Full Mode: &quot; + &quot;&#x2F; &quot;.join(seg_list))  
+
+# 返回结果
+Default Mode: 中国&#x2F; 上海&#x2F; 是&#x2F; 一座&#x2F; 美丽&#x2F; 的&#x2F; 国际性&#x2F; 大都市<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>可以看到，全模式把句子中所有的可以成词的词语都扫描出来, 会出现一词多用、一词多意。精确模式将句子最精确的切分开，每个词都只有一种含义。</p>
 <p><code>jieba.cut</code>方法默认是精确模式。</p>
@@ -141,81 +261,220 @@
 <h3 id="jieba-cut-for-search"><a href="#jieba-cut-for-search" class="headerlink" title="jieba.cut_for_search"></a><strong>jieba.cut_for_search</strong></h3><p>该方法和 cut 一样，分解后返回一个迭代器，需要用 for 循环访问。不过它是搜索引擎模式，在精确模式的基础上，对长词再次切分，提高召回率，适合用于搜索引擎分词。</p>
 <p>参数解释：</p>
 <p><strong>「strs」</strong>：需要分词的字符串；<br><strong>「HMM」</strong>：是否使用 HMM 模型，默认值为 True。该方法适合用于搜索引擎构建倒排索引的分词，粒度比较细。  </p>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 搜索引擎模式</span></span><br><span class="line">seg_list = jieba.cut_for_search(<span class="string">&quot;中国上海是一座美丽的国际性大都市，拥有复旦大学、上海交通大学等知名高等学府&quot;</span>)  </span><br><span class="line"><span class="keyword">print</span>(<span class="string">&quot;, &quot;</span>.<span class="keyword">join</span>(seg_list))</span><br><span class="line"></span><br><span class="line"><span class="meta"># 返回结果</span></span><br><span class="line">Search Mode: 中国, 上海, 是, 一座, 美丽, 的, 国际, 国际性, 大都, 都市, 大都市, ，, 拥有, 复旦, 大学, 复旦大学, 、, 上海, 交通, 大学, 上海交通大学, 等, 知名, 高等, 学府, 高等学府</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"># 搜索引擎模式
+seg_list &#x3D; jieba.cut_for_search(&quot;中国上海是一座美丽的国际性大都市，拥有复旦大学、上海交通大学等知名高等学府&quot;)  
+print(&quot;, &quot;.join(seg_list))
+
+# 返回结果
+Search Mode: 中国, 上海, 是, 一座, 美丽, 的, 国际, 国际性, 大都, 都市, 大都市, ，, 拥有, 复旦, 大学, 复旦大学, 、, 上海, 交通, 大学, 上海交通大学, 等, 知名, 高等, 学府, 高等学府<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="jieba-lcut"><a href="#jieba-lcut" class="headerlink" title="jieba.lcut"></a><strong>jieba.lcut</strong></h3><p>和<code>jieba.cut</code>使用方法一样，不过返回的是列表。</p>
 <p>cut 和 cut_for_search 方法都是支持繁体字的。</p>
 <h2 id="5-添加自定义词典"><a href="#5-添加自定义词典" class="headerlink" title="5. 添加自定义词典"></a><strong>5. 添加自定义词典</strong></h2><p>如果是对专业新闻或者小说进行分词，会有很多的新词汇，jieba 库里没有就没办法识别，那么就需要添加自定义的词汇，比如：奥利给。</p>
 <p>添加自定义词汇的方法： <code>jieba.load_userdict(file_name)</code> 参数是文本文件，txt、csv 都可以。</p>
 <p>自定义词典文件的词汇格式是一个词占一行，每一行分三部分：词语、词频（可省略）、词性（可省略），用空格隔开，顺序不可颠倒。 比如：</p>
-<p><img loading="lazy" src="https://pic3.zhimg.com/v2-006e9b57a6f284ddce4f14314b8caa7a_b.jpg"></p>
+<p><img loading="lazy" src="https://pic3.zhimg.com/v2-006e9b57a6f284ddce4f14314b8caa7a_b.jpg" class="lazy" data-srcset="https://pic3.zhimg.com/v2-006e9b57a6f284ddce4f14314b8caa7a_b.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg=="></p>
 <p>以 “奥利给，管虎执导的八佰是一部让人热血沸腾的好电影。” 这段话为例， 如果不添加自定义词典，很多词没办法识别出来。</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不添加自定义词典</span></span><br><span class="line">seg_list = jieba.cut(<span class="string">&quot;奥利给，管虎执导的八佰是一部让人热血沸腾的好电影&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;/ &quot;</span>.join(seg_list))  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回结果</span></span><br><span class="line">奥利<span class="regexp">/ 给/</span> ，<span class="regexp">/ 管虎/</span> 执导<span class="regexp">/ 的/</span> 八佰是<span class="regexp">/ 一部/</span> 让<span class="regexp">/ 人/</span> 热血沸腾<span class="regexp">/ 的/</span> 好/ 电影</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"># 不添加自定义词典
+seg_list &#x3D; jieba.cut(&quot;奥利给，管虎执导的八佰是一部让人热血沸腾的好电影&quot;)
+print(&quot;&#x2F; &quot;.join(seg_list))  
+
+# 返回结果
+奥利&#x2F; 给&#x2F; ，&#x2F; 管虎&#x2F; 执导&#x2F; 的&#x2F; 八佰是&#x2F; 一部&#x2F; 让&#x2F; 人&#x2F; 热血沸腾&#x2F; 的&#x2F; 好&#x2F; 电影<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>添加自定义词典后，新词、人名、电影名都可以识别出来</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 载入词典</span></span><br><span class="line">jieba.load_userdict(<span class="string">&quot;dict.txt&quot;</span>)</span><br><span class="line">seg_list = jieba.cut(<span class="string">&quot;奥利给，管虎执导的八佰是一部让人热血沸腾的好电影&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;/ &quot;</span>.join(seg_list))  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回结果</span></span><br><span class="line">奥利给<span class="regexp">/ ，/</span> 管虎<span class="regexp">/ 执导/</span> 的<span class="regexp">/ 八佰/</span> 是<span class="regexp">/ 一部/</span> 让<span class="regexp">/ 人/</span> 热血沸腾<span class="regexp">/ 的/</span> 好/ 电影</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"># 载入词典
+jieba.load_userdict(&quot;dict.txt&quot;)
+seg_list &#x3D; jieba.cut(&quot;奥利给，管虎执导的八佰是一部让人热血沸腾的好电影&quot;)
+print(&quot;&#x2F; &quot;.join(seg_list))  
+
+# 返回结果
+奥利给&#x2F; ，&#x2F; 管虎&#x2F; 执导&#x2F; 的&#x2F; 八佰&#x2F; 是&#x2F; 一部&#x2F; 让&#x2F; 人&#x2F; 热血沸腾&#x2F; 的&#x2F; 好&#x2F; 电影<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="6-结论"><a href="#6-结论" class="headerlink" title="6. 结论"></a><strong>6. 结论</strong></h2><p>jieba 无疑是一款优秀的分词工具，而且在不断地优化成长。前面讲了一些基本的使用，大家还可以尝试使用停用词、提取关键词、词性标注、词位置查询等功能，也是十分的便捷。</p>
 
-      
     </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/🛫万年鲲鹏号/">🛫万年鲲鹏号</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/🐍Python/">🐍Python</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
+     
+    <div class="post-footer__meta"><p>更新于 2022-01-07</p></div> 
+    <div class="post-entry__tags"><a href="/tags/%F0%9F%90%8DPython/" class="post-tags__link button"># 🐍Python</a></div> 
 </article>
 
-  
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/article/2118472832/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            上一篇
+                        </div>
+                        <div class="nav__title">
+                            网易云音乐直链
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/article/744616242/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            下一篇
+                        </div>
+                        <div class="nav__title">
+                            博客公告
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
 
 
 
 
 
+</main>
 
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
 
-
-
-    </main>
-
-    <footer class="site-footer">
-  <p class="site-info">
-    Proudly powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> and
-    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Hacker</a>
-    </br>
     
-    &copy; 2022 Niko
+
+
     
-  </p>
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span>已有</span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>人访问</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span>这些人共访问了</span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>次</span>
+            
+        </span>
+    
+ 
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2020&nbsp;-&nbsp;2022 <a href="/">Niko&#39;s Blog</a>
+        </p>
+    
+    
+        
+            <p>祝你每天开心哦~😘</p>
+
+        
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Cards</a></p>
 </footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
     
+ 
+
+
     
-  </div>
-</div>
-<script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('true'),
+            auto_fancybox = Boolean('false')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+    
+        <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","ag8ctuxw9k");</script> 
+    
+
+    <script>
     if(!('loading' in HTMLImageElement.prototype)) {
         const srp = document.createElement('script');
         srp.src = 'https://cdn.jsdelivr.net/npm/lazysizes@5.1.1/lazysizes.min.js';

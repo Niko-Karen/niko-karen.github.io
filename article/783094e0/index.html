@@ -1,120 +1,279 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-    <title>
-      升级+优化的网易云歌单下载器 | Niko&#39;s Blog | 世间所有的相遇，都是久别重逢</title>
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
 
-  
-  <meta name="author" content="Niko">
-  
+    
 
-  
-  <meta name="description" content="嘿，我就是死磕网易云不放，今天就来扒网易云的歌单！">
-  
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
-  <meta name="keywords" content="Niko,NikoBlog,教程,小学生,筱晓,学习分享,csdn,博客园">
-  
+    <!--icon-->
 
-  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+        <link rel="shortcut icon" href="/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    
+    
+        <link rel="mask-icon" href="/favicon.ico">
+    
 
-  <meta property="og:title" content="升级+优化的网易云歌单下载器"/>
 
-  <meta property="og:site_name" content="Niko&#39;s Blog"/>
+    <!-- meta -->
 
-  
-  <meta property="og:image" content="music163.webp" />
-  
-  
-  <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css">
-  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-  <script src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js"> </script>
-  <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="Niko&#39;s Blog" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <script type="text/javascript">
-    (function (c, l, a, r, i, t, y) {
-      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "ag8ctuxw9k");
-  </script>
-  <style>
-  body {
-    font-family: ' harmony'; } </style>
+
+<title>升级+优化的网易云歌单下载器 | Niko&#39;s Blog</title>
+
+
+    <meta name="keywords" content="🎵死磕记录, Niko,NikoBlog,教程,小学生,筱晓,学习分享,csdn,博客园">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="嘿，我就是死磕网易云不放，今天就来扒网易云的歌单！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="升级+优化的网易云歌单下载器">
+<meta property="og:url" content="https://www.nikoblog.top/article/783094e0/index.html">
+<meta property="og:site_name" content="Niko&#39;s Blog">
+<meta property="og:description" content="嘿，我就是死磕网易云不放，今天就来扒网易云的歌单！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.nikoblog.top/article/783094e0/done.webp">
+<meta property="article:published_time" content="2022-01-29T01:29:42.000Z">
+<meta property="article:modified_time" content="2022-01-29T01:29:42.000Z">
+<meta property="article:author" content="Niko">
+<meta property="article:tag" content="🎵死磕记录">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.nikoblog.top/article/783094e0/done.webp">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/themes/prism.min.css" media="none" >
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/themes/prism-dark.min.css" media="none">
+        
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/plugins/line-numbers/prism-line-numbers.min.css" media="none" onload="this.media='all'">
+    
+
+
+    
+    
+<link rel="stylesheet" href="/css/style/dark.css">
+
+    
+<script src="/js/darkmode.js"></script>
+
+
+
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Niko's Blog" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Niko&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/tags/" class="navbar-menu button">标签</a>
+                
+                    <a href="/categories/" class="navbar-menu button">分类</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
 
         
-<script src="/js/fancybox.js"></script>
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
 
-<meta name="generator" content="Hexo 6.3.0"></head>
 
-<body>
-<div class="blog">
-  <div class="content">
-
-    <header>
-  <div class="site-branding">
-    <h1 class="site-title">
-      <a href="/">Niko&#39;s Blog</a>
-    </h1>
-    <p class="site-description">世间所有的相遇，都是久别重逢</p>
-  </div>
-  <nav class="site-navigation">
-    <ul>
-      
-        <li><a href="/">主页</a></li>
-      
-        <li><a href="/archives">归档</a></li>
-      
-        <li><a href="/categories">分类</a></li>
-      
-        <li><a href="/tags">标签</a></li>
-      
-        <li><a href="/about">关于</a></li>
-      
-    </ul>
-  </nav>
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/tags/" class="dropdown-menu button">标签</a>
+                
+                    <a href="/categories/" class="dropdown-menu button">分类</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于</a>
+                
+            </div>
+        
+    </div>
 </header>
 
-    <main class="site-main posts-loop">
-    <article>
 
-  
+            <main class="main">
     
-    <h3 class="article-title"><span>升级+优化的网易云歌单下载器</span></h3>
-    
-  
 
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/article/783094e0/" rel="bookmark">
-        <time class="entry-date published" datetime="2022-01-29T01:29:42.000Z">
-          2022-01-29
-        </time>
-      </a>
+<div class="post-title">
+    <h1 class="post-title__text">
+        升级+优化的网易云歌单下载器
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2022/01/" class="post-meta__date button">2022-01-29</a>
+        
+    <span class="separate-dot"></span><a href="/categories/%F0%9F%9B%AB%E4%B8%87%E5%B9%B4%E9%B2%B2%E9%B9%8F%E5%8F%B7/" class="button">🛫万年鲲鹏号</a>
+
+ 
+        
+    
+     
+    <span id="busuanzi_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="busuanzi_value_page_pv"></span>
+        <span>阅读</span>
     </span>
-  </div>
 
 
-  
 
-  <div class="article-content">
-    <div class="entry">
-      
+ 
+
+ 
+    </div>
+</div>
+
+
+
+<article class="post content-card">
+    <div class="post__header">
+    <div class="post__expire" id="post-expired-notify">
+        <p>
+            本文最后更新于 &lt;span id=&#34;expire-date&#34;&gt;&lt;/span&gt; 天前，文中部分描述可能已经过时。
+        </p>
+    </div>
+    <script>
+        (() => {
+            var update = Date.parse("2022-01-29"),
+                date = new Date(),
+                now = date.getTime(),
+                expire = now - update,
+                expire_days = Math.floor(expire/(24*3600*1000));
+            if (expire_days >= 120) {
+                document.querySelectorAll('#expire-date')[0].innerHTML = expire_days;
+                document.querySelectorAll('#post-expired-notify')[0].style.display = 'block';
+            }
+        })();
+    </script>
+</div>
+    <div class="post__content">
         <p>嘿，大家好，今天复习了一下爬虫知识，自己想爬个网易云的歌单下来，备着以后禁网的时候听。但由于我懒癌晚期，懒得直接上浏览器上搜，搜着，发现没有一个合格的。<br>为什么？其实是因为那些爬虫是打开浏览器（即Selenium）、打开歌单的网址、把其中的歌曲名和链接拿下、依次用外链下载。<br>这个方法不好，原因是在网页版的网易云的<strong>无登陆状态</strong>是只能在歌单里看到十首歌，无法看全。就好比我歌单里有50首歌，而你的爬虫只能爬10首下来，没效果。</p>
-<span id="more"></span>
-
 <p>没办法，只能自己写了。<del>就是套了个api嘛。</del>源码如下。</p>
 <p>只有进度条版本的。。。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> jsonpath</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">choose = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;1.歌单 2.歌曲&quot;</span>))</span><br><span class="line"><span class="keyword">if</span> choose == <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">    playlist_url = <span class="built_in">input</span>(<span class="string">&#x27;请输入歌单网址: &gt;&gt;&gt;&#x27;</span>)</span><br><span class="line">    playlist_id = <span class="built_in">int</span>(playlist_url.strip().split(<span class="string">&#x27;=&#x27;</span>)[-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    myjson = requests.get(</span><br><span class="line">        <span class="string">&#x27;https://api.injahow.cn/meting/?type=playlist&amp;id=&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(playlist_id)</span><br><span class="line">    )</span><br><span class="line">    data = json.loads(myjson.text)</span><br><span class="line"></span><br><span class="line">    urls = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">        url = jsonpath.jsonpath(i, <span class="string">&#x27;$..url&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        urls.append(url[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># https://api.injahow.cn/meting/?server=netease&amp;type=url&amp;id=1344088470</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;总共有&#123;&#125;个链接，开始下载……\n&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(urls)))</span><br><span class="line"></span><br><span class="line">    os.makedirs(<span class="string">&#x27;.\\dmusic\\playlist\\&#123;&#125;\\&#x27;</span>.<span class="built_in">format</span>(playlist_id),exist_ok=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> tqdm(urls, desc=<span class="string">&#x27;下载中&#x27;</span>):</span><br><span class="line">        song_id = url.strip().split(<span class="string">&#x27;=&#x27;</span>)[-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">with</span> requests.get(url) <span class="keyword">as</span> resp:</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(</span><br><span class="line">                <span class="string">&#x27;.\\dmusic\\playlist\\&#123;&#125;\\&#x27;</span>.<span class="built_in">format</span>(playlist_id) + <span class="built_in">str</span>(song_id) + <span class="string">&#x27;.mp3&#x27;</span>,</span><br><span class="line">                mode=<span class="string">&#x27;wb&#x27;</span>,</span><br><span class="line">            ) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(resp.content)</span><br><span class="line"></span><br><span class="line"><span class="keyword">elif</span> choose == <span class="number">2</span>:</span><br><span class="line">    song_url = <span class="built_in">input</span>(<span class="string">&#x27;请输入歌曲网址 (q退出): &gt;&gt;&gt;&#x27;</span>)</span><br><span class="line">    <span class="keyword">while</span> song_url != <span class="string">&#x27;q&#x27;</span>:</span><br><span class="line">        song_id = <span class="built_in">int</span>(song_url.strip().split(<span class="string">&#x27;=&#x27;</span>)[-<span class="number">1</span>])</span><br><span class="line">        myjson = requests.get(</span><br><span class="line">            <span class="string">&#x27;https://api.injahow.cn/meting/?type=song&amp;id=&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(song_id)</span><br><span class="line">        )</span><br><span class="line">        data = json.loads(myjson.text)</span><br><span class="line"></span><br><span class="line">        os.makedirs(<span class="string">&#x27;.\\dmusic\\song\\&#x27;</span>,exist_ok=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> requests.get(url=jsonpath.jsonpath(data, <span class="string">&#x27;$..url&#x27;</span>)[<span class="number">0</span>]) <span class="keyword">as</span> resp:</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(</span><br><span class="line">                <span class="string">&#x27;.\\dmusic\\song\\&#x27;</span> + <span class="built_in">str</span>(song_id) + <span class="string">&#x27;.mp3&#x27;</span>,</span><br><span class="line">                mode=<span class="string">&#x27;wb&#x27;</span>,</span><br><span class="line">            ) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(resp.content)</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">str</span>(song_id) + <span class="string">&quot;下载成功&quot;</span>)</span><br><span class="line">        song_url = <span class="built_in">input</span>(<span class="string">&#x27;请输入歌曲网址 (q退出): &gt;&gt;&gt;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> json
+<span class="token keyword">import</span> jsonpath
+<span class="token keyword">import</span> os
+<span class="token keyword">from</span> tqdm <span class="token keyword">import</span> tqdm
 
-<p>效果:<br><img loading="lazy" src="/article/783094e0/done.webp"></p>
+
+choose <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"1.歌单 2.歌曲"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> choose <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+
+    playlist_url <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'请输入歌单网址: >>>'</span><span class="token punctuation">)</span>
+    playlist_id <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>playlist_url<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'='</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    myjson <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>
+        <span class="token string">'https://api.injahow.cn/meting/?type=playlist&amp;id=&#123;&#125;'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>playlist_id<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+    data <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>myjson<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+
+    urls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> data<span class="token punctuation">:</span>
+        url <span class="token operator">=</span> jsonpath<span class="token punctuation">.</span>jsonpath<span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token string">'$..url'</span><span class="token punctuation">)</span>
+
+        urls<span class="token punctuation">.</span>append<span class="token punctuation">(</span>url<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># https://api.injahow.cn/meting/?server=netease&amp;type=url&amp;id=1344088470</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'总共有&#123;&#125;个链接，开始下载……\n'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>urls<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span><span class="token string">'.\\dmusic\\playlist\\&#123;&#125;\\'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>playlist_id<span class="token punctuation">)</span><span class="token punctuation">,</span>exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> url <span class="token keyword">in</span> tqdm<span class="token punctuation">(</span>urls<span class="token punctuation">,</span> desc<span class="token operator">=</span><span class="token string">'下载中'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        song_id <span class="token operator">=</span> url<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'='</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+        <span class="token keyword">with</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token keyword">as</span> resp<span class="token punctuation">:</span>
+            <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>
+                <span class="token string">'.\\dmusic\\playlist\\&#123;&#125;\\'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>playlist_id<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>song_id<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'.mp3'</span><span class="token punctuation">,</span>
+                mode<span class="token operator">=</span><span class="token string">'wb'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+                f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>resp<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
+
+<span class="token keyword">elif</span> choose <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
+    song_url <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'请输入歌曲网址 (q退出): >>>'</span><span class="token punctuation">)</span>
+    <span class="token keyword">while</span> song_url <span class="token operator">!=</span> <span class="token string">'q'</span><span class="token punctuation">:</span>
+        song_id <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>song_url<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'='</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        myjson <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>
+            <span class="token string">'https://api.injahow.cn/meting/?type=song&amp;id=&#123;&#125;'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>song_id<span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        data <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>myjson<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+
+        os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span><span class="token string">'.\\dmusic\\song\\'</span><span class="token punctuation">,</span>exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">with</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>jsonpath<span class="token punctuation">.</span>jsonpath<span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token string">'$..url'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">as</span> resp<span class="token punctuation">:</span>
+            <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>
+                <span class="token string">'.\\dmusic\\song\\'</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>song_id<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'.mp3'</span><span class="token punctuation">,</span>
+                mode<span class="token operator">=</span><span class="token string">'wb'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+                f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>resp<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>song_id<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"下载成功"</span><span class="token punctuation">)</span>
+        song_url <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'请输入歌曲网址 (q退出): >>>'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>效果:<br><img loading="lazy" src="/article/783094e0/done.webp" class="lazy" data-srcset="/article/783094e0/done.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg=="></p>
 <p>如果看到那些用ID命名的歌曲不惯呢，可以打开网易云音乐桌面版 –&gt; 打开本地音乐 –&gt; 选择目录 –&gt; 把<code>缓存糖果屋</code>添加进去 –&gt; 添加完后，点击匹配音乐 –&gt; ALL DONE!</p>
-<h1 id="Update-at-22-x2F-06-x2F-18"><a href="#Update-at-22-x2F-06-x2F-18" class="headerlink" title="Update at 22&#x2F;06&#x2F;18"></a>Update at 22&#x2F;06&#x2F;18</h1><p>今天新的读卡器到了，给音响里加几首歌，急需歌曲单首下载，加了点功能。<br>请在上面代码查看，没有普通版本（懒得一批）<br>主要是更新了单曲连续下载，只要不按q键就不会停止询问下载。<br>其次，整理了一下歌曲下载的文件夹。<br><strong>618快乐！</strong></p>
+<h2 id="Update-at-22-x2F-06-x2F-18"><a href="#Update-at-22-x2F-06-x2F-18" class="headerlink" title="Update at 22&#x2F;06&#x2F;18"></a>Update at 22&#x2F;06&#x2F;18</h2><p>今天新的读卡器到了，给音响里加几首歌，急需歌曲单首下载，加了点功能。<br>请在上面代码查看，没有普通版本（懒得一批）<br>主要是更新了单曲连续下载，只要不按q键就不会停止询问下载。<br>其次，整理了一下歌曲下载的文件夹。<br><strong>618快乐！</strong></p>
 <p>TO DO LIST:</p>
 <ul>
 <li><input disabled="" type="checkbox"> 将文件命名为歌曲名 </li>
@@ -122,65 +281,188 @@
 <li><input disabled="" type="checkbox"> 实现GUI</li>
 </ul>
 
-      
     </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/🛫万年鲲鹏号/">🛫万年鲲鹏号</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/🎵死磕记录/">🎵死磕记录</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
+     
+    <div class="post-footer__meta"><p>更新于 2022-01-29</p></div> 
+    <div class="post-entry__tags"><a href="/tags/%F0%9F%8E%B5%E6%AD%BB%E7%A3%95%E8%AE%B0%E5%BD%95/" class="post-tags__link button"># 🎵死磕记录</a></div> 
 </article>
 
-  
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/article/6508a98a/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            上一篇
+                        </div>
+                        <div class="nav__title">
+                            给Twikoo加个邮箱提醒
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/article/2fe613e2/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            下一篇
+                        </div>
+                        <div class="nav__title">
+                            让终端更优雅—— Windows Terminal美化
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
 
 
 
 
 
+</main>
 
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
 
-
-
-    </main>
-
-    <footer class="site-footer">
-  <p class="site-info">
-    Proudly powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> and
-    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Hacker</a>
-    </br>
     
-    &copy; 2022 Niko
+
+
     
-  </p>
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span>已有</span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>人访问</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span>这些人共访问了</span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>次</span>
+            
+        </span>
+    
+ 
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2020&nbsp;-&nbsp;2022 <a href="/">Niko&#39;s Blog</a>
+        </p>
+    
+    
+        
+            <p>祝你每天开心哦~😘</p>
+
+        
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Cards</a></p>
 </footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
     
+ 
+
+
     
-  </div>
-</div>
-<script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('true'),
+            auto_fancybox = Boolean('false')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+    
+        <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","ag8ctuxw9k");</script> 
+    
+
+    <script>
     if(!('loading' in HTMLImageElement.prototype)) {
         const srp = document.createElement('script');
         srp.src = 'https://cdn.jsdelivr.net/npm/lazysizes@5.1.1/lazysizes.min.js';

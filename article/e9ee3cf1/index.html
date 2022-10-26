@@ -1,141 +1,310 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-    <title>
-      Python-Requests | Niko&#39;s Blog | 世间所有的相遇，都是久别重逢</title>
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
 
-  
-  <meta name="author" content="Niko">
-  
+    
 
-  
-  <meta name="description" content="Python 第三方网络请求库">
-  
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
-  <meta name="keywords" content="Niko,NikoBlog,教程,小学生,筱晓,学习分享,csdn,博客园">
-  
+    <!--icon-->
 
-  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+        <link rel="shortcut icon" href="/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    
+    
+        <link rel="mask-icon" href="/favicon.ico">
+    
 
-  <meta property="og:title" content="Python-Requests"/>
 
-  <meta property="og:site_name" content="Niko&#39;s Blog"/>
+    <!-- meta -->
 
-  
-  <meta property="og:image" content="131c8b419d2ae3ee.webp" />
-  
-  
-  <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css">
-  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-  <script src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js"> </script>
-  <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="Niko&#39;s Blog" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <script type="text/javascript">
-    (function (c, l, a, r, i, t, y) {
-      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "ag8ctuxw9k");
-  </script>
-  <style>
-  body {
-    font-family: ' harmony'; } </style>
+
+<title>Python-Requests | Niko&#39;s Blog</title>
+
+
+    <meta name="keywords" content="🐍Python, Niko,NikoBlog,教程,小学生,筱晓,学习分享,csdn,博客园">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="Python 第三方网络请求库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python-Requests">
+<meta property="og:url" content="https://www.nikoblog.top/article/e9ee3cf1/index.html">
+<meta property="og:site_name" content="Niko&#39;s Blog">
+<meta property="og:description" content="Python 第三方网络请求库">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.nikoblog.top/article/e9ee3cf1/demo1.webp">
+<meta property="og:image" content="https://www.nikoblog.top/article/e9ee3cf1/demo2.webp">
+<meta property="article:published_time" content="2022-01-17T12:00:03.000Z">
+<meta property="article:modified_time" content="2022-01-17T12:00:03.000Z">
+<meta property="article:author" content="Niko">
+<meta property="article:tag" content="🐍Python">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.nikoblog.top/article/e9ee3cf1/demo1.webp">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/themes/prism.min.css" media="none" >
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/themes/prism-dark.min.css" media="none">
+        
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/plugins/line-numbers/prism-line-numbers.min.css" media="none" onload="this.media='all'">
+    
+
+
+    
+    
+<link rel="stylesheet" href="/css/style/dark.css">
+
+    
+<script src="/js/darkmode.js"></script>
+
+
+
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Niko's Blog" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Niko&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/tags/" class="navbar-menu button">标签</a>
+                
+                    <a href="/categories/" class="navbar-menu button">分类</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
 
         
-<script src="/js/fancybox.js"></script>
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
 
-<meta name="generator" content="Hexo 6.3.0"></head>
 
-<body>
-<div class="blog">
-  <div class="content">
-
-    <header>
-  <div class="site-branding">
-    <h1 class="site-title">
-      <a href="/">Niko&#39;s Blog</a>
-    </h1>
-    <p class="site-description">世间所有的相遇，都是久别重逢</p>
-  </div>
-  <nav class="site-navigation">
-    <ul>
-      
-        <li><a href="/">主页</a></li>
-      
-        <li><a href="/archives">归档</a></li>
-      
-        <li><a href="/categories">分类</a></li>
-      
-        <li><a href="/tags">标签</a></li>
-      
-        <li><a href="/about">关于</a></li>
-      
-    </ul>
-  </nav>
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/tags/" class="dropdown-menu button">标签</a>
+                
+                    <a href="/categories/" class="dropdown-menu button">分类</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于</a>
+                
+            </div>
+        
+    </div>
 </header>
 
-    <main class="site-main posts-loop">
-    <article>
 
-  
+            <main class="main">
     
-    <h3 class="article-title"><span>Python-Requests</span></h3>
-    
-  
 
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/article/e9ee3cf1/" rel="bookmark">
-        <time class="entry-date published" datetime="2022-01-17T12:00:03.000Z">
-          2022-01-17
-        </time>
-      </a>
+<div class="post-title">
+    <h1 class="post-title__text">
+        Python-Requests
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2022/01/" class="post-meta__date button">2022-01-17</a>
+        
+    <span class="separate-dot"></span><a href="/categories/%F0%9F%9B%AB%E4%B8%87%E5%B9%B4%E9%B2%B2%E9%B9%8F%E5%8F%B7/" class="button">🛫万年鲲鹏号</a>
+
+ 
+        
+    
+     
+    <span id="busuanzi_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="busuanzi_value_page_pv"></span>
+        <span>阅读</span>
     </span>
-  </div>
 
 
-  
 
-  <div class="article-content">
-    <div class="entry">
-      
+ 
+
+ 
+    </div>
+</div>
+
+
+
+<article class="post content-card">
+    <div class="post__header">
+    <div class="post__expire" id="post-expired-notify">
+        <p>
+            本文最后更新于 &lt;span id=&#34;expire-date&#34;&gt;&lt;/span&gt; 天前，文中部分描述可能已经过时。
+        </p>
+    </div>
+    <script>
+        (() => {
+            var update = Date.parse("2022-01-17"),
+                date = new Date(),
+                now = date.getTime(),
+                expire = now - update,
+                expire_days = Math.floor(expire/(24*3600*1000));
+            if (expire_days >= 120) {
+                document.querySelectorAll('#expire-date')[0].innerHTML = expire_days;
+                document.querySelectorAll('#post-expired-notify')[0].style.display = 'block';
+            }
+        })();
+    </script>
+</div>
+    <div class="post__content">
         <p>本教程使用Python语言，需提前安装Pip3 or Pip，例如Linux类的，请在命令行内输入:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-pip</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> python3-pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>一条命令(临时换源):<br>Linux:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install requests -i https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pip <span class="token function">install</span> requests <span class="token parameter variable">-i</span> https://mirrors.aliyun.com/pypi/simple/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>Windows:</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests -i https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">pip install requests -i https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="基础-Get请求"><a href="#基础-Get请求" class="headerlink" title="基础{Get请求}"></a>基础{Get请求}</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36&#x27;</span></span><br><span class="line">&#125;  <span class="comment"># 向服务器传递的数据</span></span><br><span class="line">response = requests.get(<span class="string">&#x27;https://bing.com&#x27;</span>,data=data).text <span class="comment"># text函数:获取对应网址的源代码</span></span><br><span class="line"><span class="built_in">print</span>(response)</span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="基础-Get请求"><a href="#基础-Get请求" class="headerlink" title="基础{Get请求}"></a>基础{Get请求}</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36'</span>
+<span class="token punctuation">&#125;</span>  <span class="token comment"># 向服务器传递的数据</span>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://bing.com'</span><span class="token punctuation">,</span>data<span class="token operator">=</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span>text <span class="token comment"># text函数:获取对应网址的源代码</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>User-Agent就像是<strong>浏览器的身份证</strong>,如果是Requests默认的ua的话，对应服务器会拒绝你的<strong>爬虫</strong>请求，简而言之，拿不到数据，所以我们要获得浏览器的ua。</p>
-<p><img loading="lazy" src="/article/e9ee3cf1/demo1.webp" alt="就在这拿User-Agent"></p>
-<h3 id="进阶-Post请求"><a href="#进阶-Post请求" class="headerlink" title="进阶 {Post请求}"></a>进阶 {Post请求}</h3><p><img loading="lazy" src="/article/e9ee3cf1/demo2.webp" alt="官网教程"></p>
+<p><img loading="lazy" src="/article/e9ee3cf1/demo1.webp" class="lazy" data-srcset="/article/e9ee3cf1/demo1.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="就在这拿User-Agent"></p>
+<h3 id="进阶-Post请求"><a href="#进阶-Post请求" class="headerlink" title="进阶 {Post请求}"></a>进阶 {Post请求}</h3><p><img loading="lazy" src="/article/e9ee3cf1/demo2.webp" class="lazy" data-srcset="/article/e9ee3cf1/demo2.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="官网教程"></p>
 <ol>
 <li>带数据的 post</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"> </span><br><span class="line">host = <span class="string">&quot;http://httpbin.org/&quot;</span></span><br><span class="line">endpoint = <span class="string">&quot;post&quot;</span></span><br><span class="line">url = <span class="string">&#x27;&#x27;</span>.join([host,endpoint])</span><br><span class="line">data = &#123;<span class="string">&#x27;key1&#x27;</span>:<span class="string">&#x27;value1&#x27;</span>,<span class="string">&#x27;key2&#x27;</span>:<span class="string">&#x27;value2&#x27;</span>&#125;</span><br><span class="line"> </span><br><span class="line">r = requests.post(url,data=data)</span><br><span class="line"><span class="comment">#response = r.json()</span></span><br><span class="line"><span class="built_in">print</span> (r.text)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding:utf-8 -*-</span>
+<span class="token keyword">import</span> requests
+<span class="token keyword">import</span> json
+ 
+host <span class="token operator">=</span> <span class="token string">"http://httpbin.org/"</span>
+endpoint <span class="token operator">=</span> <span class="token string">"post"</span>
+url <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>host<span class="token punctuation">,</span>endpoint<span class="token punctuation">]</span><span class="token punctuation">)</span>
+data <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'key1'</span><span class="token punctuation">:</span><span class="token string">'value1'</span><span class="token punctuation">,</span><span class="token string">'key2'</span><span class="token punctuation">:</span><span class="token string">'value2'</span><span class="token punctuation">&#125;</span>
+ 
+r <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span>data<span class="token operator">=</span>data<span class="token punctuation">)</span>
+<span class="token comment">#response = r.json()</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>r<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ol start="2">
 <li>多文件上传</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"> </span><br><span class="line">host = <span class="string">&quot;http://httpbin.org/&quot;</span></span><br><span class="line">endpoint = <span class="string">&quot;post&quot;</span></span><br><span class="line"> </span><br><span class="line">url = <span class="string">&#x27;&#x27;</span>.join([host,endpoint])</span><br><span class="line"><span class="comment">#多文件上传</span></span><br><span class="line">files = [</span><br><span class="line">    (<span class="string">&#x27;file1&#x27;</span>,(<span class="string">&#x27;test.txt&#x27;</span>,<span class="built_in">open</span>(<span class="string">&#x27;test.txt&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>))),</span><br><span class="line">    (<span class="string">&#x27;file2&#x27;</span>, (<span class="string">&#x27;test.png&#x27;</span>, <span class="built_in">open</span>(<span class="string">&#x27;test.png&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>)))</span><br><span class="line">    ]</span><br><span class="line"> </span><br><span class="line">r = requests.post(url,files=files)</span><br><span class="line"><span class="built_in">print</span> (r.text)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding:utf-8 -*-</span>
+<span class="token keyword">import</span> requests
+<span class="token keyword">import</span> json
+ 
+host <span class="token operator">=</span> <span class="token string">"http://httpbin.org/"</span>
+endpoint <span class="token operator">=</span> <span class="token string">"post"</span>
+ 
+url <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>host<span class="token punctuation">,</span>endpoint<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment">#多文件上传</span>
+files <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">(</span><span class="token string">'file1'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">'test.txt'</span><span class="token punctuation">,</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'test.txt'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'file2'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">'test.png'</span><span class="token punctuation">,</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'test.png'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+ 
+r <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span>files<span class="token operator">=</span>files<span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>r<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h3 id="冷门-Put-请求"><a href="#冷门-Put-请求" class="headerlink" title="冷门 {Put 请求}"></a>冷门 {Put 请求}</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line">url_put = <span class="string">&quot;http://127.0.0.1:8080/&quot;</span></span><br><span class="line">headers_put = &#123;</span><br><span class="line">	<span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&quot;application/json&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">param = &#123;</span><br><span class="line">	<span class="string">&#x27;myObjectField&#x27;</span>: <span class="string">&#x27;hello&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">payload = json.dumps(param)</span><br><span class="line">response_put = requests.put(url, data=payload, headers=headers_put)</span><br></pre></td></tr></table></figure>
+<h3 id="冷门-Put-请求"><a href="#冷门-Put-请求" class="headerlink" title="冷门 {Put 请求}"></a>冷门 {Put 请求}</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> json
+url_put <span class="token operator">=</span> <span class="token string">"http://127.0.0.1:8080/"</span>
+headers_put <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+	<span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">"application/json"</span>
+<span class="token punctuation">&#125;</span>
+param <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+	<span class="token string">'myObjectField'</span><span class="token punctuation">:</span> <span class="token string">'hello'</span>
+<span class="token punctuation">&#125;</span>
+payload <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>param<span class="token punctuation">)</span>
+response_put <span class="token operator">=</span> requests<span class="token punctuation">.</span>put<span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span>payload<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers_put<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="项目实战-梨视频爬虫"><a href="#项目实战-梨视频爬虫" class="headerlink" title="项目实战: 梨视频爬虫"></a>项目实战: 梨视频爬虫</h2><p>这个项目我以前做过，就直接复制过来啦，摆烂啦 （</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># !/usr/bin/python3</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">@author: </span></span><br><span class="line"><span class="string">@file: 梨视频爬虫.py</span></span><br><span class="line"><span class="string">@time: 2021/7/11 21:48</span></span><br><span class="line"><span class="string">@desc: </span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://www.pearvideo.com/video_1731260&quot;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;user-agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;referer&quot;</span>: url,</span><br><span class="line">&#125;</span><br><span class="line">contId = url.split(<span class="string">&quot;_&quot;</span>)[<span class="number">1</span>]</span><br><span class="line">videoStatusUrl = <span class="string">f&quot;https://video.pearvideo.com/mp4/third/20210603/cont-<span class="subst">&#123;contId&#125;</span>-15316010-202041-hd.mp4&quot;</span></span><br><span class="line"><span class="comment"># &#x27;https://video.pearvideo.com/mp4/third/20210603/cont-1731260-15316010-202041-hd.mp4&#x27;</span></span><br><span class="line"></span><br><span class="line">resp = requests.get(videoStatusUrl, headers=headers).content</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;video.mp4&quot;</span>, mode=<span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    file.write(resp)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># !/usr/bin/python3</span>
+<span class="token comment"># -*- coding:utf-8 -*-</span>
+<span class="token triple-quoted-string string">"""
+@author: 
+@file: 梨视频爬虫.py
+@time: 2021/7/11 21:48
+@desc: 
+"""</span>
+<span class="token keyword">import</span> requests
+
+url <span class="token operator">=</span> <span class="token string">"https://www.pearvideo.com/video_1731260"</span>
+headers <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">"user-agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36"</span><span class="token punctuation">,</span>
+    <span class="token string">"referer"</span><span class="token punctuation">:</span> url<span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span>
+contId <span class="token operator">=</span> url<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"_"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+videoStatusUrl <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"https://video.pearvideo.com/mp4/third/20210603/cont-</span><span class="token interpolation"><span class="token punctuation">&#123;</span>contId<span class="token punctuation">&#125;</span></span><span class="token string">-15316010-202041-hd.mp4"</span></span>
+<span class="token comment"># 'https://video.pearvideo.com/mp4/third/20210603/cont-1731260-15316010-202041-hd.mp4'</span>
+
+resp <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>videoStatusUrl<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span><span class="token punctuation">.</span>content
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"video.mp4"</span><span class="token punctuation">,</span> mode<span class="token operator">=</span><span class="token string">"wb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span>
+    <span class="token builtin">file</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span>resp<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <ol>
@@ -145,65 +314,188 @@
 </ol>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这库是真的好用，方便。比Python标准库urllib好N倍不止，平时爬虫爬个电影数据就好，不要太过分。</p>
 
-      
     </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/🛫万年鲲鹏号/">🛫万年鲲鹏号</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/🐍Python/">🐍Python</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
+     
+    <div class="post-footer__meta"><p>更新于 2022-01-17</p></div> 
+    <div class="post-entry__tags"><a href="/tags/%F0%9F%90%8DPython/" class="post-tags__link button"># 🐍Python</a></div> 
 </article>
 
-  
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/article/632f5ce3/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            上一篇
+                        </div>
+                        <div class="nav__title">
+                            2021·总结
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/article/cce073e6/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            下一篇
+                        </div>
+                        <div class="nav__title">
+                            Windows11 美化+优化教程
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
 
 
 
 
 
+</main>
 
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
 
-
-
-    </main>
-
-    <footer class="site-footer">
-  <p class="site-info">
-    Proudly powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> and
-    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Hacker</a>
-    </br>
     
-    &copy; 2022 Niko
+
+
     
-  </p>
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span>已有</span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>人访问</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span>这些人共访问了</span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>次</span>
+            
+        </span>
+    
+ 
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2020&nbsp;-&nbsp;2022 <a href="/">Niko&#39;s Blog</a>
+        </p>
+    
+    
+        
+            <p>祝你每天开心哦~😘</p>
+
+        
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank" rel="external nofollow noopener noreferrer" target="_blank">Cards</a></p>
 </footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
     
+ 
+
+
     
-  </div>
-</div>
-<script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('true'),
+            auto_fancybox = Boolean('false')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+    
+        <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","ag8ctuxw9k");</script> 
+    
+
+    <script>
     if(!('loading' in HTMLImageElement.prototype)) {
         const srp = document.createElement('script');
         srp.src = 'https://cdn.jsdelivr.net/npm/lazysizes@5.1.1/lazysizes.min.js';
