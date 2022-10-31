@@ -29,10 +29,12 @@
   
   <meta property="og:image" content="cover.webp" />
   
-  
-  <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css">
+  <link rel="preconnect" href="https://www.clarity.ms">
+  <link rel="preconnect" href="https://about.nikoblog.top">
+  <link rel="preconnect" href="https://www.nikoblog.top">
+  <link rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css">
   <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-  <script src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js"> </script>
+  <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js"> </script>
   <link href="/favicon.ico" rel="icon">
   <link rel="alternate" href="/atom.xml" title="Niko&#39;s Blog" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
@@ -108,49 +110,28 @@
         <h2 id="废话"><a href="#废话" class="headerlink" title="废话"></a>废话</h2><p>Selenium，Python的浏览器自动化大佬库，称霸Python<strong>浏览器</strong>自动化领域。</p>
 <p>注意，阅读本文需要有亿点点前端知识才容易理解。<del>要是大佬看到了不会冒犯到吧，不会吧……</del></p>
 <span id="more"></span>
-<h2 id="安装-Selenium-包"><a href="#安装-Selenium-包" class="headerlink" title="安装 Selenium 包"></a>安装 Selenium 包</h2><h3 id="Pip-安装"><a href="#Pip-安装" class="headerlink" title="Pip 安装"></a>Pip 安装</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pip <span class="token function">install</span> selenium<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="安装-Selenium-包"><a href="#安装-Selenium-包" class="headerlink" title="安装 Selenium 包"></a>安装 Selenium 包</h2><h3 id="Pip-安装"><a href="#Pip-安装" class="headerlink" title="Pip 安装"></a>Pip 安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install selenium</span><br></pre></td></tr></table></figure>
 
 <h3 id="源码包安装"><a href="#源码包安装" class="headerlink" title="源码包安装"></a>源码包安装</h3><p><a target="_blank" rel="noopener external nofollow noopener noreferrer" href="https://pypi.org/project/selenium/#files" target="_blank">源码链接</a></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> python setup.py <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo python setup.py install</span><br></pre></td></tr></table></figure>
 
 <h2 id="安装-对应浏览器的-WebDriver"><a href="#安装-对应浏览器的-WebDriver" class="headerlink" title="安装 对应浏览器的 WebDriver"></a>安装 对应浏览器的 <strong>WebDriver</strong></h2><p>Edge: <a target="_blank" rel="noopener external nofollow noopener noreferrer" href="https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/" target="_blank">https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/</a><br>Chrome (淘宝源) : <a target="_blank" rel="noopener external nofollow noopener noreferrer" href="https://npm.taobao.org/mirrors/chromedriver/" target="_blank">https://npm.taobao.org/mirrors/chromedriver/</a><br>Firefox:  <a target="_blank" rel="noopener external nofollow noopener noreferrer" href="https://github.com/mozilla/geckodriver/releases/" target="_blank">https://github.com/mozilla/geckodriver/releases/</a><br>IE: <a target="_blank" rel="noopener external nofollow noopener noreferrer" href="http://selenium-release.storage.googleapis.com/index.html" target="_blank">http://selenium-release.storage.googleapis.com/index.html?</a></p>
 <p><strong>Edge</strong>：对应浏览器对应版本，对应下载。<br><strong>Chrome</strong>: 注意，先在设置 –&gt; 关于Chrome 里查看Chrome版本号,再去我给的淘宝源里找。再注意，在淘宝源里找版本时，如果没有本浏览器的版本的话，就找自己版本号的<strong>上一个</strong>。<br><strong>Firefox</strong>: 选择自己系统版本下载对应的。<del>我不用火狐，报错别怪我 (弱小.jpeg)</del><br><strong>IE</strong>: 这我没啥注释，但建议IE11用<strong>用2.5版本</strong>就好。(这年头还有人用IE?可怕可怕。)</p>
 <p>下载解压后把文件放在Python目录下的Scripts目录中，别问为啥，问就是懒得加<strong>环境变量</strong>。Linux的可以放在&#x2F;usr&#x2F;bin下。</p>
 <h2 id="开始！"><a href="#开始！" class="headerlink" title="开始！"></a>开始！</h2><p>废话忒多了，进入正题。</p>
 <h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><p>咱为啥要用Selenium，就是可以爬到普通爬虫爬不到的东东，用Selenium，更方便、更快捷、更显逼格！(打广告)</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
-
-driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">#按照你的浏览器来，就上面那几种</span>
-driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://bing.com"</span><span class="token punctuation">)</span> <span class="token comment">#对应浏览器打开Bing标签页</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome() <span class="comment">#按照你的浏览器来，就上面那几种</span></span><br><span class="line">driver.get(<span class="string">&quot;https://bing.com&quot;</span>) <span class="comment">#对应浏览器打开Bing标签页</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>大概会看到这样:<br><img loading="lazy" src="/article/6dh83ks9/dri.webp"></p>
 <p>如何<strong>往输入框内填入文字</strong>并<strong>点击搜索按钮进行搜索</strong>？<br>Very Easy.</p>
 <p>不要动你那个界面，打开<strong>DevTools</strong>，找到搜索框的元素，[右键]{.kbd} - [Copy]{.kbd} - [CopyXpath]{.kbd}，再回到代码这。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
-
-driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">#按照你的浏览器来，就上面那几种</span>
-driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://bing.com"</span><span class="token punctuation">)</span> <span class="token comment">#对应浏览器打开Bing标签页</span>
-
-input_table <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'你Copy的值'</span><span class="token punctuation">)</span> <span class="token comment">#请原谅我那糟糕的命名。</span>
-input_table<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'梁非凡'</span><span class="token punctuation">)</span> <span class="token comment"># 你想输入啥？</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome() <span class="comment">#按照你的浏览器来，就上面那几种</span></span><br><span class="line">driver.get(<span class="string">&quot;https://bing.com&quot;</span>) <span class="comment">#对应浏览器打开Bing标签页</span></span><br><span class="line"></span><br><span class="line">input_table = driver.find_element_by_xpath(<span class="string">&#x27;你Copy的值&#x27;</span>) <span class="comment">#请原谅我那糟糕的命名。</span></span><br><span class="line">input_table.send_keys(<span class="string">&#x27;梁非凡&#x27;</span>) <span class="comment"># 你想输入啥？</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 <p><code>注意</code>，<code>find_element_by_xpath</code>这个函数很微妙，它的工作是在整个页面找<strong>一个</strong>元素，敲黑板，是<strong>一个</strong>。还有一个函数是<code>find_elements_by_xpath</code>，找的是一堆元素。很多手残的会多敲个s，找了半天的bug。说的就是我😭<br>:::</p>
 <p>运行。</p>
 <p>可以看到，输入框里输入了<strong>梁非凡</strong>，接着干。<br>按照上次那样，打开Devtools，找到<strong>搜索按钮的元素</strong>,接着Copy –&gt; Copy Xpath。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
-
-driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">#按照你的浏览器来，就上面那几种</span>
-driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://bing.com"</span><span class="token punctuation">)</span> <span class="token comment">#对应浏览器打开Bing标签页</span>
-
-input_table <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'你Copy的值'</span><span class="token punctuation">)</span> <span class="token comment">#请原谅我那糟糕的命名。</span>
-input_table<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'梁非凡'</span><span class="token punctuation">)</span> <span class="token comment"># 你想输入啥？</span>
-
-search_btn <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'Copy Value'</span><span class="token punctuation">)</span>
-search_btn<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome() <span class="comment">#按照你的浏览器来，就上面那几种</span></span><br><span class="line">driver.get(<span class="string">&quot;https://bing.com&quot;</span>) <span class="comment">#对应浏览器打开Bing标签页</span></span><br><span class="line"></span><br><span class="line">input_table = driver.find_element_by_xpath(<span class="string">&#x27;你Copy的值&#x27;</span>) <span class="comment">#请原谅我那糟糕的命名。</span></span><br><span class="line">input_table.send_keys(<span class="string">&#x27;梁非凡&#x27;</span>) <span class="comment"># 你想输入啥？</span></span><br><span class="line"></span><br><span class="line">search_btn = driver.find_element_by_xpath(<span class="string">&#x27;Copy Value&#x27;</span>)</span><br><span class="line">search_btn.click()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>运行。<br>搞定！</p>
 <p>还有一种方法，将<code>click()</code>换成<code>submit()</code>，或是Webdriver模拟用户点击按键[Enter]{.kbd}进行搜索。进阶会讲。</p>

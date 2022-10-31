@@ -29,10 +29,12 @@
   
   <meta property="og:image" content="cover.webp" />
   
-  
-  <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css">
+  <link rel="preconnect" href="https://www.clarity.ms">
+  <link rel="preconnect" href="https://about.nikoblog.top">
+  <link rel="preconnect" href="https://www.nikoblog.top">
+  <link rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css">
   <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-  <script src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js"> </script>
+  <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js"> </script>
   <link href="/favicon.ico" rel="icon">
   <link rel="alternate" href="/atom.xml" title="Niko&#39;s Blog" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
@@ -118,7 +120,7 @@
 <p>国内各大博客有关于 jieba 的使用教程，但需要甄别下准确度和时效性，因为 jieba 项目一直在更新。</p>
 <p>当然本文不是纯粹的种草文章，会简单介绍下 jieba 的使用方法。</p>
 <h2 id="3-安装-jieba"><a href="#3-安装-jieba" class="headerlink" title="3. 安装 jieba"></a><strong>3. 安装 jieba</strong></h2><p>jieba 支持<code>pip</code>或者<code>conda</code>安装，直接在命令行执行：</p>
-<pre class="line-numbers language-none"><code class="language-none">pip install jieba<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> jieba</span><br></pre></td></tr></table></figure>
 
 <p>不出意外，应该能很快安装好。</p>
 <p><img loading="lazy" src="https://pic2.zhimg.com/v2-154d371fe8a4e1dd06829913b88c04a9_r.jpg"></p>
@@ -131,19 +133,7 @@
 <p>参数解释：  </p>
 <p><strong>「strs」</strong>： 需要分词的字符串；<br><strong>「cut_all」</strong>：用来控制是否采用全模式；<br><strong>「HMM」</strong>：用来控制是否使用 HMM 模型；<br><strong>「use_paddle」</strong>：用来控制是否使用 paddle 模式下的分词模式，paddle 模式采用延迟加载方式，通过 enable_paddle 接口安装 paddlepaddle-tiny，并且 import 相关代码；  </p>
 <p>这里区分全模式和精确模式，举个例子先看看区别：</p>
-<pre class="line-numbers language-none"><code class="language-none"># 全模式
-seg_list &#x3D; jieba.cut(&quot;中国上海是一座美丽的国际性大都市&quot;, cut_all&#x3D;True)
-print(&quot;Full Mode: &quot; + &quot;&#x2F; &quot;.join(seg_list))  
-
-# 返回结果
-Full Mode: 中国&#x2F; 上海&#x2F; 是&#x2F; 一座&#x2F; 美丽&#x2F; 的&#x2F; 国际&#x2F; 国际性&#x2F; 大都&#x2F; 大都市&#x2F; 都市
-
-# 精确模式
-seg_list &#x3D; jieba.cut(&quot;中国上海是一座美丽的国际性大都市&quot;, cut_all&#x3D;False)
-print(&quot;Full Mode: &quot; + &quot;&#x2F; &quot;.join(seg_list))  
-
-# 返回结果
-Default Mode: 中国&#x2F; 上海&#x2F; 是&#x2F; 一座&#x2F; 美丽&#x2F; 的&#x2F; 国际性&#x2F; 大都市<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 全模式</span><br><span class="line">seg_list = jieba.cut(<span class="string">&quot;中国上海是一座美丽的国际性大都市&quot;</span>, cut_all=<span class="keyword">True</span>)</span><br><span class="line"><span class="keyword">print</span>(<span class="string">&quot;Full Mode: &quot;</span> + <span class="string">&quot;/ &quot;</span>.<span class="keyword">join</span>(seg_list))  </span><br><span class="line"></span><br><span class="line"># 返回结果</span><br><span class="line">Full Mode: 中国<span class="regexp">/ 上海/</span> 是<span class="regexp">/ 一座/</span> 美丽<span class="regexp">/ 的/</span> 国际<span class="regexp">/ 国际性/</span> 大都<span class="regexp">/ 大都市/</span> 都市</span><br><span class="line"></span><br><span class="line"># 精确模式</span><br><span class="line">seg_list = jieba.cut(<span class="string">&quot;中国上海是一座美丽的国际性大都市&quot;</span>, cut_all=<span class="keyword">False</span>)</span><br><span class="line"><span class="keyword">print</span>(<span class="string">&quot;Full Mode: &quot;</span> + <span class="string">&quot;/ &quot;</span>.<span class="keyword">join</span>(seg_list))  </span><br><span class="line"></span><br><span class="line"># 返回结果</span><br><span class="line"><span class="keyword">Default</span> Mode: 中国<span class="regexp">/ 上海/</span> 是<span class="regexp">/ 一座/</span> 美丽<span class="regexp">/ 的/</span> 国际性/ 大都市</span><br></pre></td></tr></table></figure>
 
 <p>可以看到，全模式把句子中所有的可以成词的词语都扫描出来, 会出现一词多用、一词多意。精确模式将句子最精确的切分开，每个词都只有一种含义。</p>
 <p><code>jieba.cut</code>方法默认是精确模式。</p>
@@ -153,12 +143,7 @@ Default Mode: 中国&#x2F; 上海&#x2F; 是&#x2F; 一座&#x2F; 美丽&#x2F; 的&
 <h3 id="jieba-cut-for-search"><a href="#jieba-cut-for-search" class="headerlink" title="jieba.cut_for_search"></a><strong>jieba.cut_for_search</strong></h3><p>该方法和 cut 一样，分解后返回一个迭代器，需要用 for 循环访问。不过它是搜索引擎模式，在精确模式的基础上，对长词再次切分，提高召回率，适合用于搜索引擎分词。</p>
 <p>参数解释：</p>
 <p><strong>「strs」</strong>：需要分词的字符串；<br><strong>「HMM」</strong>：是否使用 HMM 模型，默认值为 True。该方法适合用于搜索引擎构建倒排索引的分词，粒度比较细。  </p>
-<pre class="line-numbers language-none"><code class="language-none"># 搜索引擎模式
-seg_list &#x3D; jieba.cut_for_search(&quot;中国上海是一座美丽的国际性大都市，拥有复旦大学、上海交通大学等知名高等学府&quot;)  
-print(&quot;, &quot;.join(seg_list))
-
-# 返回结果
-Search Mode: 中国, 上海, 是, 一座, 美丽, 的, 国际, 国际性, 大都, 都市, 大都市, ，, 拥有, 复旦, 大学, 复旦大学, 、, 上海, 交通, 大学, 上海交通大学, 等, 知名, 高等, 学府, 高等学府<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 搜索引擎模式</span></span><br><span class="line">seg_list = jieba.cut_for_search(<span class="string">&quot;中国上海是一座美丽的国际性大都市，拥有复旦大学、上海交通大学等知名高等学府&quot;</span>)  </span><br><span class="line"><span class="keyword">print</span>(<span class="string">&quot;, &quot;</span>.<span class="keyword">join</span>(seg_list))</span><br><span class="line"></span><br><span class="line"><span class="meta"># 返回结果</span></span><br><span class="line">Search Mode: 中国, 上海, 是, 一座, 美丽, 的, 国际, 国际性, 大都, 都市, 大都市, ，, 拥有, 复旦, 大学, 复旦大学, 、, 上海, 交通, 大学, 上海交通大学, 等, 知名, 高等, 学府, 高等学府</span><br></pre></td></tr></table></figure>
 
 <h3 id="jieba-lcut"><a href="#jieba-lcut" class="headerlink" title="jieba.lcut"></a><strong>jieba.lcut</strong></h3><p>和<code>jieba.cut</code>使用方法一样，不过返回的是列表。</p>
 <p>cut 和 cut_for_search 方法都是支持繁体字的。</p>
@@ -167,21 +152,10 @@ Search Mode: 中国, 上海, 是, 一座, 美丽, 的, 国际, 国际性, 大都
 <p>自定义词典文件的词汇格式是一个词占一行，每一行分三部分：词语、词频（可省略）、词性（可省略），用空格隔开，顺序不可颠倒。 比如：</p>
 <p><img loading="lazy" src="https://pic3.zhimg.com/v2-006e9b57a6f284ddce4f14314b8caa7a_b.jpg"></p>
 <p>以 “奥利给，管虎执导的八佰是一部让人热血沸腾的好电影。” 这段话为例， 如果不添加自定义词典，很多词没办法识别出来。</p>
-<pre class="line-numbers language-none"><code class="language-none"># 不添加自定义词典
-seg_list &#x3D; jieba.cut(&quot;奥利给，管虎执导的八佰是一部让人热血沸腾的好电影&quot;)
-print(&quot;&#x2F; &quot;.join(seg_list))  
-
-# 返回结果
-奥利&#x2F; 给&#x2F; ，&#x2F; 管虎&#x2F; 执导&#x2F; 的&#x2F; 八佰是&#x2F; 一部&#x2F; 让&#x2F; 人&#x2F; 热血沸腾&#x2F; 的&#x2F; 好&#x2F; 电影<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不添加自定义词典</span></span><br><span class="line">seg_list = jieba.cut(<span class="string">&quot;奥利给，管虎执导的八佰是一部让人热血沸腾的好电影&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;/ &quot;</span>.join(seg_list))  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回结果</span></span><br><span class="line">奥利<span class="regexp">/ 给/</span> ，<span class="regexp">/ 管虎/</span> 执导<span class="regexp">/ 的/</span> 八佰是<span class="regexp">/ 一部/</span> 让<span class="regexp">/ 人/</span> 热血沸腾<span class="regexp">/ 的/</span> 好/ 电影</span><br></pre></td></tr></table></figure>
 
 <p>添加自定义词典后，新词、人名、电影名都可以识别出来</p>
-<pre class="line-numbers language-none"><code class="language-none"># 载入词典
-jieba.load_userdict(&quot;dict.txt&quot;)
-seg_list &#x3D; jieba.cut(&quot;奥利给，管虎执导的八佰是一部让人热血沸腾的好电影&quot;)
-print(&quot;&#x2F; &quot;.join(seg_list))  
-
-# 返回结果
-奥利给&#x2F; ，&#x2F; 管虎&#x2F; 执导&#x2F; 的&#x2F; 八佰&#x2F; 是&#x2F; 一部&#x2F; 让&#x2F; 人&#x2F; 热血沸腾&#x2F; 的&#x2F; 好&#x2F; 电影<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 载入词典</span></span><br><span class="line">jieba.load_userdict(<span class="string">&quot;dict.txt&quot;</span>)</span><br><span class="line">seg_list = jieba.cut(<span class="string">&quot;奥利给，管虎执导的八佰是一部让人热血沸腾的好电影&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;/ &quot;</span>.join(seg_list))  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回结果</span></span><br><span class="line">奥利给<span class="regexp">/ ，/</span> 管虎<span class="regexp">/ 执导/</span> 的<span class="regexp">/ 八佰/</span> 是<span class="regexp">/ 一部/</span> 让<span class="regexp">/ 人/</span> 热血沸腾<span class="regexp">/ 的/</span> 好/ 电影</span><br></pre></td></tr></table></figure>
 
 <h2 id="6-结论"><a href="#6-结论" class="headerlink" title="6. 结论"></a><strong>6. 结论</strong></h2><p>jieba 无疑是一款优秀的分词工具，而且在不断地优化成长。前面讲了一些基本的使用，大家还可以尝试使用停用词、提取关键词、词性标注、词位置查询等功能，也是十分的便捷。</p>
 

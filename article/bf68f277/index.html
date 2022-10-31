@@ -29,10 +29,12 @@
   
   <meta property="og:image" content="/favicon.ico"/>
   
-  
-  <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css">
+  <link rel="preconnect" href="https://www.clarity.ms">
+  <link rel="preconnect" href="https://about.nikoblog.top">
+  <link rel="preconnect" href="https://www.nikoblog.top">
+  <link rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css">
   <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-  <script src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js"> </script>
+  <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js"> </script>
   <link href="/favicon.ico" rel="icon">
   <link rel="alternate" href="/atom.xml" title="Niko&#39;s Blog" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
@@ -118,23 +120,7 @@
 <p>随后我就上网找资源，发现很多站要么要钱、要么要登陆后再要钱，反正就是不让你下载。</p>
 <p>我好不容易找到一两本，这本《湘行散记》就犯难了。<br>找遍互联网（有点夸张哈）都找不到一个资源，要不就是有乱码。<br>我只好自己写程序去爬下来了。</p>
 <p>也是很不容易的找到一个在线阅读的站，开始用python的selenium写程序。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
-<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>by <span class="token keyword">import</span> By
-<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
-
-chrome <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>
-chrome<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://www.ppzuowen.com/book/shenmidao/9251.html'</span><span class="token punctuation">)</span>  <span class="token comment">#在线阅读的第一章的地址</span>
-
-<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">62</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment">#里面的数字是章节数，自己数一数</span>
-	sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">#这个要根据加载速度选，单位秒</span>
-	<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'神秘岛.txt'</span><span class="token punctuation">,</span><span class="token string">'a+'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>  <span class="token comment">#输出文件名改一改</span>
-		f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>chrome<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>XPATH<span class="token punctuation">,</span> <span class="token string">'/html/body/div[6]/div[1]/h2'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text<span class="token punctuation">)</span>  <span class="token comment">#这个是章节标题</span>
-		f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'\n\n'</span><span class="token punctuation">)</span>
-		f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>chrome<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>XPATH<span class="token punctuation">,</span> <span class="token string">'/html/body/div[6]/div[1]/div[1]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text<span class="token punctuation">)</span>  <span class="token comment">#这是章节文章内容，一般在content里，当你看到标签里全是&lt;p>的时候就是他了</span>
-		f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'\n\n'</span><span class="token punctuation">)</span>
-	
-	chrome<span class="token punctuation">.</span>find_element<span class="token punctuation">(</span>By<span class="token punctuation">.</span>XPATH<span class="token punctuation">,</span> <span class="token string">'/html/body/div[6]/div[1]/div[3]/span[2]/a'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">#下一页按钮，可以是button也可以是a标签</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"></span><br><span class="line">chrome = webdriver.Chrome()</span><br><span class="line">chrome.get(<span class="string">&#x27;https://www.ppzuowen.com/book/shenmidao/9251.html&#x27;</span>)  <span class="comment">#在线阅读的第一章的地址</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">62</span>): <span class="comment">#里面的数字是章节数，自己数一数</span></span><br><span class="line">	sleep(<span class="number">2</span>) <span class="comment">#这个要根据加载速度选，单位秒</span></span><br><span class="line">	<span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;神秘岛.txt&#x27;</span>,<span class="string">&#x27;a+&#x27;</span>) <span class="keyword">as</span> f:  <span class="comment">#输出文件名改一改</span></span><br><span class="line">		f.write(chrome.find_element(By.XPATH, <span class="string">&#x27;/html/body/div[6]/div[1]/h2&#x27;</span>).text)  <span class="comment">#这个是章节标题</span></span><br><span class="line">		f.write(<span class="string">&#x27;\n\n&#x27;</span>)</span><br><span class="line">		f.write(chrome.find_element(By.XPATH, <span class="string">&#x27;/html/body/div[6]/div[1]/div[1]&#x27;</span>).text)  <span class="comment">#这是章节文章内容，一般在content里，当你看到标签里全是&lt;p&gt;的时候就是他了</span></span><br><span class="line">		f.write(<span class="string">&#x27;\n\n&#x27;</span>)</span><br><span class="line">	</span><br><span class="line">	chrome.find_element(By.XPATH, <span class="string">&#x27;/html/body/div[6]/div[1]/div[3]/span[2]/a&#x27;</span>).click() <span class="comment">#下一页按钮，可以是button也可以是a标签</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>因为后面用同样的方式换了个站换了本书爬，所以名字和xpath位置不可通用，需要自己更改。（当然如果你也想爬《神秘岛》的话直接用就行）</p>
 <p>这个程序算是selenium入门级别的，学过一点点都可以随便写。（如果不会python或者selenium的话，我考虑以后写个比较简易的ui出来（但也不是完美的））<br>可以使用油猴脚本下载小说，但是有时还是会有bug。</p>

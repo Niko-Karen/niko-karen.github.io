@@ -1,6 +1,9 @@
 @font-face {
     font-family: ' harmony';
-    src: url('/HarmonyOS_Sans_SC_Regular.subset.woff2') format("woff2");
+    src: url('https://about.nikoblog.top/%E6%96%B9%E6%AD%A3%E9%BE%99%E7%88%AA%E7%AE%80%E4%BD%93.woff2') format("woff2");
+    font-display: swap;
+
+
 }
 
 body {

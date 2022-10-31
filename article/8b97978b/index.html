@@ -29,10 +29,12 @@
   
   <meta property="og:image" content="/favicon.ico"/>
   
-  
-  <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css">
+  <link rel="preconnect" href="https://www.clarity.ms">
+  <link rel="preconnect" href="https://about.nikoblog.top">
+  <link rel="preconnect" href="https://www.nikoblog.top">
+  <link rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css">
   <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-  <script src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js"> </script>
+  <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js"> </script>
   <link href="/favicon.ico" rel="icon">
   <link rel="alternate" href="/atom.xml" title="Niko&#39;s Blog" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
@@ -111,29 +113,26 @@
 <p>回到Linux，我想到了我以前使用过的一个工具——WoeUSB，它可以制作Windows的启动U盘，但配置较麻烦。为了换个流畅点的系统，我上CSDN下官方Github，终于找到办法。</p>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="下载迅雷，下载镜像"><a href="#下载迅雷，下载镜像" class="headerlink" title="下载迅雷，下载镜像"></a>下载迅雷，下载镜像</h3><p>由于MSDN的镜像都是ed2k链接的，而在linux上能下载ed2k的无非只有amule，但这个玩意儿的配置简直不当人，我立马退坑。所以，咱可以使用从deepin移植来的迅雷用于下载。</p>
 <h3 id="安装迅雷"><a href="#安装迅雷" class="headerlink" title="安装迅雷"></a>安装迅雷</h3><p>打开链接：<a target="_blank" rel="noopener external nofollow noopener noreferrer" href="https://wwa.lanzouj.com/b0af64egb" target="_blank">https://wwa.lanzouj.com/b0af64egb</a><br>密码为<strong>6z8f</strong><br>将里面两个文件都下载下来，在下载的目录里输入这两条命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> dpkg <span class="token parameter variable">-i</span> deepin-elf-verify_0.0.16.10-1_amd64.deb
-<span class="token function">sudo</span> dpkg <span class="token parameter variable">-i</span> com.xunlei.download_1.0.0.1-1_repack1_amd64.deb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i deepin-elf-verify_0.0.16.10-1_amd64.deb</span><br><span class="line">sudo dpkg -i com.xunlei.download_1.0.0.1-1_repack1_amd64.deb</span><br></pre></td></tr></table></figure>
 <p><strong>注意：</strong>需要先输入上面那条再输入下面的，因为deepin-elf-verify是deepin仓库的认证，需要先添加才能安装从deepin移植来的软件。</p>
 <p>接着就在启动栏启动就好，一般在“互联网”分类中。</p>
 <h3 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h3><p>到了这一步基本上安装完成了，接下来就是下载镜像。<br>在迅雷的界面点击下载按钮，上MSDN找或者自己有，就填入，下载。</p>
 <h2 id="安装WoeUSB"><a href="#安装WoeUSB" class="headerlink" title="安装WoeUSB"></a>安装WoeUSB</h2><p>如果你上网找教程，你应该会看到直接使用pip安装woeusb的教程，但这样很鸡肋，因为woeusb的wxPython库的build不知为何会卡bug，一直完不成，所以还是跟着官方Github来做。</p>
 <p>打开你的终端，输入对应你系统的代码：</p>
-<pre class="line-numbers language-bash" data-language="bash"><div class="caption"><span>Ubuntu</span></div><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token function">git</span> p7zip-full python3-pip python3-wxgtk4.0 grub2-common grub-pc-bin
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><div class="caption"><span>Arch</span></div><code class="language-bash"><span class="token function">sudo</span> pacman <span class="token parameter variable">-Suy</span> p7zip python-pip python-wxpython<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><div class="caption"><span>Fedora</span></div><code class="language-bash"><span class="token function">sudo</span> dnf <span class="token function">install</span> <span class="token function">git</span> p7zip p7zip-plugins python3-pip python3-wxpython4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><figcaption><span>Ubuntu</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git p7zip-full python3-pip python3-wxgtk4.0 grub2-common grub-pc-bin</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>Arch</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Suy p7zip python-pip python-wxpython</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>Fedora</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install git p7zip p7zip-plugins python3-pip python3-wxpython4</span><br></pre></td></tr></table></figure>
 
 <p>接着，使用git命令下载源码包。如果你没有可以直接上官方仓库上下载源码，并且解压缩：<a target="_blank" rel="noopener external nofollow noopener noreferrer" href="https://github.com/WoeUSB/WoeUSB-ng" target="_blank">https://github.com/WoeUSB/WoeUSB-ng</a></p>
 <p>如果你有git，那么请继续：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/WoeUSB/WoeUSB-ng.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/WoeUSB/WoeUSB-ng.git</span><br></pre></td></tr></table></figure>
 
 <p>下载完后继续输入以下命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> WoeUSB-ng
-<span class="token function">sudo</span> pip3 <span class="token function">install</span> <span class="token builtin class-name">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> WoeUSB-ng</span><br><span class="line">sudo pip3 install .</span><br></pre></td></tr></table></figure>
 
 <p>稍等片刻，你的WoeUSB就安装好啦~</p>
 <h2 id="使用WoeUSB"><a href="#使用WoeUSB" class="headerlink" title="使用WoeUSB"></a>使用WoeUSB</h2><p>WoeUSB可以使用应用程序或者命令行来使用，应用程序操作简便，直接在启动栏里调用即可，这里不做介绍。以下仅介绍命令行的用法。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> woeusb --target-filesystem NTFS <span class="token parameter variable">--device</span> <span class="token operator">&lt;</span>镜像位置<span class="token operator">></span> <span class="token operator">&lt;</span>u盘挂载位置<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo woeusb --target-filesystem NTFS --device &lt;镜像位置&gt; &lt;u盘挂载位置&gt;</span><br></pre></td></tr></table></figure>
 
 <p>这个u盘挂载位置一般都是<code>/dev/sdb</code>，如果不同可以使用<code>fdisk -l</code>查看。</p>
 <p>再次稍等片刻，你就得到一个Windows启动盘用于重装你的系统啦~</p>
