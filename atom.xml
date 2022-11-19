@@ -6,7 +6,7 @@
   <link href="https://www.nikoblog.top/atom.xml" rel="self"/>
   
   <link href="https://www.nikoblog.top/"/>
-  <updated>2022-10-07T01:31:58.000Z</updated>
+  <updated>2022-11-19T02:13:16.000Z</updated>
   <id>https://www.nikoblog.top/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>近几月的考试感悟</title>
+    <link href="https://www.nikoblog.top/article/cfb6ad12/"/>
+    <id>https://www.nikoblog.top/article/cfb6ad12/</id>
+    <published>2022-11-19T02:13:16.000Z</published>
+    <updated>2022-11-19T02:13:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="NCT-Python-1级考试"><a href="#NCT-Python-1级考试" class="headerlink" title="NCT Python 1级考试"></a>NCT Python 1级考试</h2><p>在暑假八月初时，我参加了NCT（青少年编程能力等级测试），这是我第一次在编程这方面考试，当时我备考时看到关于turtle的题，我直接忽略。原因有两点：一是我本人绘画就不好，全身没有一个艺术细胞，二是turtle这个库，本身就没有什么用。所以我在正式考试时，直接略过这道题。但成绩算是理想，89，良好。</p><p><img loading="lazy" src="/article/cfb6ad12/5.jpg"></p><span id="more"></span><h2 id="NCRE-Python程序设计二级"><a href="#NCRE-Python程序设计二级" class="headerlink" title="NCRE Python程序设计二级"></a>NCRE Python程序设计二级</h2><p>在九月份开学两周后，我去黄埔区考计算机二级，很明显，我考砸了。原因显然是我的自大，公共基础一点不会，大部分靠蒙，选择题还好，而最后综合题其实也是迫不得已。因为学校要举行合唱比赛，我必须提前半小时交卷才能赶上，所以只完成了第一小题。</p><p><img loading="lazy" src="/article/cfb6ad12/1.jpg"></p><h3 id="综合运用题目"><a href="#综合运用题目" class="headerlink" title="综合运用题目"></a>综合运用题目</h3><p>大概是这样：</p><h3 id="给一个html文件，完成以下题目（不能使用第三方库）"><a href="#给一个html文件，完成以下题目（不能使用第三方库）" class="headerlink" title="给一个html文件，完成以下题目（不能使用第三方库）"></a>给一个html文件，完成以下题目（不能使用第三方库）</h3><h4 id="1-统计文件中图片链接出现的次数，并输出"><a href="#1-统计文件中图片链接出现的次数，并输出" class="headerlink" title="1. 统计文件中图片链接出现的次数，并输出"></a>1. 统计文件中图片链接出现的次数，并输出</h4><p>对于这道题，我比较粗鲁，直接找文件里所有**https:&#x2F;&#x2F;**，然后一统计就输出，至少能用。</p><h4 id="2-将文件中所有图片链接存到列表里，并输出"><a href="#2-将文件中所有图片链接存到列表里，并输出" class="headerlink" title="2. 将文件中所有图片链接存到列表里，并输出"></a>2. 将文件中所有图片链接存到列表里，并输出</h4><p>很明显，我没写。但我找了找:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request  <span class="comment"># 导入用于打开URL的扩展库模块</span></span><br><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"><span class="keyword">import</span> re  <span class="comment"># 导入正则表达式模块</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">open_url</span>(<span class="params">url</span>):</span><br><span class="line">    req = urllib.request.Request(url)  <span class="comment"># 将Request类实例化并传入url为初始值，然后赋值给req</span></span><br><span class="line">    <span class="comment"># 添加header，伪装成浏览器</span></span><br><span class="line">    req.add_header(<span class="string">&#x27;User-Agent&#x27;</span>,</span><br><span class="line">                   <span class="string">&#x27;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 &#x27;</span></span><br><span class="line">                   <span class="string">&#x27;Safari/537.36 SE 2.X MetaSr 1.0&#x27;</span>)</span><br><span class="line">    <span class="comment"># 访问url，并将页面的二进制数据赋值给page</span></span><br><span class="line">    page = urllib.request.urlopen(req)</span><br><span class="line">    <span class="comment"># 将page中的内容转换为utf-8编码</span></span><br><span class="line">    html = page.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> html</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_img</span>(<span class="params">html</span>):</span><br><span class="line">    <span class="comment"># [^&quot;]+\.jpg 匹配除&quot;以外的所有字符多次,后面跟上转义的.和png</span></span><br><span class="line">    p = <span class="string">r&#x27;(http.:[\S]*?.(jpg|jpeg|png|gif|bmp|webp))&#x27;</span></span><br><span class="line">    <span class="comment"># 返回正则表达式在字符串中所有匹配结果的列表</span></span><br><span class="line">    imglist = re.findall(p, html)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;List of Img: &quot;</span> + <span class="built_in">str</span>(imglist))</span><br><span class="line">    <span class="comment"># 循环遍历列表的每一个值</span></span><br><span class="line">    <span class="keyword">for</span> img <span class="keyword">in</span> imglist:</span><br><span class="line">        <span class="comment"># 以/为分隔符，-1返回最后一个值</span></span><br><span class="line">        filename = img[<span class="number">0</span>].split(<span class="string">&quot;/&quot;</span>)[-<span class="number">1</span>]</span><br><span class="line">        <span class="comment"># 访问each，并将页面的二进制数据赋值给photo</span></span><br><span class="line">        photo = urllib.request.urlopen(img[<span class="number">0</span>])</span><br><span class="line">        w = photo.read()</span><br><span class="line">        <span class="comment"># 打开指定文件，并允许写入二进制数据</span></span><br><span class="line">        f = <span class="built_in">open</span>(<span class="string">&#x27;D:/test/&#x27;</span> + filename, <span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">        <span class="comment"># 写入获取的数据</span></span><br><span class="line">        f.write(w)</span><br><span class="line">        <span class="comment"># 关闭文件</span></span><br><span class="line">        f.close()</span><br><span class="line">        <span class="built_in">print</span>(filename + <span class="string">&quot; have been download...&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 该模块既可以导入到别的模块中使用，另外该模块也可自我执行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 定义url</span></span><br><span class="line">    url = <span class="string">&quot;https://movie.douban.com/top250&quot;</span></span><br><span class="line">    <span class="comment"># 将url作为open_url()的参数，然后将open_url()的返回值作为参数赋给get_img()</span></span><br><span class="line">    get_img(open_url(url))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;all over...&quot;</span>)</span><br></pre></td></tr></table></figure><p>很明显不是原试题的，但改一改能用就是了。</p><h2 id="10月份黄冈月考"><a href="#10月份黄冈月考" class="headerlink" title="10月份黄冈月考"></a>10月份黄冈月考</h2><p><img loading="lazy" src="/article/cfb6ad12/2.jpg"></p><p>自己看吧，我觉得很差就是了，但这是第一次，客观来讲不算差了。</p><p>最主要的是语文和数学，数学还好，意外罢了。而语文，最为头疼，满分128，考个85是我没想到的。</p><p>最好的就是历史，真的让我激动不已，第十六名！</p><h2 id="11月黄冈初中联考"><a href="#11月黄冈初中联考" class="headerlink" title="11月黄冈初中联考"></a>11月黄冈初中联考</h2><p><img loading="lazy" src="/article/cfb6ad12/3.jpg"></p><p>不好说。语文进步大，数学进步大，似乎之前的缺点都补齐了。</p><p>这次考试很波折，一会线上考，一会线下考，主要是广州疫情本来就波折。所以其它科不计入总成绩（庆幸）。</p><p>英语拉垮了，比上次差，作文出格了，正在努力改。</p><p>这次的考试虽然我自觉考得很好，可人家也觉得考的好，然后一堆高分的，排名也就80多，还是差。</p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;NCT-Python-1级考试&quot;&gt;&lt;a href=&quot;#NCT-Python-1级考试&quot; class=&quot;headerlink&quot; title=&quot;NCT Python 1级考试&quot;&gt;&lt;/a&gt;NCT Python 1级考试&lt;/h2&gt;&lt;p&gt;在暑假八月初时，我参加了NCT（青少年编程能力等级测试），这是我第一次在编程这方面考试，当时我备考时看到关于turtle的题，我直接忽略。原因有两点：一是我本人绘画就不好，全身没有一个艺术细胞，二是turtle这个库，本身就没有什么用。所以我在正式考试时，直接略过这道题。但成绩算是理想，89，良好。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/article/cfb6ad12/5.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🚁无限边疆号" scheme="https://www.nikoblog.top/categories/%F0%9F%9A%81%E6%97%A0%E9%99%90%E8%BE%B9%E7%96%86%E5%8F%B7/"/>
+    
+    
+    <category term="🤔感悟" scheme="https://www.nikoblog.top/tags/%F0%9F%A4%94%E6%84%9F%E6%82%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>崭新的中学生活</title>
@@ -405,27 +427,6 @@
     
     
     <category term="📁教程" scheme="https://www.nikoblog.top/tags/%F0%9F%93%81%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2021·总结</title>
-    <link href="https://www.nikoblog.top/article/632f5ce3/"/>
-    <id>https://www.nikoblog.top/article/632f5ce3/</id>
-    <published>2022-01-19T03:11:48.000Z</published>
-    <updated>2022-01-19T03:11:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>这篇年度总结迟到了1月19天，也许有些目标已经忘记了，想起来就会持续更新。</p><span id="more"></span><h2 id="回顾-2021-🐂"><a href="#回顾-2021-🐂" class="headerlink" title="回顾 2021 🐂"></a>回顾 2021 🐂</h2><p>2021这一年各个行业都不平凡，科技界有华为出鸿蒙2.0、OpenEuler系统，医学界有中国全面第二针甚至是第三针，而我在这一年也有许多改变和进步。</p><p>一是我学习较以前更刻苦了，<del>虽然说语文依旧很烂。</del>二是我的Code水平得到了有效提高，大部分原因还是我啃了好几本砖头书，如：《操作系统概念精要》、《编译原理》、《Tensorflow AI 》等 blabla的书📚</p><p>最重要的是 (至少我是那么认为的)，本博客其实2021瘫了半年，记得是最后一次部署时Hexo报错：[No layout: index.html] 当时没看到，到学校上信息课时，一上博客，一片白，把我吓蒙了。然后没时间管，就渐渐忘了，很多博文没写。</p><p>到了寒假，我就自由了，赶紧换个主题上线，就像现在这样，好看不？</p><p>最近疯狂刷博客，看看那Github Commits，2022才刚开始就三百多。</p><h2 id="展望-2022-🐅"><a href="#展望-2022-🐅" class="headerlink" title="展望 2022 🐅"></a>展望 2022 🐅</h2><p>对于我这种小学生，最重要莫过于我人生中的第一场、也是一生一次的大考 —— 小升初。<br>也许我不能说那么哲学，但还是要说：<code>小升初即是童年旅程的终点站。</code>%}&#96;</p><p>算了，不要那么抒情啦。进入正题。</p><h3 id="2022-将要发生的重大事迹"><a href="#2022-将要发生的重大事迹" class="headerlink" title="2022 将要发生的重大事迹"></a>2022 将要发生的重大事迹</h3><h4 id="未知"><a href="#未知" class="headerlink" title="未知"></a>未知</h4><p>黄冈中学密考，好像是五月多。<br> 目前已考上广大附中……的分校，好像很……LAN </p><h4 id="2022-05-28"><a href="#2022-05-28" class="headerlink" title="2022-05-28"></a>2022-05-28</h4><p>计算机二级Python 语言程序设计考试!<br>证明自己实力的时刻！<br>加油！</p><h4 id="2022-09-01"><a href="#2022-09-01" class="headerlink" title="2022-09-01"></a>2022-09-01</h4><p>入初中，不知能进那所初中呢？</p><h4 id="2022-09-02"><a href="#2022-09-02" class="headerlink" title="2022-09-02"></a>2022-09-02</h4><p>嘿嘿，没想到吧，这天我生日。<br>我只要提早3天生出来就可以上初中了。可恶(〃＞目＜)。</p><p>TO DO LIST:</p><ul><li><input disabled="" type="checkbox"> 成功考过计算机二级Python </li><li><input checked="" disabled="" type="checkbox"> 进入黄冈中学 </li><li><input checked="" disabled="" type="checkbox"> 必须出个Python开源项目</li><li><input checked="" disabled="" type="checkbox"> 多写博文</li></ul>]]></content>
-    
-    
-    <summary type="html">一篇迟到的年度总结</summary>
-    
-    
-    
-    <category term="🛩️蓝色空间号" scheme="https://www.nikoblog.top/categories/%F0%9F%9B%A9%EF%B8%8F%E8%93%9D%E8%89%B2%E7%A9%BA%E9%97%B4%E5%8F%B7/"/>
-    
-    
-    <category term="🔚总结" scheme="https://www.nikoblog.top/tags/%F0%9F%94%9A%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
