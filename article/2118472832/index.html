@@ -124,8 +124,7 @@
     <div class='cmt-body waline'>
       
 
-<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
-
+  <div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
     </div>
   </div>
 
@@ -306,9 +305,23 @@
       if (!path) {
         path = decodeURI(window.location.pathname.replace(/\/$/, ''));
       }
-      Waline.init(Object.assign(, {
+      Waline.init(Object.assign({
         el: '#waline_container',
-        path: path,
+        serverURL: 'https://waline.nikoblog.top',
+        path: window.location.pathname.replace('/', ''),
+        login: 'enable',
+        wordLimit: 0,
+        pageSize: 10,
+        meta: ['nick', 'mail', 'link'],
+        requiredMeta: ['nick', 'mail'],
+        placeholder: 'ヽ(○´∀`)ﾉ♪ 欢迎光临！留下您的足迹吧！',
+        copyright: true,
+        emoji: [
+          'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-emoji',
+          'https://cdn.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs',
+          'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili',
+          'https://npm.elemecdn.com/sticker-heo@0.19.0/Sticker-100/'
+        ],
       }));
     });
   }
@@ -316,7 +329,6 @@
     console.log('DOM fully loaded and parsed');
     load_comment();
   });
-
 </script>
 
 
