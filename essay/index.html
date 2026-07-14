@@ -363,7 +363,7 @@ queueMicrotask(() => {
       pageview: false,
       dark: 'html[data-theme="dark"]',
       path: window.location.pathname,
-      comment: true,
+      comment: false,
       imageUploader: true,
     }, null))
 
@@ -378,7 +378,7 @@ queueMicrotask(() => {
     if (initFn) initWaline(initFn)
     else {
       await getCSS('https://cdn.cbd.int/@waline/client@3.8.0/dist/waline.css')
-      if (https://gcore.jsdelivr.net/npm/@waline/client@3.1.3/dist/waline-meta.css) await getCSS('https://cdn.cbd.int/@waline/client@3.8.0/dist/waline-meta.css')
+      if (false) await getCSS('https://cdn.cbd.int/@waline/client@3.8.0/dist/waline-meta.css')
       const { init } = await import('https://cdn.cbd.int/@waline/client@3.8.0/dist/waline.js')
       initFn = init || Waline.init
       initWaline(initFn)
@@ -386,8 +386,8 @@ queueMicrotask(() => {
     }
   }
 
-  if ('Waline' === 'Waline' || !false) {
-    if (false) anzhiyu.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  if ('Waline' === 'Waline' || !true) {
+    if (true) anzhiyu.loadComment(document.getElementById('waline-wrap'),loadWaline)
     else setTimeout(loadWaline, 0)
   } else {
     window.loadOtherComment = loadWaline
